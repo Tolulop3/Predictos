@@ -1,10 +1,862 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="refresh" content="0; url=docs/index.html">
-<script>window.location.href = 'docs/index.html'</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PredictOS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080c10;--bg2:#0d1117;--bg3:#111820;
+  --border:#1e2d3d;--b2:#243040;
+  --text:#c8d8e8;--dim:#5a7a9a;--mute:#2a4060;
+  --yes:#00ff88;--no:#ff4466;--gold:#ffd700;--blue:#00aaff;
+  --mono:'Space Mono',monospace;--disp:'Syne',sans-serif;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:13px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:9999}
+
+/* ── Header ── */
+.hdr{border-bottom:1px solid var(--border);padding:0 32px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;background:linear-gradient(180deg,#0a1018,var(--bg))}
+.logo{font-family:var(--disp);font-size:32px;font-weight:800;background:linear-gradient(135deg,var(--yes),var(--blue),#9966ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding:22px 0 4px}
+.logo-sub{font-size:10px;letter-spacing:3px;color:var(--dim);text-transform:uppercase;padding-bottom:22px}
+.hdr-right{text-align:right;color:var(--dim);font-size:11px;line-height:2;padding:16px 0}
+.live-dot{display:inline-flex;align-items:center;gap:6px;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.25);border-radius:100px;padding:5px 14px;font-size:11px;color:var(--yes);letter-spacing:1px}
+.live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--yes);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,255,136,.4)}50%{opacity:.6;box-shadow:0 0 0 6px rgba(0,255,136,0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Tabs ── */
+.tab-bar{display:flex;border-bottom:1px solid var(--border);background:var(--bg2);padding:0 32px}
+.tab{padding:14px 24px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;user-select:none}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--text);border-bottom-color:var(--yes)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* ── KPI bar ── */
+.kpi-bar{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--border);background:var(--bg2)}
+.kpi{padding:18px 22px;border-right:1px solid var(--border);position:relative;overflow:hidden}
+.kpi:last-child{border-right:none}
+.kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+.kpi.g::after{background:var(--yes)}.kpi.r::after{background:var(--no)}.kpi.au::after{background:var(--gold)}.kpi.b::after{background:var(--blue)}.kpi.p::after{background:#9966ff}
+.klbl{font-size:10px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;display:block}
+.kval{font-family:var(--disp);font-size:30px;font-weight:800;line-height:1.1;margin:4px 0 2px;display:block}
+.kpi.g .kval{color:var(--yes)}.kpi.r .kval{color:var(--no)}.kpi.au .kval{color:var(--gold)}.kpi.b .kval{color:var(--blue)}.kpi.p .kval{color:#9966ff}
+.ksub{font-size:10px;color:var(--mute)}
+
+/* ── Layout ── */
+.main{padding:28px 32px;max-width:1600px;margin:0 auto}
+.sec-hdr{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.sec-title{font-family:var(--disp);font-size:17px;font-weight:800;letter-spacing:-.5px}
+.badge{font-size:9px;letter-spacing:2px;padding:2px 8px;border-radius:3px;text-transform:uppercase}
+.g-badge{background:rgba(0,255,136,.1);color:var(--yes);border:1px solid rgba(0,255,136,.3)}
+.r-badge{background:rgba(255,68,102,.1);color:var(--no);border:1px solid rgba(255,68,102,.3)}
+.au-badge{background:rgba(255,215,0,.1);color:var(--gold);border:1px solid rgba(255,215,0,.3)}
+
+/* ── Pick cards ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;margin-bottom:36px}
+.pick-card{border-radius:7px;padding:18px;border:1px solid var(--border);animation:fadeUp .4s ease both;transition:transform .2s}
+.pick-card:hover{transform:translateY(-2px)}
+.card-header{display:flex;align-items:center;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.rank-badge{font-size:11px;color:var(--mute)}
+.side-badge{font-size:11px;font-weight:700;letter-spacing:1px}
+.source-tag{font-size:10px;color:var(--mute);text-transform:uppercase;flex:1}
+.val-badge,.act-badge,.conf-badge{font-size:9px;letter-spacing:.5px;padding:2px 6px;border-radius:3px;border:1px solid;text-transform:uppercase;font-weight:700}
+.conf-high{background:rgba(0,255,136,.1);color:var(--yes);border-color:rgba(0,255,136,.3)}
+.conf-mid{background:rgba(255,215,0,.1);color:var(--gold);border-color:rgba(255,215,0,.3)}
+.conf-low{background:rgba(255,68,102,.1);color:var(--no);border-color:rgba(255,68,102,.3)}
+.question-link{display:block;color:var(--text);text-decoration:none;font-size:12px;line-height:1.5;margin-bottom:12px;min-height:36px;transition:color .2s}
+.question-link:hover{color:var(--blue)}
+.score-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.big-score{font-family:var(--disp);font-weight:800;font-size:26px;color:var(--text);white-space:nowrap}
+.big-score span{font-size:13px;color:var(--dim);font-weight:400}
+.bar-track{flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;transition:width .8s ease}
+.pillars{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
+.pillar{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:14px;flex:1;min-width:32px;cursor:default}
+.pillar em{font-style:normal;font-size:10px;font-family:var(--mono)}
+.pillar.high{opacity:1}.pillar.low{opacity:.3}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:8px}
+.stat{background:var(--bg3);padding:7px 9px;text-align:center}
+.stat label{display:block;font-size:9px;letter-spacing:1px;color:var(--mute);text-transform:uppercase;margin-bottom:1px}
+.stat value{display:block;font-size:12px;font-weight:700;color:var(--text)}
+.edge-stat value{color:var(--gold)}
+.no-picks{color:var(--mute);font-size:12px;padding:20px;text-align:center;border:1px dashed var(--border);border-radius:4px;margin-bottom:36px}
+
+/* ── Return box ── */
+.ret-box{background:var(--bg3);border:1px solid var(--b2);border-radius:5px;padding:10px;margin:8px 0}
+.ret-hdr{font-size:9px;letter-spacing:2px;color:var(--mute);text-transform:uppercase;margin-bottom:8px}
+.ret-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.ret-cell{background:var(--bg2);padding:7px;text-align:center}
+.win-c{border-top:2px solid var(--yes)}.lose-c{border-top:2px solid var(--no)}.ev-c{border-top:2px solid var(--gold)}
+.ret-cell label{display:block;font-size:9px;color:var(--mute);text-transform:uppercase;margin-bottom:2px}
+.ret-cell val{display:block;font-family:var(--disp);font-size:15px;font-weight:800}
+.win-c val{color:var(--yes)}.lose-c val{color:var(--no)}
+.ret-cell sub{display:block;font-size:9px;color:var(--mute);margin-top:1px}
+.ci-row{font-size:10px;color:var(--dim)}
+.ci-lbl{color:var(--mute)}.ci-val{color:var(--blue);margin-left:6px;font-weight:700}
+.drift-note{font-size:10px;color:var(--gold);margin-top:4px}
+.flags{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.flag{font-size:9px;padding:2px 6px;background:rgba(255,215,0,.05);border:1px solid rgba(255,215,0,.2);color:var(--gold);border-radius:2px}
+
+/* ── Warnings ── */
+.warn-box{border-radius:4px;padding:10px 14px;margin-bottom:10px;font-size:11px}
+.cb-warn{background:rgba(255,68,102,.06);border:1px solid rgba(255,68,102,.25);color:var(--no)}
+.corr-warn{background:rgba(255,215,0,.06);border:1px solid rgba(255,215,0,.2);color:var(--gold)}
+.info-warn{background:rgba(0,170,255,.06);border:1px solid rgba(0,170,255,.2);color:var(--blue)}
+
+/* ── Bottom panels ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px}
+.panel{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:20px}
+.p-title{font-size:10px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.win-table{width:100%;border-collapse:collapse}
+.win-table th{font-size:9px;letter-spacing:1px;color:var(--mute);text-transform:uppercase;text-align:left;padding:0 8px 8px;border-bottom:1px solid var(--border)}
+.win-table td{padding:7px 8px;font-size:12px;border-bottom:1px solid var(--border)}
+.win-table tr:last-child td{border-bottom:none}
+.cat-name{color:var(--blue);text-transform:capitalize}
+.mini-bar-track{display:inline-block;width:52px;height:4px;background:var(--border);border-radius:2px;vertical-align:middle;margin-right:6px;overflow:hidden}
+.mini-bar-fill{height:100%;background:var(--yes);border-radius:2px}
+.cat-wr{color:var(--yes)}
+.tweet-box{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:12px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.copy-btn{margin-top:10px;background:rgba(0,170,255,.1);border:1px solid rgba(0,170,255,.3);color:var(--blue);padding:5px 14px;font-family:var(--mono);font-size:11px;letter-spacing:1px;cursor:pointer;border-radius:3px;transition:background .2s}
+.copy-btn:hover{background:rgba(0,170,255,.2)}
+
+/* ── Progress tab ── */
+.status-banner{margin-bottom:24px;padding:20px 24px;border-radius:8px;border:1px solid;display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px}
+.st-label{font-family:var(--disp);font-size:20px;font-weight:800}
+.st-advice{font-size:11px;margin-top:3px;opacity:.8}
+.prog-track{height:5px;background:var(--border);border-radius:3px;overflow:hidden;width:260px;margin-top:10px}
+.prog-fill{height:100%;border-radius:3px;transition:width .8s}
+.prog-lbl{font-size:10px;color:var(--dim);margin-top:4px;letter-spacing:1px}
+.paper-pnl{text-align:right}
+.paper-pnl .big{font-family:var(--disp);font-size:34px;font-weight:800}
+.paper-pnl .sub{font-size:10px;color:var(--dim);margin-top:2px}
+.crit-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px}
+.crit-row:last-child{border-bottom:none}
+.cal-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:11px}
+.cal-lbl{width:72px;color:var(--dim);flex-shrink:0}
+.cal-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;position:relative}
+.cal-pred{position:absolute;top:0;height:100%;background:var(--blue);opacity:.4;border-radius:4px}
+.cal-actual{position:absolute;top:0;height:100%;background:var(--yes);border-radius:4px}
+.cal-n{width:36px;text-align:right;color:var(--mute);font-size:10px}
+.curve-wrap{display:flex;align-items:flex-end;gap:3px;height:56px;margin-top:8px}
+.c-bar{flex:1;border-radius:2px 2px 0 0;min-height:3px}
+.thr-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:11px}
+.thr-lbl{width:96px;color:var(--dim);flex-shrink:0}
+.thr-track{flex:1;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.thr-fill{height:100%;border-radius:2px;transition:width .8s}
+.thr-wr{width:32px;text-align:right;font-weight:700}
+.thr-n{width:32px;text-align:right;color:var(--mute);font-size:10px}
+.sp-row{display:flex;align-items:flex-end;gap:5px;height:44px;margin:8px 0}
+.sp-col{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1}
+.trade-table{width:100%;border-collapse:collapse;font-size:11px}
+.trade-table th{font-size:9px;letter-spacing:1px;color:var(--mute);text-transform:uppercase;text-align:left;padding:0 7px 7px;border-bottom:1px solid var(--border)}
+.trade-table td{padding:6px 7px;border-bottom:1px solid var(--border)}
+.trade-table tr:last-child td{border-bottom:none}
+.td-q{max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.honest-note{background:rgba(255,215,0,.04);border:1px solid rgba(255,215,0,.12);border-left:3px solid var(--gold);border-radius:4px;padding:12px;font-size:11px;color:var(--dim);line-height:1.7;margin-top:12px}
+
+/* ── Footer ── */
+.footer{border-top:1px solid var(--border);padding:16px 32px;display:flex;justify-content:space-between;color:var(--mute);font-size:11px}
+
+/* Hide on mobile */
+.stat-hide-mobile{}
+
+/* ── Responsive ── */
+
+/* Tablet: 600–900px */
+@media(max-width:900px){
+  /* Header */
+  .hdr{grid-template-columns:1fr auto;padding:14px 16px;gap:8px}
+  .hdr-right{display:none}
+
+  /* KPI bar: 3 across */
+  .kpi-bar{grid-template-columns:repeat(3,1fr)}
+  .kpi:nth-child(3){border-right:none}
+  .kpi:nth-child(4){border-right:1px solid var(--border)}
+  .kpi:nth-child(n+4){border-top:1px solid var(--border)}
+  .kval{font-size:24px}
+
+  /* Tabs */
+  .tab-bar{padding:0 16px}
+  .tab{padding:12px 16px;font-size:10px}
+
+  /* Layout */
+  .main{padding:16px}
+  .two-col,.three-col{grid-template-columns:1fr}
+
+  /* Cards */
+  .cards-grid{grid-template-columns:1fr}
+
+  /* Stats grid: 4 across stays but smaller */
+  .stats-grid{grid-template-columns:repeat(4,1fr)}
+  .stat label{font-size:8px}
+  .stat value{font-size:11px}
+
+  /* Progress KPI inside tab */
+  .kpi-bar[style*="border-radius"]{grid-template-columns:repeat(3,1fr)}
+}
+
+/* Mobile: <600px — everything single column */
+@media(max-width:600px){
+  /* Header: stack vertically */
+  .hdr{grid-template-columns:1fr;padding:12px 14px}
+  .logo{font-size:24px;padding:14px 0 2px}
+  .logo-sub{font-size:9px;padding-bottom:12px}
+  .live-dot{font-size:10px;padding:4px 10px}
+
+  /* KPI bar: 2x2 + 1 */
+  .kpi-bar{grid-template-columns:repeat(2,1fr)}
+  .kpi{padding:12px 14px}
+  .kpi:nth-child(2){border-right:none}
+  .kpi:nth-child(3){border-right:1px solid var(--border);border-top:1px solid var(--border)}
+  .kpi:nth-child(4){border-right:none;border-top:1px solid var(--border)}
+  .kpi:nth-child(5){grid-column:1/-1;border-right:none;border-top:1px solid var(--border)}
+  .kval{font-size:22px}
+  .klbl{font-size:9px}
+  .ksub{font-size:9px}
+
+  /* Tabs: full width, equal split */
+  .tab-bar{padding:0;display:grid;grid-template-columns:1fr 1fr}
+  .tab{text-align:center;padding:12px 8px;font-size:10px}
+
+  /* Main padding */
+  .main{padding:12px}
+
+  /* Pick cards: full width, smaller padding */
+  .pick-card{padding:14px}
+  .big-score{font-size:22px}
+
+  /* Card header: wrap tightly */
+  .card-header{gap:4px}
+  .val-badge,.act-badge,.conf-badge{font-size:8px;padding:1px 5px}
+  .source-tag{width:100%;order:10;font-size:9px}
+
+  /* Stats grid: 4 cols compressed */
+  .stats-grid{grid-template-columns:repeat(4,1fr)}
+  .stat-hide-mobile{display:none}
+  .stat{padding:5px 4px}
+  .stat label{font-size:8px}
+  .stat value{font-size:10px}
+
+  /* Return box */
+  .ret-box{padding:8px}
+  .ret-hdr{font-size:8px}
+  .ret-grid{grid-template-columns:repeat(3,1fr)}
+  .ret-cell{padding:5px 4px}
+  .ret-cell label{font-size:8px}
+  .ret-cell val{font-size:13px}
+  .ret-cell sub{font-size:8px}
+
+  /* Pillars: smaller */
+  .pillar{font-size:13px;min-width:28px}
+  .pillar em{font-size:9px}
+
+  /* Bottom panels */
+  .two-col,.three-col{grid-template-columns:1fr;gap:12px}
+  .panel{padding:14px}
+
+  /* Win table: compact */
+  .win-table td,.win-table th{padding:5px 6px;font-size:10px}
+  .mini-bar-track{width:36px}
+
+  /* Progress tab */
+  .status-banner{grid-template-columns:1fr;gap:12px;padding:14px}
+  .paper-pnl{text-align:left}
+  .paper-pnl .big{font-size:28px}
+  .prog-track{width:100%}
+
+  /* Calibration rows */
+  .cal-row{gap:6px}
+  .cal-lbl{width:60px;font-size:10px}
+
+  /* Threshold rows */
+  .thr-lbl{width:80px;font-size:10px}
+
+  /* Trade table: hide less important cols */
+  .trade-table th:nth-child(3),
+  .trade-table td:nth-child(3),
+  .trade-table th:nth-child(8),
+  .trade-table td:nth-child(8){display:none}
+  .td-q{max-width:120px}
+
+  /* Honest note */
+  .honest-note{font-size:10px}
+
+  /* Section headers */
+  .sec-title{font-size:15px}
+  .badge{font-size:8px}
+
+  /* Warning boxes */
+  .warn-box{font-size:10px;padding:8px 10px}
+
+  /* Tweet box */
+  .tweet-box{font-size:11px}
+
+  /* Footer */
+  .footer{flex-direction:column;gap:4px;padding:12px 14px;font-size:10px}
+}
+
+/* Very small: <380px (iPhone SE etc) */
+@media(max-width:380px){
+  .hdr{padding:10px 12px}
+  .logo{font-size:20px}
+  .kpi-bar{grid-template-columns:1fr 1fr}
+  .kpi{padding:10px 12px}
+  .kval{font-size:20px}
+  .main{padding:10px}
+  .pick-card{padding:12px}
+  .ret-grid{grid-template-columns:1fr}
+  .ret-cell{border-top:none;border-left:2px solid}
+  .win-c{border-left-color:var(--yes)}
+  .lose-c{border-left-color:var(--no)}
+  .ev-c{border-left-color:var(--gold)}
+  .stats-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
 </head>
 <body>
-<a href="docs/index.html">Click here if not redirected</a>
+
+<header class="hdr">
+  <div>
+    <div class="logo">PredictOS</div>
+    <div class="logo-sub">Prediction Market Signal System</div>
+  </div>
+  <div><div class="live-dot">LIVE SIGNALS</div></div>
+  <div class="hdr-right">
+    <div style="color:var(--blue)">2026-03-16</div>
+    <div>720 markets scanned · 11 passed</div>
+    <div>Polymarket · Kalshi · Manifold</div>
+  </div>
+</header>
+
+<!-- KPI bar -->
+<div class="kpi-bar">
+  <div class="kpi g">
+    <span class="klbl">YES picks</span>
+    <span class="kval">5</span>
+    <span class="ksub">High-conviction longs</span>
+  </div>
+  <div class="kpi r">
+    <span class="klbl">NO picks</span>
+    <span class="kval">0</span>
+    <span class="ksub">Fading overpriced</span>
+  </div>
+  <div class="kpi au">
+    <span class="klbl">Win rate</span>
+    <span class="kval">0.0%</span>
+    <span class="ksub">0 resolved picks</span>
+  </div>
+  <div class="kpi b">
+    <span class="klbl">Paper trades</span>
+    <span class="kval">0</span>
+    <span class="ksub">50 open · accumulating</span>
+  </div>
+  <div class="kpi p">
+    <span class="klbl">Paper P&L</span>
+    <span class="kval">+0</span>
+    <span class="ksub">from $1,000 virtual</span>
+  </div>
+</div>
+
+<!-- Tabs -->
+<div class="tab-bar">
+  <div class="tab active" onclick="switchTab('signals',this)">Signals</div>
+  <div class="tab" onclick="switchTab('progress',this)">Progress</div>
+</div>
+
+<!-- ═══════════════ SIGNALS TAB ═══════════════ -->
+<div id="tab-signals" class="tab-panel active">
+<div class="main">
+
+  <div class="warn-box corr-warn">◈ Correlation guard: dropped 'Will Italy qualify for the 2026 FIFA World Cu…' (3rd sports pick — portfolio already has 2)</div><div class="warn-box corr-warn">◈ Correlation guard: dropped 'Will Luis Gilberto Murillo win the 2026 Colom…' (3rd politics pick — portfolio already has 2)</div>
+
+  <div class="sec-hdr">
+    <div class="sec-title">▲ YES Picks</div>
+    <div class="badge g-badge">Top 5</div>
+  </div>
+  <div class="cards-grid">
+<div class="pick-card" style="border-left:3px solid #00ff88;background:rgba(0,255,136,0.06)">
+  <div class="card-header">
+    <span class="rank-badge">#1</span>
+    <span class="side-badge" style="color:#00ff88">▲ YES</span>
+    <span class="source-tag">polymarket · sports</span>
+    <span class="val-badge" style="color:#ffd700;border-color:#ffd70040">⚠ STALE</span>
+    <span class="conf-badge conf-low">LOW</span>
+    <span class="act-badge" style="color:#ffd700;border-color:#ffd70040">◎ PAPER</span>
+  </div>
+  <a href="https://polymarket.com/event/will-min-woo-lee-win-the-2026-masters-tournament" target="_blank" class="question-link">Will Min Woo Lee win the 2026 Masters tournament?</a>
+  <div class="score-row">
+    <div class="big-score">56<span>/100</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:56%;background:#ffd700"></div></div>
+  </div>
+  <div class="pillars"><span class="pillar mid" title="Momentum: 50">⚡<em>50</em></span><span class="pillar mid" title="Volume: 70">💧<em>70</em></span><span class="pillar mid" title="Sentiment: 68">📰<em>68</em></span><span class="pillar mid" title="Edge: 58">🎯<em>58</em></span><span class="pillar low" title="Decay: 26">⏳<em>26</em></span></div>
+  <div class="stats-grid">
+    <div class="stat"><label>Market</label><value>1.2%</value></div>
+    <div class="stat"><label>Model</label><value>53.0%</value></div>
+    <div class="stat edge-stat"><label>Edge</label><value>+51.9%</value></div>
+    <div class="stat"><label>Score</label><value>56</value></div>
+    <div class="stat stat-hide-mobile"><label>Kelly</label><value>6.1%</value></div>
+    <div class="stat"><label>Suggest</label><value>$15</value></div>
+    <div class="stat stat-hide-mobile"><label>Days</label><value>27d</value></div>
+  </div>
+  
+<div class="ret-box">
+  <div class="ret-hdr">RETURN ON $15 STAKE</div>
+  <div class="ret-grid">
+    <div class="ret-cell win-c"><label>If WIN</label><val>+$15.26</val><sub>100%</sub></div>
+    <div class="ret-cell lose-c"><label>If LOSE</label><val>-$15.26</val><sub>full stake</sub></div>
+    <div class="ret-cell ev-c"><label>Exp. Value</label><val style="color:#00ff88">+$0.93</val><sub>+6.1%</sub></div>
+  </div>
+  <div class="ci-row"><span class="ci-lbl">Range:</span><span class="ci-val">-50% to +62%</span></div>
+</div>
+  <div class="drift-note">Price moved -48.8¢ since scoring</div>
+  <div class="flags"><span class="flag">low ml confidence</span></div>
+</div>
+
+<div class="pick-card" style="border-left:3px solid #00ff88;background:rgba(0,255,136,0.06)">
+  <div class="card-header">
+    <span class="rank-badge">#2</span>
+    <span class="side-badge" style="color:#00ff88">▲ YES</span>
+    <span class="source-tag">polymarket · other</span>
+    <span class="val-badge" style="color:#ffd700;border-color:#ffd70040">⚠ STALE</span>
+    <span class="conf-badge conf-low">LOW</span>
+    <span class="act-badge" style="color:#ffd700;border-color:#ffd70040">◎ PAPER</span>
+  </div>
+  <a href="https://polymarket.com/event/will-claude-5-be-released-by-march-31-2026-243-489-141-184" target="_blank" class="question-link">Will Claude 5 be released by March 31, 2026?</a>
+  <div class="score-row">
+    <div class="big-score">55<span>/100</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:55%;background:#ff6b6b"></div></div>
+  </div>
+  <div class="pillars"><span class="pillar mid" title="Momentum: 50">⚡<em>50</em></span><span class="pillar mid" title="Volume: 61">💧<em>61</em></span><span class="pillar mid" title="Sentiment: 68">📰<em>68</em></span><span class="pillar mid" title="Edge: 58">🎯<em>58</em></span><span class="pillar low" title="Decay: 26">⏳<em>26</em></span></div>
+  <div class="stats-grid">
+    <div class="stat"><label>Market</label><value>6.2%</value></div>
+    <div class="stat"><label>Model</label><value>53.2%</value></div>
+    <div class="stat edge-stat"><label>Edge</label><value>+47.0%</value></div>
+    <div class="stat"><label>Score</label><value>55</value></div>
+    <div class="stat stat-hide-mobile"><label>Kelly</label><value>6.3%</value></div>
+    <div class="stat"><label>Suggest</label><value>$16</value></div>
+    <div class="stat stat-hide-mobile"><label>Days</label><value>30d</value></div>
+  </div>
+  
+<div class="ret-box">
+  <div class="ret-hdr">RETURN ON $16 STAKE</div>
+  <div class="ret-grid">
+    <div class="ret-cell win-c"><label>If WIN</label><val>+$15.84</val><sub>100%</sub></div>
+    <div class="ret-cell lose-c"><label>If LOSE</label><val>-$15.84</val><sub>full stake</sub></div>
+    <div class="ret-cell ev-c"><label>Exp. Value</label><val style="color:#00ff88">+$1.00</val><sub>+6.3%</sub></div>
+  </div>
+  <div class="ci-row"><span class="ci-lbl">Range:</span><span class="ci-val">-49% to +62%</span></div>
+</div>
+  <div class="drift-note">Price moved -43.8¢ since scoring</div>
+  <div class="flags"><span class="flag">low ml confidence</span></div>
+</div>
+
+<div class="pick-card" style="border-left:3px solid #00ff88;background:rgba(0,255,136,0.06)">
+  <div class="card-header">
+    <span class="rank-badge">#3</span>
+    <span class="side-badge" style="color:#00ff88">▲ YES</span>
+    <span class="source-tag">polymarket · sports</span>
+    <span class="val-badge" style="color:#ffd700;border-color:#ffd70040">⚠ STALE</span>
+    <span class="conf-badge conf-low">LOW</span>
+    <span class="act-badge" style="color:#ffd700;border-color:#ffd70040">◎ PAPER</span>
+  </div>
+  <a href="https://polymarket.com/event/will-byeong-hun-an-win-the-2026-masters-tournament" target="_blank" class="question-link">Will Byeong Hun An win the 2026 Masters tournament?</a>
+  <div class="score-row">
+    <div class="big-score">54<span>/100</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:54%;background:#ff6b6b"></div></div>
+  </div>
+  <div class="pillars"><span class="pillar mid" title="Momentum: 50">⚡<em>50</em></span><span class="pillar mid" title="Volume: 62">💧<em>62</em></span><span class="pillar mid" title="Sentiment: 65">📰<em>65</em></span><span class="pillar mid" title="Edge: 55">🎯<em>55</em></span><span class="pillar low" title="Decay: 26">⏳<em>26</em></span></div>
+  <div class="stats-grid">
+    <div class="stat"><label>Market</label><value>0.2%</value></div>
+    <div class="stat"><label>Model</label><value>52.1%</value></div>
+    <div class="stat edge-stat"><label>Edge</label><value>+51.9%</value></div>
+    <div class="stat"><label>Score</label><value>54</value></div>
+    <div class="stat stat-hide-mobile"><label>Kelly</label><value>4.3%</value></div>
+    <div class="stat"><label>Suggest</label><value>$11</value></div>
+    <div class="stat stat-hide-mobile"><label>Days</label><value>27d</value></div>
+  </div>
+  
+<div class="ret-box">
+  <div class="ret-hdr">RETURN ON $11 STAKE</div>
+  <div class="ret-grid">
+    <div class="ret-cell win-c"><label>If WIN</label><val>+$10.76</val><sub>100%</sub></div>
+    <div class="ret-cell lose-c"><label>If LOSE</label><val>-$10.76</val><sub>full stake</sub></div>
+    <div class="ret-cell ev-c"><label>Exp. Value</label><val style="color:#00ff88">+$0.46</val><sub>+4.3%</sub></div>
+  </div>
+  <div class="ci-row"><span class="ci-lbl">Range:</span><span class="ci-val">-52% to +60%</span></div>
+</div>
+  <div class="drift-note">Price moved -49.8¢ since scoring</div>
+  <div class="flags"><span class="flag">low ml confidence</span></div>
+</div>
+
+<div class="pick-card" style="border-left:3px solid #00ff88;background:rgba(0,255,136,0.06)">
+  <div class="card-header">
+    <span class="rank-badge">#4</span>
+    <span class="side-badge" style="color:#00ff88">▲ YES</span>
+    <span class="source-tag">polymarket · crypto</span>
+    <span class="val-badge" style="color:#ffd700;border-color:#ffd70040">⚠ STALE</span>
+    <span class="conf-badge conf-low">LOW</span>
+    <span class="act-badge" style="color:#ffd700;border-color:#ffd70040">◎ PAPER</span>
+  </div>
+  <a href="https://polymarket.com/event/bitboy-convicted" target="_blank" class="question-link">BitBoy convicted?</a>
+  <div class="score-row">
+    <div class="big-score">52<span>/100</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:52%;background:#ff6b6b"></div></div>
+  </div>
+  <div class="pillars"><span class="pillar mid" title="Momentum: 50">⚡<em>50</em></span><span class="pillar mid" title="Volume: 51">💧<em>51</em></span><span class="pillar mid" title="Sentiment: 57">📰<em>57</em></span><span class="pillar mid" title="Edge: 57">🎯<em>57</em></span><span class="pillar mid" title="Decay: 41">⏳<em>41</em></span></div>
+  <div class="stats-grid">
+    <div class="stat"><label>Market</label><value>22.8%</value></div>
+    <div class="stat"><label>Model</label><value>52.8%</value></div>
+    <div class="stat edge-stat"><label>Edge</label><value>+30.0%</value></div>
+    <div class="stat"><label>Score</label><value>52</value></div>
+    <div class="stat stat-hide-mobile"><label>Kelly</label><value>5.6%</value></div>
+    <div class="stat"><label>Suggest</label><value>$14</value></div>
+    <div class="stat stat-hide-mobile"><label>Days</label><value>15d</value></div>
+  </div>
+  
+<div class="ret-box">
+  <div class="ret-hdr">RETURN ON $14 STAKE</div>
+  <div class="ret-grid">
+    <div class="ret-cell win-c"><label>If WIN</label><val>+$14.00</val><sub>100%</sub></div>
+    <div class="ret-cell lose-c"><label>If LOSE</label><val>-$14.00</val><sub>full stake</sub></div>
+    <div class="ret-cell ev-c"><label>Exp. Value</label><val style="color:#00ff88">+$0.78</val><sub>+5.6%</sub></div>
+  </div>
+  <div class="ci-row"><span class="ci-lbl">Range:</span><span class="ci-val">-50% to +61%</span></div>
+</div>
+  <div class="drift-note">Price moved -27.2¢ since scoring</div>
+  <div class="flags"><span class="flag">low ml confidence</span><span class="flag">no news coverage</span></div>
+</div>
+
+<div class="pick-card" style="border-left:3px solid #00ff88;background:rgba(0,255,136,0.06)">
+  <div class="card-header">
+    <span class="rank-badge">#5</span>
+    <span class="side-badge" style="color:#00ff88">▲ YES</span>
+    <span class="source-tag">polymarket · politics</span>
+    <span class="val-badge" style="color:#ffd700;border-color:#ffd70040">⚠ STALE</span>
+    <span class="conf-badge conf-low">LOW</span>
+    <span class="act-badge" style="color:#ffd700;border-color:#ffd70040">◎ PAPER</span>
+  </div>
+  <a href="https://polymarket.com/event/will-vicky-dvila-win-the-2026-colombian-presidential-election" target="_blank" class="question-link">Will Vicky Dávila win the 2026 Colombian presidential election?</a>
+  <div class="score-row">
+    <div class="big-score">52<span>/100</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:52%;background:#ff6b6b"></div></div>
+  </div>
+  <div class="pillars"><span class="pillar mid" title="Momentum: 50">⚡<em>50</em></span><span class="pillar mid" title="Volume: 67">💧<em>67</em></span><span class="pillar mid" title="Sentiment: 67">📰<em>67</em></span><span class="pillar mid" title="Edge: 57">🎯<em>57</em></span><span class="pillar low" title="Decay: 0">⏳<em>0</em></span></div>
+  <div class="stats-grid">
+    <div class="stat"><label>Market</label><value>0.1%</value></div>
+    <div class="stat"><label>Model</label><value>52.9%</value></div>
+    <div class="stat edge-stat"><label>Edge</label><value>+52.8%</value></div>
+    <div class="stat"><label>Score</label><value>52</value></div>
+    <div class="stat stat-hide-mobile"><label>Kelly</label><value>5.9%</value></div>
+    <div class="stat"><label>Suggest</label><value>$15</value></div>
+    <div class="stat stat-hide-mobile"><label>Days</label><value>97d</value></div>
+  </div>
+  
+<div class="ret-box">
+  <div class="ret-hdr">RETURN ON $15 STAKE</div>
+  <div class="ret-grid">
+    <div class="ret-cell win-c"><label>If WIN</label><val>+$14.68</val><sub>100%</sub></div>
+    <div class="ret-cell lose-c"><label>If LOSE</label><val>-$14.68</val><sub>full stake</sub></div>
+    <div class="ret-cell ev-c"><label>Exp. Value</label><val style="color:#00ff88">+$0.86</val><sub>+5.9%</sub></div>
+  </div>
+  <div class="ci-row"><span class="ci-lbl">Range:</span><span class="ci-val">-50% to +62%</span></div>
+</div>
+  <div class="drift-note">Price moved -49.9¢ since scoring</div>
+  <div class="flags"><span class="flag">low ml confidence</span></div>
+</div></div>
+
+  <div class="sec-hdr">
+    <div class="sec-title">▼ NO Picks</div>
+    <div class="badge r-badge">Fading overpriced</div>
+  </div>
+  <div class="cards-grid"><div class="no-picks">No NO picks today</div></div>
+
+  <div class="sec-hdr">
+    <div class="sec-title">◈ Macro Event Plays</div>
+    <div class="badge au-badge">FX equivalent</div>
+  </div>
+  <div class="cards-grid">
+<div class="pick-card" style="border-left:3px solid #00ff88;background:rgba(0,255,136,0.06)">
+  <div class="card-header">
+    <span class="rank-badge">#1</span>
+    <span class="side-badge" style="color:#00ff88">▲ YES</span>
+    <span class="source-tag">polymarket · politics</span>
+    <span class="val-badge" style="color:#ffd700;border-color:#ffd70040">⚠ STALE</span>
+    <span class="conf-badge conf-low">LOW</span>
+    <span class="act-badge" style="color:#ffd700;border-color:#ffd70040">◎ PAPER</span>
+  </div>
+  <a href="https://polymarket.com/event/will-vicky-dvila-win-the-2026-colombian-presidential-election" target="_blank" class="question-link">Will Vicky Dávila win the 2026 Colombian presidential election?</a>
+  <div class="score-row">
+    <div class="big-score">52<span>/100</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:52%;background:#ff6b6b"></div></div>
+  </div>
+  <div class="pillars"><span class="pillar mid" title="Momentum: 50">⚡<em>50</em></span><span class="pillar mid" title="Volume: 67">💧<em>67</em></span><span class="pillar mid" title="Sentiment: 67">📰<em>67</em></span><span class="pillar mid" title="Edge: 57">🎯<em>57</em></span><span class="pillar low" title="Decay: 0">⏳<em>0</em></span></div>
+  <div class="stats-grid">
+    <div class="stat"><label>Market</label><value>0.1%</value></div>
+    <div class="stat"><label>Model</label><value>52.9%</value></div>
+    <div class="stat edge-stat"><label>Edge</label><value>+52.8%</value></div>
+    <div class="stat"><label>Score</label><value>52</value></div>
+    <div class="stat stat-hide-mobile"><label>Kelly</label><value>5.9%</value></div>
+    <div class="stat"><label>Suggest</label><value>$15</value></div>
+    <div class="stat stat-hide-mobile"><label>Days</label><value>97d</value></div>
+  </div>
+  
+<div class="ret-box">
+  <div class="ret-hdr">RETURN ON $15 STAKE</div>
+  <div class="ret-grid">
+    <div class="ret-cell win-c"><label>If WIN</label><val>+$14.68</val><sub>100%</sub></div>
+    <div class="ret-cell lose-c"><label>If LOSE</label><val>-$14.68</val><sub>full stake</sub></div>
+    <div class="ret-cell ev-c"><label>Exp. Value</label><val style="color:#00ff88">+$0.86</val><sub>+5.9%</sub></div>
+  </div>
+  <div class="ci-row"><span class="ci-lbl">Range:</span><span class="ci-val">-50% to +62%</span></div>
+</div>
+  <div class="drift-note">Price moved -49.9¢ since scoring</div>
+  <div class="flags"><span class="flag">low ml confidence</span></div>
+</div>
+
+<div class="pick-card" style="border-left:3px solid #00ff88;background:rgba(0,255,136,0.06)">
+  <div class="card-header">
+    <span class="rank-badge">#2</span>
+    <span class="side-badge" style="color:#00ff88">▲ YES</span>
+    <span class="source-tag">polymarket · politics</span>
+    <span class="val-badge" style="color:#ffd700;border-color:#ffd70040">⚠ STALE</span>
+    <span class="conf-badge conf-low">LOW</span>
+    <span class="act-badge" style="color:#ffd700;border-color:#ffd70040">◎ PAPER</span>
+  </div>
+  <a href="https://polymarket.com/event/will-paloma-valencia-win-the-2026-colombian-presidential-election" target="_blank" class="question-link">Will Paloma Valencia win the 2026 Colombian presidential election?</a>
+  <div class="score-row">
+    <div class="big-score">52<span>/100</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:52%;background:#ff6b6b"></div></div>
+  </div>
+  <div class="pillars"><span class="pillar mid" title="Momentum: 50">⚡<em>50</em></span><span class="pillar mid" title="Volume: 67">💧<em>67</em></span><span class="pillar mid" title="Sentiment: 67">📰<em>67</em></span><span class="pillar mid" title="Edge: 57">🎯<em>57</em></span><span class="pillar low" title="Decay: 0">⏳<em>0</em></span></div>
+  <div class="stats-grid">
+    <div class="stat"><label>Market</label><value>40.2%</value></div>
+    <div class="stat"><label>Model</label><value>52.9%</value></div>
+    <div class="stat edge-stat"><label>Edge</label><value>+12.7%</value></div>
+    <div class="stat"><label>Score</label><value>52</value></div>
+    <div class="stat stat-hide-mobile"><label>Kelly</label><value>5.9%</value></div>
+    <div class="stat"><label>Suggest</label><value>$15</value></div>
+    <div class="stat stat-hide-mobile"><label>Days</label><value>97d</value></div>
+  </div>
+  
+<div class="ret-box">
+  <div class="ret-hdr">RETURN ON $15 STAKE</div>
+  <div class="ret-grid">
+    <div class="ret-cell win-c"><label>If WIN</label><val>+$14.68</val><sub>100%</sub></div>
+    <div class="ret-cell lose-c"><label>If LOSE</label><val>-$14.68</val><sub>full stake</sub></div>
+    <div class="ret-cell ev-c"><label>Exp. Value</label><val style="color:#00ff88">+$0.86</val><sub>+5.9%</sub></div>
+  </div>
+  <div class="ci-row"><span class="ci-lbl">Range:</span><span class="ci-val">-50% to +62%</span></div>
+</div>
+  <div class="drift-note">Price moved -9.8¢ since scoring</div>
+  <div class="flags"><span class="flag">low ml confidence</span></div>
+</div>
+
+<div class="pick-card" style="border-left:3px solid #00ff88;background:rgba(0,255,136,0.06)">
+  <div class="card-header">
+    <span class="rank-badge">#3</span>
+    <span class="side-badge" style="color:#00ff88">▲ YES</span>
+    <span class="source-tag">polymarket · politics</span>
+    <span class="val-badge" style="color:#ffd700;border-color:#ffd70040">⚠ STALE</span>
+    <span class="conf-badge conf-low">LOW</span>
+    <span class="act-badge" style="color:#ffd700;border-color:#ffd70040">◎ PAPER</span>
+  </div>
+  <a href="https://polymarket.com/event/will-luis-gilberto-murillo-win-the-2026-colombian-presidential-election" target="_blank" class="question-link">Will Luis Gilberto Murillo win the 2026 Colombian presidential election?</a>
+  <div class="score-row">
+    <div class="big-score">52<span>/100</span></div>
+    <div class="bar-track"><div class="bar-fill" style="width:52%;background:#ff6b6b"></div></div>
+  </div>
+  <div class="pillars"><span class="pillar mid" title="Momentum: 50">⚡<em>50</em></span><span class="pillar mid" title="Volume: 67">💧<em>67</em></span><span class="pillar mid" title="Sentiment: 67">📰<em>67</em></span><span class="pillar mid" title="Edge: 57">🎯<em>57</em></span><span class="pillar low" title="Decay: 0">⏳<em>0</em></span></div>
+  <div class="stats-grid">
+    <div class="stat"><label>Market</label><value>0.1%</value></div>
+    <div class="stat"><label>Model</label><value>52.9%</value></div>
+    <div class="stat edge-stat"><label>Edge</label><value>+52.8%</value></div>
+    <div class="stat"><label>Score</label><value>52</value></div>
+    <div class="stat stat-hide-mobile"><label>Kelly</label><value>5.9%</value></div>
+    <div class="stat"><label>Suggest</label><value>$15</value></div>
+    <div class="stat stat-hide-mobile"><label>Days</label><value>97d</value></div>
+  </div>
+  
+<div class="ret-box">
+  <div class="ret-hdr">RETURN ON $15 STAKE</div>
+  <div class="ret-grid">
+    <div class="ret-cell win-c"><label>If WIN</label><val>+$14.68</val><sub>100%</sub></div>
+    <div class="ret-cell lose-c"><label>If LOSE</label><val>-$14.68</val><sub>full stake</sub></div>
+    <div class="ret-cell ev-c"><label>Exp. Value</label><val style="color:#00ff88">+$0.86</val><sub>+5.9%</sub></div>
+  </div>
+  <div class="ci-row"><span class="ci-lbl">Range:</span><span class="ci-val">-50% to +62%</span></div>
+</div>
+  <div class="drift-note">Price moved -49.9¢ since scoring</div>
+  <div class="flags"><span class="flag">low ml confidence</span></div>
+</div></div>
+
+  <div class="two-col">
+    <div class="panel">
+      <div class="p-title">Win rate by category</div>
+      <table class="win-table">
+        <thead><tr><th>Category</th><th>N</th><th>Wins</th><th>Win rate</th></tr></thead>
+        <tbody><tr><td colspan="4" style="color:var(--mute);text-align:center;padding:16px">No resolved picks yet</td></tr></tbody>
+      </table>
+    </div>
+    <div class="panel">
+      <div class="p-title">Daily signal tweet</div>
+      <div class="tweet-box" id="tweet-txt">📊 PredictOS Signal #Mar16
+
+🟢 TOP YES: "Will Min Woo Lee win the 2026 Masters tournament?..."
+Score: 56/100 | Edge: +3.0% | LOW confidence
+
+Tracked win rate: 0.0% (0 resolved)
+#PredictionMarkets #Polymarket #Kalshi</div>
+      <button class="copy-btn" onclick="copyTweet()">COPY</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ═══════════════ PROGRESS TAB ═══════════════ -->
+<div id="tab-progress" class="tab-panel">
+<div class="main">
+
+  <!-- Status banner -->
+  <div class="status-banner" style="border-color:#ffd70040;background:#ffd70008">
+    <div>
+      <div class="st-label" style="color:#ffd700">Accumulating</div>
+      <div class="st-advice">Building history. Paper track only, optional tiny real stakes.</div>
+      <div class="prog-track"><div class="prog-fill" style="width:0%;background:#ffd700"></div></div>
+      <div class="prog-lbl">0/30 trades · 0% to validation</div>
+    </div>
+    <div class="paper-pnl">
+      <div style="font-size:10px;color:var(--dim);letter-spacing:1px;text-transform:uppercase">Paper P&L</div>
+      <div class="big" style="color:var(--yes)">+0.00</div>
+      <div class="sub">from $1,000 virtual bankroll</div>
+    </div>
+  </div>
+
+  <!-- Top KPIs -->
+  <div class="kpi-bar" style="border-radius:8px;border:1px solid var(--border);margin-bottom:24px">
+    <div class="kpi r">
+      <span class="klbl">Paper win rate</span>
+      <span class="kval">0.0%</span>
+      <span class="ksub">need ≥55% · trend —</span>
+    </div>
+    <div class="kpi r">
+      <span class="klbl">Paper return</span>
+      <span class="kval">+0.0%</span>
+      <span class="ksub">Sharpe 0.00 · need ≥0.5</span>
+    </div>
+    <div class="kpi b">
+      <span class="klbl">Model skill</span>
+      <span class="kval">0%</span>
+      <span class="ksub">Brier — · bootstrapping</span>
+    </div>
+    <div class="kpi g">
+      <span class="klbl">Circuit breaker</span>
+      <span class="kval" style="font-size:16px;margin-top:6px">ACTIVE</span>
+      <span class="ksub">Drawdown 0.0%</span>
+    </div>
+    <div class="kpi au">
+      <span class="klbl">EV accuracy</span>
+      <span class="kval">—</span>
+      <span class="ksub">avg P&L prediction error</span>
+    </div>
+  </div>
+
+  <div class="three-col">
+
+    <!-- Validation checklist -->
+    <div class="panel">
+      <div class="p-title">Validation checklist</div>
+      <div style="background:var(--bg3);border:1px solid var(--b2);border-radius:5px;padding:12px;margin-bottom:12px">
+        <div class="crit-row"><span style="color:#5a7a9a">○</span><span style="color:#5a7a9a">30+ trades (0/30)</span></div><div class="crit-row"><span style="color:#5a7a9a">○</span><span style="color:#5a7a9a">Win rate ≥55% (0.0%)</span></div><div class="crit-row"><span style="color:#5a7a9a">○</span><span style="color:#5a7a9a">Positive return (+0.0%)</span></div><div class="crit-row"><span style="color:#5a7a9a">○</span><span style="color:#5a7a9a">Sharpe ≥0.5 (0.00)</span></div>
+      </div>
+      <div style="font-size:10px;color:var(--dim);line-height:1.7">
+        All 4 must be green before real-money sizing.
+        Until then: paper only, or optional small stakes on HIGH confidence picks only.
+      </div>
+      <div class="honest-note">
+        ⚡ Realistic target is 65–70% win rate — not 98%.
+        A calibrated 65% with Kelly sizing compounds into real profits over time.
+      </div>
+    </div>
+
+    <!-- Win rate by confidence + calibration -->
+    <div class="panel">
+      <div class="p-title">Win rate by model confidence</div>
+      <div style="color:#5a7a9a;font-size:11px;padding:6px">Need 10+ resolved picks</div>
+      <div style="margin-top:16px">
+        <div class="p-title" style="margin-top:0">Probability calibration</div>
+        <div style="font-size:10px;color:var(--dim);margin-bottom:8px">Blue = predicted · Green = actual resolution rate</div>
+        <div style="color:#5a7a9a;font-size:11px">Need 5+ resolved trades</div>
+        <div style="font-size:10px;color:var(--dim);margin-top:6px">Accumulating…</div>
+      </div>
+    </div>
+
+    <!-- Accuracy over time + real bankroll -->
+    <div class="panel">
+      <div class="p-title">Win rate over time (rolling 10 picks)</div>
+      <div class="curve-wrap"><div style="color:#5a7a9a;font-size:10px;padding:6px">Building…</div></div>
+      <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--mute);margin-bottom:16px">
+        <span>older</span><span>recent →</span>
+      </div>
+      <div class="p-title">Real bankroll — daily P&L</div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px">
+        <span style="color:var(--dim)">Balance</span>
+        <span style="color:var(--yes);font-weight:700">$1000.00</span>
+      </div>
+      <div class="sp-row"><div class="sp-col"><div style="height:2px;background:#00ff88;width:100%;border-radius:2px 2px 0 0" title="03-10: $+0.00"></div><span style="font-size:9px;color:#2a4060">03-10</span></div><div class="sp-col"><div style="height:2px;background:#00ff88;width:100%;border-radius:2px 2px 0 0" title="03-11: $+0.00"></div><span style="font-size:9px;color:#2a4060">03-11</span></div><div class="sp-col"><div style="height:2px;background:#00ff88;width:100%;border-radius:2px 2px 0 0" title="03-12: $+0.00"></div><span style="font-size:9px;color:#2a4060">03-12</span></div><div class="sp-col"><div style="height:2px;background:#00ff88;width:100%;border-radius:2px 2px 0 0" title="03-13: $+0.00"></div><span style="font-size:9px;color:#2a4060">03-13</span></div><div class="sp-col"><div style="height:2px;background:#00ff88;width:100%;border-radius:2px 2px 0 0" title="03-14: $+0.00"></div><span style="font-size:9px;color:#2a4060">03-14</span></div><div class="sp-col"><div style="height:2px;background:#00ff88;width:100%;border-radius:2px 2px 0 0" title="03-15: $+0.00"></div><span style="font-size:9px;color:#2a4060">03-15</span></div><div class="sp-col"><div style="height:2px;background:#00ff88;width:100%;border-radius:2px 2px 0 0" title="03-16: $+0.00"></div><span style="font-size:9px;color:#2a4060">03-16</span></div></div>
+      <div style="font-size:10px;color:var(--dim);margin-top:4px">All-time P&L: +0.00</div>
+    </div>
+
+  </div>
+
+  <!-- Trade history -->
+  <div class="panel">
+    <div class="p-title">Paper trade history</div>
+    <div style="overflow-x:auto">
+      <table class="trade-table">
+        <thead><tr><th></th><th>Market</th><th>Cat</th><th>Dir</th><th>Stake</th><th>Entry</th><th>Actual P&L</th><th>vs Predicted</th><th>Date</th></tr></thead>
+        <tbody><tr><td colspan="9" style="color:#5a7a9a;text-align:center;padding:20px">No resolved trades yet — check back after picks resolve</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<footer class="footer">
+  <div>PredictOS — signals only, not financial advice. Paper trading ≠ guaranteed live returns.</div>
+  <div>Updated 2026-03-16</div>
+</footer>
+
+<script>
+window.PREDICTOS = {picks:{"yes_picks": [{"id": "polymarket::0xb027884e961a6fd1d493689d26f015c25d22322192d9763aa4c176b977702932", "source": "polymarket", "slug": "will-min-woo-lee-win-the-2026-masters-tournament", "condition_id": "0xb027884e961a6fd1d493689d26f015c25d22322192d9763aa4c176b977702932", "token_ids": [], "question": "Will Min Woo Lee win the 2026 Masters tournament?", "description": "This polymarket will resolve according to the player who wins the 2026 Masters Tournament.\n\nIf this player is eliminated from contention for The Masters based on the official rules of the tournament, the relevant market will resolve to \"No\".\n\nIn the event of a tie, this market will resolve according to the official winner as determined by The Masters official tournament rules.\n\nIf no winner is announced by December 31, 2026, this market will resolve to \"Other\".\n\nThe primary resolution sources will be the official results published by the PGA TOUR website and The Masters website. A consensus of credible reporting may also be used.", "tags": [], "category": "sports", "yes_price": 0.012, "no_price": 0.988, "volume_24h": 101059.806862, "volume_total": 346800.6716650002, "liquidity": 19160.19482, "end_date": "2026-04-13T00:00:00+00:00", "days_to_res": 27.114391267268516, "active": true, "closed": false, "url": "https://polymarket.com/event/will-min-woo-lee-win-the-2026-masters-tournament", "fetched_at": "2026-03-16T21:15:16.594520+00:00", "yes_price_24h_ago": 0.5, "yes_price_72h_ago": 0.5, "spread": null, "best_bid": null, "best_ask": null, "book_depth": 0, "yes_price_1h_ago": 0.5, "yes_price_4h_ago": 0.5, "price_velocity": 0.0, "vol_trend": -14.3, "pillars": {"momentum": 50.0, "volume": 69.8, "sentiment": 67.6, "edge": 57.6, "decay": 26.2}, "composite": 56.3, "edge_pct": 3.0, "model_prob": 0.5305, "ml_confidence": 0.061, "direction": "YES", "passes_filter": true, "flags": ["low_ml_confidence"], "confidence": "LOW", "sizing": {"kelly_f": 0.061, "frac_kelly": 0.0153, "position_usd": 15.26, "max_usd": 20.0, "pct_bankroll": 1.53}, "sentiment": {"score": 0.5763, "raw": 0.5125, "article_count": 132, "signals": {"S10": 2, "S06": 21, "S18": 4, "S20": 2, "S07": 11, "S09": 2, "S16": 2, "S22": 13, "S02": 12, "S21": 11, "S03": 6, "S17": 3, "S04": 1, "S08": 1, "S05": 2, "S01": 2, "S11": 1, "S14": 1}, "category_fallback": false}, "scored_at": "2026-03-16T21:16:36.752440+00:00", "return_estimate": {"stake": 15.26, "direction": "YES", "entry_price": 0.5, "shares": 30.52, "gross_win": 30.52, "net_profit": 15.26, "pct_return": 100.0, "decimal_odds": 2.0, "net_loss": -15.26, "expected_value": 0.93, "ev_pct": 6.1, "is_positive_ev": true, "edge": 0.0305, "break_even_prob": 0.5, "ci": {"ev_low": -7.58, "ev_central": 0.93, "ev_high": 9.44, "return_low": -49.7, "return_central": 6.1, "return_high": 61.9, "calibration_error": 0.2788, "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "scenarios": [{"label": "Bear case", "model_prob": 0.38, "expected_value": -3.65, "ev_pct": -23.9, "is_positive_ev": false}, {"label": "Base case", "model_prob": 0.53, "expected_value": 0.93, "ev_pct": 6.1, "is_positive_ev": true}, {"label": "Bull case", "model_prob": 0.68, "expected_value": 5.51, "ev_pct": 36.1, "is_positive_ev": true}, {"label": "Strong bull", "model_prob": 0.78, "expected_value": 8.56, "ev_pct": 56.1, "is_positive_ev": true}], "summary": "You stake $15.26 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$15.26 net profit (100% return). If wrong: -$15.26 (your full stake). Expected value: +0.93 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "price_at_signal": 0.5, "price_drift": -48.8, "live_edge": 51.9, "live_spread": null, "live_depth": 0, "live_passes": true, "validation_status": "stale", "validation_note": "Price drifted -48.8% since scoring (50.0% \u2192 1.2%). Edge still +51.9%.", "validated_at": "2026-03-16T21:17:32.062043+00:00"}, {"id": "polymarket::0x2821de9fbe90c422cb220dad69fe44dfdea8fdf8fb779e562b44be6db8c1daff", "source": "polymarket", "slug": "will-claude-5-be-released-by-march-31-2026-243-489-141-184", "condition_id": "0x2821de9fbe90c422cb220dad69fe44dfdea8fdf8fb779e562b44be6db8c1daff", "token_ids": [], "question": "Will Claude 5 be released by March 31, 2026?", "description": "This market will resolve to \"Yes\" if Anthropic's Claude 5 model is made available to the general public by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to \"No.\"\n\nFor this market to resolve to \"Yes,\" Claude 5 must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be clearly defined and publicly announced by Anthropic as being accessible to the general public.\n\nClaude 5 refers to a product explicitly named Claude 5 (e.g. Claude 5.0 would count), or one that is recognized as a successor to Claude 4, similar to the progression from Claude 2 to Claude 3. Products labeled as Claude 4.5 or similar will not count for this market's resolution.\n\nThe primary resolution source for this market will be official information from Anthropic, with additional verification from a consensus of credible reporting.", "tags": [], "category": "other", "yes_price": 0.062, "no_price": 0.938, "volume_24h": 5390.7573760000005, "volume_total": 938378.2622560039, "liquidity": 47632.42192, "end_date": null, "days_to_res": 30, "active": true, "closed": false, "url": "https://polymarket.com/event/will-claude-5-be-released-by-march-31-2026-243-489-141-184", "fetched_at": "2026-03-16T21:15:16.883910+00:00", "yes_price_24h_ago": 0.5, "yes_price_72h_ago": 0.5, "spread": null, "best_bid": null, "best_ask": null, "book_depth": 0, "yes_price_1h_ago": 0.5, "yes_price_4h_ago": 0.5, "price_velocity": 0.0, "vol_trend": 17.5, "pillars": {"momentum": 50.0, "volume": 60.8, "sentiment": 67.9, "edge": 57.9, "decay": 26.2}, "composite": 54.6, "edge_pct": 3.2, "model_prob": 0.5317, "ml_confidence": 0.0634, "direction": "YES", "passes_filter": true, "flags": ["low_ml_confidence"], "confidence": "LOW", "sizing": {"kelly_f": 0.0634, "frac_kelly": 0.0158, "position_usd": 15.84, "max_usd": 20.0, "pct_bankroll": 1.58}, "sentiment": {"score": 0.5792, "raw": 0.5326, "article_count": 60, "signals": {"S06": 1, "S18": 2, "S07": 6, "S16": 1, "S22": 6, "S02": 10, "S21": 5, "S03": 4, "S04": 1, "S08": 1, "S17": 1, "S01": 2, "S09": 1, "S05": 1, "S11": 1, "S14": 1}, "category_fallback": false}, "scored_at": "2026-03-16T21:16:56.123780+00:00", "return_estimate": {"stake": 15.84, "direction": "YES", "entry_price": 0.5, "shares": 31.68, "gross_win": 31.68, "net_profit": 15.84, "pct_return": 100.0, "decimal_odds": 2.0, "net_loss": -15.84, "expected_value": 1.0, "ev_pct": 6.34, "is_positive_ev": true, "edge": 0.0317, "break_even_prob": 0.5, "ci": {"ev_low": -7.83, "ev_central": 1.0, "ev_high": 9.84, "return_low": -49.4, "return_central": 6.3, "return_high": 62.1, "calibration_error": 0.2788, "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "scenarios": [{"label": "Bear case", "model_prob": 0.382, "expected_value": -3.75, "ev_pct": -23.66, "is_positive_ev": false}, {"label": "Base case", "model_prob": 0.532, "expected_value": 1.0, "ev_pct": 6.34, "is_positive_ev": true}, {"label": "Bull case", "model_prob": 0.682, "expected_value": 5.76, "ev_pct": 36.34, "is_positive_ev": true}, {"label": "Strong bull", "model_prob": 0.782, "expected_value": 8.92, "ev_pct": 56.34, "is_positive_ev": true}], "summary": "You stake $15.84 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$15.84 net profit (100% return). If wrong: -$15.84 (your full stake). Expected value: +1.00 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "price_at_signal": 0.5, "price_drift": -43.8, "live_edge": 47.0, "live_spread": null, "live_depth": 0, "live_passes": true, "validation_status": "stale", "validation_note": "Price drifted -43.8% since scoring (50.0% \u2192 6.2%). Edge still +47.0%.", "validated_at": "2026-03-16T21:17:32.379513+00:00"}, {"id": "polymarket::0x333b6e860ab3eaaf663e7a7df9259d849a6ee02445b822f82e737414b78614ee", "source": "polymarket", "slug": "will-byeong-hun-an-win-the-2026-masters-tournament", "condition_id": "0x333b6e860ab3eaaf663e7a7df9259d849a6ee02445b822f82e737414b78614ee", "token_ids": [], "question": "Will Byeong Hun An win the 2026 Masters tournament?", "description": "This polymarket will resolve according to the player who wins the 2026 Masters Tournament.\n\nIf this player is eliminated from contention for The Masters based on the official rules of the tournament, the relevant market will resolve to \"No\".\n\nIn the event of a tie, this market will resolve according to the official winner as determined by The Masters official tournament rules.\n\nIf no winner is announced by December 31, 2026, this market will resolve to \"Other\".\n\nThe primary resolution sources will be the official results published by the PGA TOUR website and The Masters website. A consensus of credible reporting may also be used.", "tags": [], "category": "sports", "yes_price": 0.0025, "no_price": 0.9975, "volume_24h": 20669.780499999993, "volume_total": 197044.4986479998, "liquidity": 29806.87554, "end_date": "2026-04-13T00:00:00+00:00", "days_to_res": 27.114391259849533, "active": true, "closed": false, "url": "https://polymarket.com/event/will-byeong-hun-an-win-the-2026-masters-tournament", "fetched_at": "2026-03-16T21:15:16.595161+00:00", "yes_price_24h_ago": 0.5, "yes_price_72h_ago": 0.5, "spread": null, "best_bid": null, "best_ask": null, "book_depth": 0, "yes_price_1h_ago": 0.5, "yes_price_4h_ago": 0.5, "price_velocity": 0.0, "vol_trend": 1.5, "pillars": {"momentum": 50.0, "volume": 62.4, "sentiment": 65.4, "edge": 55.4, "decay": 26.2}, "composite": 53.8, "edge_pct": 2.1, "model_prob": 0.5215, "ml_confidence": 0.043, "direction": "YES", "passes_filter": true, "flags": ["low_ml_confidence"], "confidence": "LOW", "sizing": {"kelly_f": 0.043, "frac_kelly": 0.0108, "position_usd": 10.76, "max_usd": 20.0, "pct_bankroll": 1.08}, "sentiment": {"score": 0.5538, "raw": 0.3604, "article_count": 165, "signals": {"S10": 2, "S06": 21, "S18": 6, "S20": 2, "S07": 12, "S09": 3, "S16": 3, "S22": 19, "S02": 13, "S03": 7, "S21": 19, "S17": 4, "S04": 2, "S13": 2, "S08": 1, "S14": 2, "S05": 3, "S01": 2, "S12": 2, "S19": 1, "S11": 1}, "category_fallback": false}, "scored_at": "2026-03-16T21:16:47.361116+00:00", "return_estimate": {"stake": 10.76, "direction": "YES", "entry_price": 0.5, "shares": 21.52, "gross_win": 21.52, "net_profit": 10.76, "pct_return": 100.0, "decimal_odds": 2.0, "net_loss": -10.76, "expected_value": 0.46, "ev_pct": 4.3, "is_positive_ev": true, "edge": 0.0215, "break_even_prob": 0.5, "ci": {"ev_low": -5.54, "ev_central": 0.46, "ev_high": 6.46, "return_low": -51.5, "return_central": 4.3, "return_high": 60.0, "calibration_error": 0.2788, "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "scenarios": [{"label": "Bear case", "model_prob": 0.371, "expected_value": -2.77, "ev_pct": -25.7, "is_positive_ev": false}, {"label": "Base case", "model_prob": 0.521, "expected_value": 0.46, "ev_pct": 4.3, "is_positive_ev": true}, {"label": "Bull case", "model_prob": 0.671, "expected_value": 3.69, "ev_pct": 34.3, "is_positive_ev": true}, {"label": "Strong bull", "model_prob": 0.771, "expected_value": 5.84, "ev_pct": 54.3, "is_positive_ev": true}], "summary": "You stake $10.76 on YES at 50% market price. Model estimates 52% chance of YES resolving \u2014 vs 50% market price. If correct: +$10.76 net profit (100% return). If wrong: -$10.76 (your full stake). Expected value: +0.46 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "price_at_signal": 0.5, "price_drift": -49.75, "live_edge": 51.9, "live_spread": null, "live_depth": 0, "live_passes": true, "validation_status": "stale", "validation_note": "Price drifted -49.8% since scoring (50.0% \u2192 0.2%). Edge still +51.9%.", "validated_at": "2026-03-16T21:17:32.695307+00:00"}, {"id": "polymarket::0xb48621f7eba07b0a3eeabc6afb09ae42490239903997b9d412b0f69aeb040c8b", "source": "polymarket", "slug": "bitboy-convicted", "condition_id": "0xb48621f7eba07b0a3eeabc6afb09ae42490239903997b9d412b0f69aeb040c8b", "token_ids": [], "question": "BitBoy convicted?", "description": "BitBoy was recently arrested due to a warrant issued for threatening communications he sent to a Judge. You can read more about that here: https://www.binance.com/en/square/post/22059661159362\n\nThis market will resolve to \"Yes\" if BitBoy (Ben Armstrong) is convicted of any charges related to the emails he sent to Judge Kimberly Childs, by March 31, 2026 ET. Otherwise, this market will resolve to \"No\".\n\nConvictions must be for criminal charges.\n\nIf the case is completely dropped for whatever reason, due to a plea agreement without an admission of guilt, a dismissal, or any other situation occurs in which no judgement is rendered or will be rendered by the court, this market will resolve to \"No\".\n\nOnce an individual is convicted it qualifies for an immediate \"Yes\" resolution, regardless of later appeals, etc. This market will resolve based on the first conviction in a qualifying case.\n\nThe primary resolution source will be official court records, however a consensus of credible reporting will also be used.", "tags": ["bitboy", "Courts", "Culture", "Other", "Crypto"], "category": "crypto", "yes_price": 0.2275, "no_price": 0.7725, "volume_24h": 4702.102458000002, "volume_total": 106061.3520579994, "liquidity": 1349.13738, "end_date": "2026-03-31T12:00:00+00:00", "days_to_res": 14.614407724490741, "active": true, "closed": false, "url": "https://polymarket.com/event/bitboy-convicted", "fetched_at": "2026-03-16T21:15:15.172653+00:00", "yes_price_24h_ago": 0.5, "yes_price_72h_ago": 0.5, "spread": null, "best_bid": null, "best_ask": null, "book_depth": 0, "event_title": "BitBoy convicted?", "event_id": "21662", "yes_price_1h_ago": 0.5, "yes_price_4h_ago": 0.5, "price_velocity": 0.0, "vol_trend": 10.0, "pillars": {"momentum": 50.0, "volume": 51.0, "sentiment": 57.0, "edge": 57.0, "decay": 41.2}, "composite": 52.0, "edge_pct": 2.8, "model_prob": 0.528, "ml_confidence": 0.056, "direction": "YES", "passes_filter": true, "flags": ["low_ml_confidence", "no_news_coverage"], "confidence": "LOW", "sizing": {"kelly_f": 0.056, "frac_kelly": 0.014, "position_usd": 14.0, "max_usd": 20.0, "pct_bankroll": 1.4}, "sentiment": {"score": 0.57, "raw": 0.0, "article_count": 0, "signals": {}, "category_fallback": true}, "scored_at": "2026-03-16T21:16:57.496175+00:00", "return_estimate": {"stake": 14.0, "direction": "YES", "entry_price": 0.5, "shares": 28.0, "gross_win": 28.0, "net_profit": 14.0, "pct_return": 100.0, "decimal_odds": 2.0, "net_loss": -14.0, "expected_value": 0.78, "ev_pct": 5.6, "is_positive_ev": true, "edge": 0.028, "break_even_prob": 0.5, "ci": {"ev_low": -7.02, "ev_central": 0.78, "ev_high": 8.59, "return_low": -50.1, "return_central": 5.6, "return_high": 61.4, "calibration_error": 0.2788, "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "scenarios": [{"label": "Bear case", "model_prob": 0.378, "expected_value": -3.42, "ev_pct": -24.4, "is_positive_ev": false}, {"label": "Base case", "model_prob": 0.528, "expected_value": 0.78, "ev_pct": 5.6, "is_positive_ev": true}, {"label": "Bull case", "model_prob": 0.678, "expected_value": 4.98, "ev_pct": 35.6, "is_positive_ev": true}, {"label": "Strong bull", "model_prob": 0.778, "expected_value": 7.78, "ev_pct": 55.6, "is_positive_ev": true}], "summary": "You stake $14.00 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$14.00 net profit (100% return). If wrong: -$14.00 (your full stake). Expected value: +0.78 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "price_at_signal": 0.5, "price_drift": -27.25, "live_edge": 30.0, "live_spread": null, "live_depth": 0, "live_passes": true, "validation_status": "stale", "validation_note": "Price drifted -27.3% since scoring (50.0% \u2192 22.8%). Edge still +30.0%.", "validated_at": "2026-03-16T21:17:33.009301+00:00"}, {"id": "polymarket::0x849a3e762977a9ad6b8e5f449ac7c8abb2756409a1b55759e00262e072bd81a7", "source": "polymarket", "slug": "will-vicky-dvila-win-the-2026-colombian-presidential-election", "condition_id": "0x849a3e762977a9ad6b8e5f449ac7c8abb2756409a1b55759e00262e072bd81a7", "token_ids": [], "question": "Will Vicky D\u00e1vila win the 2026 Colombian presidential election?", "description": "Colombia's presidential elections are scheduled for May 31, 2026, and a second round (if required) on June 21, 2026, in case no candidate secures more than 50% of the valid votes in the first round.\n\nThis market will resolve according to the listed candidate that wins this election. \n\nThis market includes any potential second round. If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to \"Other\".\n\nThis market will resolve based on the election results, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Colombia's National Civil Registry (Registradur\u00eda Nacional del Estado Civil) (https://registraduria.gov.co).", "tags": [], "category": "politics", "yes_price": 0.001, "no_price": 0.999, "volume_24h": 34432.178525, "volume_total": 419245.5986870007, "liquidity": 92889.62491, "end_date": "2026-06-21T14:00:00+00:00", "days_to_res": 96.69772458564815, "active": true, "closed": false, "url": "https://polymarket.com/event/will-vicky-dvila-win-the-2026-colombian-presidential-election", "fetched_at": "2026-03-16T21:15:16.595807+00:00", "yes_price_24h_ago": 0.5, "yes_price_72h_ago": 0.5, "spread": null, "best_bid": null, "best_ask": null, "book_depth": 0, "yes_price_1h_ago": 0.5, "yes_price_4h_ago": 0.5, "price_velocity": 0.0, "vol_trend": -10.6, "pillars": {"momentum": 50.0, "volume": 67.4, "sentiment": 67.3, "edge": 57.3, "decay": 0.0}, "composite": 51.8, "edge_pct": 2.9, "model_prob": 0.5294, "ml_confidence": 0.0587, "direction": "YES", "passes_filter": true, "flags": ["low_ml_confidence"], "confidence": "LOW", "sizing": {"kelly_f": 0.0587, "frac_kelly": 0.0147, "position_usd": 14.68, "max_usd": 20.0, "pct_bankroll": 1.47}, "sentiment": {"score": 0.5734, "raw": 0.4926, "article_count": 130, "signals": {"S06": 21, "S18": 4, "S20": 2, "S07": 10, "S09": 2, "S16": 2, "S22": 13, "S02": 11, "S21": 13, "S03": 7, "S10": 1, "S17": 4, "S04": 1, "S08": 1, "S01": 3, "S05": 3, "S19": 1, "S11": 1, "S14": 1}, "category_fallback": false}, "scored_at": "2026-03-16T21:16:45.156865+00:00", "return_estimate": {"stake": 14.68, "direction": "YES", "entry_price": 0.5, "shares": 29.36, "gross_win": 29.36, "net_profit": 14.68, "pct_return": 100.0, "decimal_odds": 2.0, "net_loss": -14.68, "expected_value": 0.86, "ev_pct": 5.88, "is_positive_ev": true, "edge": 0.0294, "break_even_prob": 0.5, "ci": {"ev_low": -7.32, "ev_central": 0.86, "ev_high": 9.05, "return_low": -49.9, "return_central": 5.9, "return_high": 61.6, "calibration_error": 0.2788, "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "scenarios": [{"label": "Bear case", "model_prob": 0.379, "expected_value": -3.54, "ev_pct": -24.12, "is_positive_ev": false}, {"label": "Base case", "model_prob": 0.529, "expected_value": 0.86, "ev_pct": 5.88, "is_positive_ev": true}, {"label": "Bull case", "model_prob": 0.679, "expected_value": 5.27, "ev_pct": 35.88, "is_positive_ev": true}, {"label": "Strong bull", "model_prob": 0.779, "expected_value": 8.2, "ev_pct": 55.88, "is_positive_ev": true}], "summary": "You stake $14.68 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$14.68 net profit (100% return). If wrong: -$14.68 (your full stake). Expected value: +0.86 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "price_at_signal": 0.5, "price_drift": -49.9, "live_edge": 52.8, "live_spread": null, "live_depth": 0, "live_passes": true, "validation_status": "stale", "validation_note": "Price drifted -49.9% since scoring (50.0% \u2192 0.1%). Edge still +52.8%.", "validated_at": "2026-03-16T21:17:33.321991+00:00"}], "no_picks": [], "macro_plays": [{"id": "polymarket::0x849a3e762977a9ad6b8e5f449ac7c8abb2756409a1b55759e00262e072bd81a7", "source": "polymarket", "slug": "will-vicky-dvila-win-the-2026-colombian-presidential-election", "condition_id": "0x849a3e762977a9ad6b8e5f449ac7c8abb2756409a1b55759e00262e072bd81a7", "token_ids": [], "question": "Will Vicky D\u00e1vila win the 2026 Colombian presidential election?", "description": "Colombia's presidential elections are scheduled for May 31, 2026, and a second round (if required) on June 21, 2026, in case no candidate secures more than 50% of the valid votes in the first round.\n\nThis market will resolve according to the listed candidate that wins this election. \n\nThis market includes any potential second round. If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to \"Other\".\n\nThis market will resolve based on the election results, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Colombia's National Civil Registry (Registradur\u00eda Nacional del Estado Civil) (https://registraduria.gov.co).", "tags": [], "category": "politics", "yes_price": 0.001, "no_price": 0.999, "volume_24h": 34432.178525, "volume_total": 419245.5986870007, "liquidity": 92889.62491, "end_date": "2026-06-21T14:00:00+00:00", "days_to_res": 96.69772458564815, "active": true, "closed": false, "url": "https://polymarket.com/event/will-vicky-dvila-win-the-2026-colombian-presidential-election", "fetched_at": "2026-03-16T21:15:16.595807+00:00", "yes_price_24h_ago": 0.5, "yes_price_72h_ago": 0.5, "spread": null, "best_bid": null, "best_ask": null, "book_depth": 0, "yes_price_1h_ago": 0.5, "yes_price_4h_ago": 0.5, "price_velocity": 0.0, "vol_trend": -10.6, "pillars": {"momentum": 50.0, "volume": 67.4, "sentiment": 67.3, "edge": 57.3, "decay": 0.0}, "composite": 51.8, "edge_pct": 2.9, "model_prob": 0.5294, "ml_confidence": 0.0587, "direction": "YES", "passes_filter": true, "flags": ["low_ml_confidence"], "confidence": "LOW", "sizing": {"kelly_f": 0.0587, "frac_kelly": 0.0147, "position_usd": 14.68, "max_usd": 20.0, "pct_bankroll": 1.47}, "sentiment": {"score": 0.5734, "raw": 0.4926, "article_count": 130, "signals": {"S06": 21, "S18": 4, "S20": 2, "S07": 10, "S09": 2, "S16": 2, "S22": 13, "S02": 11, "S21": 13, "S03": 7, "S10": 1, "S17": 4, "S04": 1, "S08": 1, "S01": 3, "S05": 3, "S19": 1, "S11": 1, "S14": 1}, "category_fallback": false}, "scored_at": "2026-03-16T21:16:45.156865+00:00", "return_estimate": {"stake": 14.68, "direction": "YES", "entry_price": 0.5, "shares": 29.36, "gross_win": 29.36, "net_profit": 14.68, "pct_return": 100.0, "decimal_odds": 2.0, "net_loss": -14.68, "expected_value": 0.86, "ev_pct": 5.88, "is_positive_ev": true, "edge": 0.0294, "break_even_prob": 0.5, "ci": {"ev_low": -7.32, "ev_central": 0.86, "ev_high": 9.05, "return_low": -49.9, "return_central": 5.9, "return_high": 61.6, "calibration_error": 0.2788, "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "scenarios": [{"label": "Bear case", "model_prob": 0.379, "expected_value": -3.54, "ev_pct": -24.12, "is_positive_ev": false}, {"label": "Base case", "model_prob": 0.529, "expected_value": 0.86, "ev_pct": 5.88, "is_positive_ev": true}, {"label": "Bull case", "model_prob": 0.679, "expected_value": 5.27, "ev_pct": 35.88, "is_positive_ev": true}, {"label": "Strong bull", "model_prob": 0.779, "expected_value": 8.2, "ev_pct": 55.88, "is_positive_ev": true}], "summary": "You stake $14.68 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$14.68 net profit (100% return). If wrong: -$14.68 (your full stake). Expected value: +0.86 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "macro": true, "price_at_signal": 0.5, "price_drift": -49.9, "live_edge": 52.8, "live_spread": null, "live_depth": 0, "live_passes": true, "validation_status": "stale", "validation_note": "Price drifted -49.9% since scoring (50.0% \u2192 0.1%). Edge still +52.8%.", "validated_at": "2026-03-16T21:17:34.583529+00:00"}, {"id": "polymarket::0xd6591e966aebf061547ef34cdf3494ed318969887c8b7fb53f10ed5d5461a547", "source": "polymarket", "slug": "will-paloma-valencia-win-the-2026-colombian-presidential-election", "condition_id": "0xd6591e966aebf061547ef34cdf3494ed318969887c8b7fb53f10ed5d5461a547", "token_ids": [], "question": "Will Paloma Valencia win the 2026 Colombian presidential election?", "description": "Colombia's presidential elections are scheduled for May 31, 2026, and a second round (if required) on June 21, 2026, in case no candidate secures more than 50% of the valid votes in the first round.\n\nThis market will resolve according to the listed candidate that wins this election. \n\nThis market includes any potential second round. If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to \"Other\".\n\nThis market will resolve based on the election results, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Colombia's National Civil Registry (Registradur\u00eda Nacional del Estado Civil) (https://registraduria.gov.co).", "tags": [], "category": "politics", "yes_price": 0.402, "no_price": 0.598, "volume_24h": 61149.106459999995, "volume_total": 420144.3440400002, "liquidity": 21577.14038, "end_date": "2026-06-21T14:00:00+00:00", "days_to_res": 96.69772458224537, "active": true, "closed": false, "url": "https://polymarket.com/event/will-paloma-valencia-win-the-2026-colombian-presidential-election", "fetched_at": "2026-03-16T21:15:16.596100+00:00", "yes_price_24h_ago": 0.5, "yes_price_72h_ago": 0.5, "spread": null, "best_bid": null, "best_ask": null, "book_depth": 0, "yes_price_1h_ago": 0.5, "yes_price_4h_ago": 0.5, "price_velocity": 0.0, "vol_trend": -4.7, "pillars": {"momentum": 50.0, "volume": 67.0, "sentiment": 67.3, "edge": 57.3, "decay": 0.0}, "composite": 51.7, "edge_pct": 2.9, "model_prob": 0.5294, "ml_confidence": 0.0587, "direction": "YES", "passes_filter": true, "flags": ["low_ml_confidence"], "confidence": "LOW", "sizing": {"kelly_f": 0.0587, "frac_kelly": 0.0147, "position_usd": 14.68, "max_usd": 20.0, "pct_bankroll": 1.47}, "sentiment": {"score": 0.5734, "raw": 0.4926, "article_count": 130, "signals": {"S06": 21, "S18": 4, "S20": 2, "S07": 10, "S09": 2, "S16": 2, "S22": 13, "S02": 11, "S21": 13, "S03": 7, "S10": 1, "S17": 4, "S04": 1, "S08": 1, "S01": 3, "S05": 3, "S19": 1, "S11": 1, "S14": 1}, "category_fallback": false}, "scored_at": "2026-03-16T21:16:41.443749+00:00", "return_estimate": {"stake": 14.68, "direction": "YES", "entry_price": 0.5, "shares": 29.36, "gross_win": 29.36, "net_profit": 14.68, "pct_return": 100.0, "decimal_odds": 2.0, "net_loss": -14.68, "expected_value": 0.86, "ev_pct": 5.88, "is_positive_ev": true, "edge": 0.0294, "break_even_prob": 0.5, "ci": {"ev_low": -7.32, "ev_central": 0.86, "ev_high": 9.05, "return_low": -49.9, "return_central": 5.9, "return_high": 61.6, "calibration_error": 0.2788, "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "scenarios": [{"label": "Bear case", "model_prob": 0.379, "expected_value": -3.54, "ev_pct": -24.12, "is_positive_ev": false}, {"label": "Base case", "model_prob": 0.529, "expected_value": 0.86, "ev_pct": 5.88, "is_positive_ev": true}, {"label": "Bull case", "model_prob": 0.679, "expected_value": 5.27, "ev_pct": 35.88, "is_positive_ev": true}, {"label": "Strong bull", "model_prob": 0.779, "expected_value": 8.2, "ev_pct": 55.88, "is_positive_ev": true}], "summary": "You stake $14.68 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$14.68 net profit (100% return). If wrong: -$14.68 (your full stake). Expected value: +0.86 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "macro": true, "price_at_signal": 0.5, "price_drift": -9.8, "live_edge": 12.7, "live_spread": null, "live_depth": 0, "live_passes": true, "validation_status": "stale", "validation_note": "Price drifted -9.8% since scoring (50.0% \u2192 40.2%). Edge still +12.7%.", "validated_at": "2026-03-16T21:17:34.904430+00:00"}, {"id": "polymarket::0xba75e6ba41372e351ed4755f183c1cdb082bd7cf6182a6d80dc445869c09de10", "source": "polymarket", "slug": "will-luis-gilberto-murillo-win-the-2026-colombian-presidential-election", "condition_id": "0xba75e6ba41372e351ed4755f183c1cdb082bd7cf6182a6d80dc445869c09de10", "token_ids": [], "question": "Will Luis Gilberto Murillo win the 2026 Colombian presidential election?", "description": "Colombia's presidential elections are scheduled for May 31, 2026, and a second round (if required) on June 21, 2026, in case no candidate secures more than 50% of the valid votes in the first round.\n\nThis market will resolve according to the listed candidate that wins this election. \n\nThis market includes any potential second round. If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to \"Other\".\n\nThis market will resolve based on the election results, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Colombia's National Civil Registry (Registradur\u00eda Nacional del Estado Civil) (https://registraduria.gov.co).", "tags": [], "category": "politics", "yes_price": 0.0015, "no_price": 0.9985, "volume_24h": 45126.018000000004, "volume_total": 710361.3726080009, "liquidity": 63904.67671, "end_date": "2026-06-21T14:00:00+00:00", "days_to_res": 96.69772458542823, "active": true, "closed": false, "url": "https://polymarket.com/event/will-luis-gilberto-murillo-win-the-2026-colombian-presidential-election", "fetched_at": "2026-03-16T21:15:16.595826+00:00", "yes_price_24h_ago": 0.5, "yes_price_72h_ago": 0.5, "spread": null, "best_bid": null, "best_ask": null, "book_depth": 0, "yes_price_1h_ago": 0.5, "yes_price_4h_ago": 0.5, "price_velocity": 0.0, "vol_trend": 2.9, "pillars": {"momentum": 50.0, "volume": 67.2, "sentiment": 67.3, "edge": 57.3, "decay": 0.0}, "composite": 51.7, "edge_pct": 2.9, "model_prob": 0.5294, "ml_confidence": 0.0587, "direction": "YES", "passes_filter": true, "flags": ["low_ml_confidence"], "confidence": "LOW", "sizing": {"kelly_f": 0.0587, "frac_kelly": 0.0147, "position_usd": 14.68, "max_usd": 20.0, "pct_bankroll": 1.47}, "sentiment": {"score": 0.5734, "raw": 0.4926, "article_count": 130, "signals": {"S06": 21, "S18": 4, "S20": 2, "S07": 10, "S09": 2, "S16": 2, "S22": 13, "S02": 11, "S21": 13, "S03": 7, "S10": 1, "S17": 4, "S04": 1, "S08": 1, "S01": 3, "S05": 3, "S19": 1, "S11": 1, "S14": 1}, "category_fallback": false}, "scored_at": "2026-03-16T21:16:43.338307+00:00", "return_estimate": {"stake": 14.68, "direction": "YES", "entry_price": 0.5, "shares": 29.36, "gross_win": 29.36, "net_profit": 14.68, "pct_return": 100.0, "decimal_odds": 2.0, "net_loss": -14.68, "expected_value": 0.86, "ev_pct": 5.88, "is_positive_ev": true, "edge": 0.0294, "break_even_prob": 0.5, "ci": {"ev_low": -7.32, "ev_central": 0.86, "ev_high": 9.05, "return_low": -49.9, "return_central": 5.9, "return_high": 61.6, "calibration_error": 0.2788, "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "scenarios": [{"label": "Bear case", "model_prob": 0.379, "expected_value": -3.54, "ev_pct": -24.12, "is_positive_ev": false}, {"label": "Base case", "model_prob": 0.529, "expected_value": 0.86, "ev_pct": 5.88, "is_positive_ev": true}, {"label": "Bull case", "model_prob": 0.679, "expected_value": 5.27, "ev_pct": 35.88, "is_positive_ev": true}, {"label": "Strong bull", "model_prob": 0.779, "expected_value": 8.2, "ev_pct": 55.88, "is_positive_ev": true}], "summary": "You stake $14.68 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$14.68 net profit (100% return). If wrong: -$14.68 (your full stake). Expected value: +0.86 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."}, "macro": true, "price_at_signal": 0.5, "price_drift": -49.85, "live_edge": 52.8, "live_spread": null, "live_depth": 0, "live_passes": true, "validation_status": "stale", "validation_note": "Price drifted -49.9% since scoring (50.0% \u2192 0.1%). Edge still +52.8%.", "validated_at": "2026-03-16T21:17:35.231033+00:00"}], "universe": 720, "filtered_in": 11, "run_date": "2026-03-16", "rejected_picks": [], "correlation_flags": ["Correlation guard: dropped 'Will Italy qualify for the 2026 FIFA World Cu\u2026' (3rd sports pick \u2014 portfolio already has 2)", "Correlation guard: dropped 'Will Luis Gilberto Murillo win the 2026 Colom\u2026' (3rd politics pick \u2014 portfolio already has 2)"], "validated_at": "2026-03-16T21:17:35.431607+00:00", "circuit_breaker": {"status": "active", "reason": "Normal operation", "multiplier": 1.0}, "bankroll_summary": {"current_bankroll": 1000.0, "initial_bankroll": 1000.0, "peak_bankroll": 1000.0, "all_time_pnl": 0.0, "total_return_pct": 0.0, "drawdown_from_peak": 0.0, "status": "active", "status_reason": null, "consecutive_losses": 0, "consecutive_wins": 0, "daily_pnl_7d": [{"date": "2026-03-10", "pnl": 0}, {"date": "2026-03-11", "pnl": 0}, {"date": "2026-03-12", "pnl": 0}, {"date": "2026-03-13", "pnl": 0}, {"date": "2026-03-14", "pnl": 0}, {"date": "2026-03-15", "pnl": 0}, {"date": "2026-03-16", "pnl": 0}], "trade_history": [], "thresholds": {"reduce_at_drawdown": "10%", "halt_at_drawdown": "15%", "halt_at_streak": 6, "recovery_streak": 3}}, "saved_at": "2026-03-16T21:17:35.444363+00:00"},stats:{"total": 0, "wins": 0, "losses": 0, "win_rate": 0.0, "by_category": {}, "by_source": {}}};
+
+function switchTab(name, el) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  el.classList.add('active');
+}
+
+function copyTweet() {
+  navigator.clipboard.writeText(document.getElementById('tweet-txt').innerText).then(() => {
+    const b = document.querySelector('.copy-btn');
+    b.textContent = 'COPIED ✓';
+    setTimeout(() => b.textContent = 'COPY', 2000);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.bar-fill,.mini-bar-fill,.prog-fill,.thr-fill').forEach(el => {
+    const w = el.style.width; el.style.width = '0';
+    setTimeout(() => el.style.width = w, 80);
+  });
+});
+</script>
 </body>
 </html>
