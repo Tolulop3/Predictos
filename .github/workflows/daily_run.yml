@@ -2,7 +2,9 @@ name: PredictOS Daily Run
 
 on:
   schedule:
+    # Run at 07:00 UTC every day (before US market open)
     - cron: '0 7 * * *'
+  # Also allow manual trigger from GitHub UI
   workflow_dispatch:
     inputs:
       debug:
@@ -11,7 +13,7 @@ on:
         default: 'false'
 
 permissions:
-  contents: write
+  contents: write   # needed to push dashboard to gh-pages / docs/
   pages: write
   id-token: write
 
@@ -21,22 +23,26 @@ jobs:
     timeout-minutes: 30
 
     steps:
+      # ── Checkout ──────────────────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0   # full history for outcome tracking
 
+      # ── Python setup ──────────────────────────────────────────────────────
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
+      # ── Dependencies ──────────────────────────────────────────────────────
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      # ── Run pipeline ──────────────────────────────────────────────────────
       - name: Run PredictOS pipeline
         env:
           POLYMARKET_API_KEY: ${{ secrets.POLYMARKET_API_KEY }}
@@ -47,12 +53,40 @@ jobs:
         run: |
           python -m src.main
 
+      # ── Commit results ────────────────────────────────────────────────────
       - name: Commit dashboard and data
         run: |
           git config --global user.name  "PredictOS Bot"
           git config --global user.email "predictos-bot@users.noreply.github.com"
-          git add docs/index.html
-          git add data/ || true
+
+          git add index.html
+          git add data/picks.json
+          git add data/scores.json
+          git add data/outcomes.json
+          git add data/history.json
           git add models/ || true
+
           git diff --staged --quiet || git commit -m "PredictOS daily run — $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
+
+      # ── Summary ──────────────────────────────────────────────────────────
+      - name: Post run summary
+        run: |
+          echo "## PredictOS Run Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f data/picks.json ]; then
+            python -c "
+          import json
+          with open('data/picks.json') as f:
+              picks = json.load(f)
+          yes = picks.get('yes_picks', [])
+          no  = picks.get('no_picks', [])
+          print(f'**YES picks:** {len(yes)}')
+          print(f'**NO picks:**  {len(no)}')
+          print()
+          if yes:
+              top = yes[0]
+              print(f'**Top YES:** {top[\"question\"][:80]}')
+              print(f'Score: {top[\"composite\"]:.0f}/100 | Edge: {top[\"edge_pct\"]:+.1f}% | {top[\"confidence\"]}')
+          " >> $GITHUB_STEP_SUMMARY
+          fi
