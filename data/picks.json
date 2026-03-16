@@ -1,0 +1,925 @@
+{
+  "yes_picks": [
+    {
+      "id": "polymarket::0x0f8ef3cc906ba7ba94a44724738df44bdd5f73e59e40c9c8b4ff8569e349643c",
+      "source": "polymarket",
+      "slug": "will-kim-kardashian-win-the-2028-democratic-presidential-nomination",
+      "condition_id": "0x0f8ef3cc906ba7ba94a44724738df44bdd5f73e59e40c9c8b4ff8569e349643c",
+      "token_ids": [],
+      "question": "Will Kim Kardashian win the 2028 Democratic presidential nomination?",
+      "description": "This market will resolve to \u201cYes\u201d if the named individual wins and accepts the 2028 nomination of the Democratic Party for U.S. president. Otherwise, this market will resolve to \u201cNo\u201d.\n\nThe resolution source for this market will be a consensus of official Democratic Party sources.\n\nAny replacement of the democratic nominee before election day will not change the resolution of the market.",
+      "tags": [
+        "Politics",
+        "Primaries",
+        "World Elections",
+        "US Election",
+        "Elections",
+        "Earn 4%",
+        "Global Elections"
+      ],
+      "category": "politics",
+      "yes_price": 0.0075,
+      "no_price": 0.9925,
+      "volume_24h": 628536.1638489999,
+      "volume_total": 26247076.128073122,
+      "liquidity": 1912489.1643,
+      "end_date": "2028-11-07T00:00:00+00:00",
+      "days_to_res": 966.3996657341552,
+      "active": true,
+      "closed": false,
+      "url": "https://polymarket.com/event/will-kim-kardashian-win-the-2028-democratic-presidential-nomination",
+      "fetched_at": "2026-03-16T14:24:28.880576+00:00",
+      "yes_price_24h_ago": 0.5,
+      "yes_price_72h_ago": 0.5,
+      "spread": null,
+      "best_bid": null,
+      "best_ask": null,
+      "book_depth": 0,
+      "event_title": "Democratic Presidential Nominee 2028",
+      "event_id": "30829",
+      "pillars": {
+        "momentum": 0.0,
+        "volume": 85.8,
+        "sentiment": 70.6,
+        "edge": 92.4,
+        "decay": 0.0
+      },
+      "composite": 53.3,
+      "edge_pct": 17.0,
+      "model_prob": 0.1798,
+      "ml_confidence": 0.5033,
+      "direction": "YES",
+      "passes_filter": true,
+      "flags": [
+        "low_ml_confidence"
+      ],
+      "confidence": "LOW",
+      "sizing": {
+        "kelly_f": 0.1715,
+        "frac_kelly": 0.0429,
+        "position_usd": 20.0,
+        "max_usd": 20.0,
+        "pct_bankroll": 2.0
+      },
+      "sentiment": {
+        "score": 0.6059,
+        "raw": 0.717,
+        "article_count": 27,
+        "signals": {
+          "S06": 6,
+          "S21": 1,
+          "S02": 3,
+          "S07": 1,
+          "S22": 1,
+          "S03": 2,
+          "S09": 1
+        }
+      },
+      "scored_at": "2026-03-16T14:25:53.998182+00:00",
+      "return_estimate": {
+        "stake": 20.0,
+        "direction": "YES",
+        "entry_price": 0.01,
+        "shares": 2000.0,
+        "gross_win": 2000.0,
+        "net_profit": 1980.0,
+        "pct_return": 9900.0,
+        "decimal_odds": 100.0,
+        "net_loss": -20.0,
+        "expected_value": 339.6,
+        "ev_pct": 1698.0,
+        "is_positive_ev": true,
+        "edge": 0.1698,
+        "break_even_prob": 0.01,
+        "ci": {
+          "ev_low": 0.0,
+          "ev_central": 339.6,
+          "ev_high": 897.17,
+          "return_low": 0.0,
+          "return_central": 1698.0,
+          "return_high": 4485.9,
+          "calibration_error": 0.2788,
+          "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        },
+        "scenarios": [
+          {
+            "label": "Bear case",
+            "model_prob": 0.03,
+            "expected_value": 39.6,
+            "ev_pct": 198.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Base case",
+            "model_prob": 0.18,
+            "expected_value": 339.6,
+            "ev_pct": 1698.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Bull case",
+            "model_prob": 0.33,
+            "expected_value": 639.6,
+            "ev_pct": 3198.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Strong bull",
+            "model_prob": 0.43,
+            "expected_value": 839.6,
+            "ev_pct": 4198.0,
+            "is_positive_ev": true
+          }
+        ],
+        "summary": "You stake $20.00 on YES at 1% market price. Model estimates 18% chance of YES resolving \u2014 vs 1% market price. If correct: +$1980.00 net profit (9900% return). If wrong: -$20.00 (your full stake). Expected value: +339.60 per trade at this stake. Break-even: you need 1% win rate just to not lose money. Edge: model sees 17.0% discount vs market \u2014 positive expected value. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+      },
+      "price_at_signal": 0.01,
+      "price_drift": -0.25,
+      "live_edge": 17.2,
+      "live_spread": null,
+      "live_depth": 0,
+      "live_passes": true,
+      "validation_status": "valid",
+      "validation_note": "Signal valid. Live: 0.8% (no drift). Edge: +17.2%.",
+      "validated_at": "2026-03-16T14:26:19.911730+00:00"
+    },
+    {
+      "id": "polymarket::0x64396449b471b10b006285fa49dd9a5df535694de7b4c703fdeb0d88d5c4cd33",
+      "source": "polymarket",
+      "slug": "will-vivek-ramaswamy-win-the-2028-us-presidential-election",
+      "condition_id": "0x64396449b471b10b006285fa49dd9a5df535694de7b4c703fdeb0d88d5c4cd33",
+      "token_ids": [],
+      "question": "Will Vivek Ramaswamy win the 2028 US Presidential Election?",
+      "description": "The 2028 US Presidential Election is scheduled to take place on November 7, 2028.\n\nThis market will resolve to the person who wins the 2028 US Presidential Election.\n\nThe resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven\u2019t called the race for the same candidate by the inauguration date (January 20, 2029) this market will resolve based on who is inaugurated.",
+      "tags": [
+        "President",
+        "Politics",
+        "World Elections",
+        "US Election",
+        "Elections",
+        "Earn 4%",
+        "Global Elections"
+      ],
+      "category": "politics",
+      "yes_price": 0.0105,
+      "no_price": 0.9895,
+      "volume_24h": 680559.7979939998,
+      "volume_total": 26228739.640731037,
+      "liquidity": 976699.54946,
+      "end_date": "2028-11-07T00:00:00+00:00",
+      "days_to_res": 966.3996657277083,
+      "active": true,
+      "closed": false,
+      "url": "https://polymarket.com/event/will-vivek-ramaswamy-win-the-2028-us-presidential-election",
+      "fetched_at": "2026-03-16T14:24:28.881135+00:00",
+      "yes_price_24h_ago": 0.5,
+      "yes_price_72h_ago": 0.5,
+      "spread": null,
+      "best_bid": null,
+      "best_ask": null,
+      "book_depth": 0,
+      "event_title": "Presidential Election Winner 2028",
+      "event_id": "31552",
+      "pillars": {
+        "momentum": 0.0,
+        "volume": 84.1,
+        "sentiment": 71.2,
+        "edge": 93.0,
+        "decay": 0.0
+      },
+      "composite": 53.2,
+      "edge_pct": 17.2,
+      "model_prob": 0.1824,
+      "ml_confidence": 0.4981,
+      "direction": "YES",
+      "passes_filter": true,
+      "flags": [
+        "low_ml_confidence"
+      ],
+      "confidence": "LOW",
+      "sizing": {
+        "kelly_f": 0.1737,
+        "frac_kelly": 0.0434,
+        "position_usd": 20.0,
+        "max_usd": 20.0,
+        "pct_bankroll": 2.0
+      },
+      "sentiment": {
+        "score": 0.6116,
+        "raw": 0.7568,
+        "article_count": 31,
+        "signals": {
+          "S06": 6,
+          "S21": 2,
+          "S02": 5,
+          "S07": 1,
+          "S22": 1,
+          "S03": 2,
+          "S09": 1
+        }
+      },
+      "scored_at": "2026-03-16T14:25:53.947955+00:00",
+      "return_estimate": {
+        "stake": 20.0,
+        "direction": "YES",
+        "entry_price": 0.0105,
+        "shares": 1904.7619,
+        "gross_win": 1904.76,
+        "net_profit": 1884.76,
+        "pct_return": 9423.8,
+        "decimal_odds": 95.238,
+        "net_loss": -20.0,
+        "expected_value": 327.43,
+        "ev_pct": 1637.14,
+        "is_positive_ev": true,
+        "edge": 0.1719,
+        "break_even_prob": 0.0105,
+        "ci": {
+          "ev_low": -0.95,
+          "ev_central": 327.43,
+          "ev_high": 858.45,
+          "return_low": -4.8,
+          "return_central": 1637.1,
+          "return_high": 4292.2,
+          "calibration_error": 0.2788,
+          "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        },
+        "scenarios": [
+          {
+            "label": "Bear case",
+            "model_prob": 0.032,
+            "expected_value": 41.71,
+            "ev_pct": 208.57,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Base case",
+            "model_prob": 0.182,
+            "expected_value": 327.43,
+            "ev_pct": 1637.14,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Bull case",
+            "model_prob": 0.332,
+            "expected_value": 613.14,
+            "ev_pct": 3065.71,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Strong bull",
+            "model_prob": 0.432,
+            "expected_value": 803.62,
+            "ev_pct": 4018.09,
+            "is_positive_ev": true
+          }
+        ],
+        "summary": "You stake $20.00 on YES at 1% market price. Model estimates 18% chance of YES resolving \u2014 vs 1% market price. If correct: +$1884.76 net profit (9424% return). If wrong: -$20.00 (your full stake). Expected value: +327.43 per trade at this stake. Break-even: you need 1% win rate just to not lose money. Edge: model sees 17.2% discount vs market \u2014 positive expected value. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+      },
+      "price_at_signal": 0.0105,
+      "price_drift": 0.0,
+      "live_edge": 17.2,
+      "live_spread": null,
+      "live_depth": 0,
+      "live_passes": true,
+      "validation_status": "valid",
+      "validation_note": "Signal valid. Live: 1.1% (no drift). Edge: +17.2%.",
+      "validated_at": "2026-03-16T14:26:20.262826+00:00"
+    },
+    {
+      "id": "polymarket::0x2ca58175aa8080357d9706c535bb0be218ce7bb156dc48753e0d8b8ee6b56635",
+      "source": "polymarket",
+      "slug": "will-aston-villa-win-the-202526-english-premier-league",
+      "condition_id": "0x2ca58175aa8080357d9706c535bb0be218ce7bb156dc48753e0d8b8ee6b56635",
+      "token_ids": [],
+      "question": "Will Aston Villa win the 2025\u201326 English Premier League?",
+      "description": "This is a polymarket on whether the listed club will win the 2025\u201326 English Premier League.\n\nThis market will resolve to \"Yes\" if the listed club is officially crowned the winner of the 2025\u201326 English Premier League. Otherwise, it will resolve to \"No\".\n\nIf at any point it becomes impossible for the listed club to win the league (e.g. they are mathematically eliminated), the market will resolve to \"No\".\n\nIf the 2025\u201326 English Premier League season is canceled or not completed by October 1, 2026, this market will resolve to \"Other\".\n\nThe primary resolution source will be official information from the English Premier League. A consensus of credible reporting may also be used.",
+      "tags": [],
+      "category": "other",
+      "yes_price": 0.0015,
+      "no_price": 0.9985,
+      "volume_24h": 361399.4674090001,
+      "volume_total": 18508901.047156677,
+      "liquidity": 907411.61746,
+      "end_date": "2026-05-27T00:00:00+00:00",
+      "days_to_res": 71.39965916944445,
+      "active": true,
+      "closed": false,
+      "url": "https://polymarket.com/event/will-aston-villa-win-the-202526-english-premier-league",
+      "fetched_at": "2026-03-16T14:24:29.447777+00:00",
+      "yes_price_24h_ago": 0.5,
+      "yes_price_72h_ago": 0.5,
+      "spread": null,
+      "best_bid": null,
+      "best_ask": null,
+      "book_depth": 0,
+      "pillars": {
+        "momentum": 0.0,
+        "volume": 81.7,
+        "sentiment": 72.1,
+        "edge": 93.9,
+        "decay": 0.0
+      },
+      "composite": 53.1,
+      "edge_pct": 17.6,
+      "model_prob": 0.1856,
+      "ml_confidence": 0.4915,
+      "direction": "YES",
+      "passes_filter": true,
+      "flags": [
+        "low_ml_confidence"
+      ],
+      "confidence": "LOW",
+      "sizing": {
+        "kelly_f": 0.1774,
+        "frac_kelly": 0.0444,
+        "position_usd": 20.0,
+        "max_usd": 20.0,
+        "pct_bankroll": 2.0
+      },
+      "sentiment": {
+        "score": 0.6206,
+        "raw": 0.8202,
+        "article_count": 32,
+        "signals": {
+          "S06": 6,
+          "S21": 1,
+          "S03": 4,
+          "S02": 5,
+          "S09": 2,
+          "S07": 1,
+          "S22": 2
+        }
+      },
+      "scored_at": "2026-03-16T14:25:54.461429+00:00",
+      "return_estimate": {
+        "stake": 20.0,
+        "direction": "YES",
+        "entry_price": 0.01,
+        "shares": 2000.0,
+        "gross_win": 2000.0,
+        "net_profit": 1980.0,
+        "pct_return": 9900.0,
+        "decimal_odds": 100.0,
+        "net_loss": -20.0,
+        "expected_value": 351.2,
+        "ev_pct": 1756.0,
+        "is_positive_ev": true,
+        "edge": 0.1756,
+        "break_even_prob": 0.01,
+        "ci": {
+          "ev_low": 0.0,
+          "ev_central": 351.2,
+          "ev_high": 908.77,
+          "return_low": 0.0,
+          "return_central": 1756.0,
+          "return_high": 4543.8,
+          "calibration_error": 0.2788,
+          "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        },
+        "scenarios": [
+          {
+            "label": "Bear case",
+            "model_prob": 0.036,
+            "expected_value": 51.2,
+            "ev_pct": 256.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Base case",
+            "model_prob": 0.186,
+            "expected_value": 351.2,
+            "ev_pct": 1756.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Bull case",
+            "model_prob": 0.336,
+            "expected_value": 651.2,
+            "ev_pct": 3256.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Strong bull",
+            "model_prob": 0.436,
+            "expected_value": 851.2,
+            "ev_pct": 4256.0,
+            "is_positive_ev": true
+          }
+        ],
+        "summary": "You stake $20.00 on YES at 1% market price. Model estimates 19% chance of YES resolving \u2014 vs 1% market price. If correct: +$1980.00 net profit (9900% return). If wrong: -$20.00 (your full stake). Expected value: +351.20 per trade at this stake. Break-even: you need 1% win rate just to not lose money. Edge: model sees 17.6% discount vs market \u2014 positive expected value. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+      },
+      "price_at_signal": 0.01,
+      "price_drift": -0.85,
+      "live_edge": 18.4,
+      "live_spread": null,
+      "live_depth": 0,
+      "live_passes": true,
+      "validation_status": "valid",
+      "validation_note": "Signal valid. Live: 0.1% (no drift). Edge: +18.4%.",
+      "validated_at": "2026-03-16T14:26:20.615276+00:00"
+    }
+  ],
+  "no_picks": [],
+  "macro_plays": [
+    {
+      "id": "polymarket::0x0f8ef3cc906ba7ba94a44724738df44bdd5f73e59e40c9c8b4ff8569e349643c",
+      "source": "polymarket",
+      "slug": "will-kim-kardashian-win-the-2028-democratic-presidential-nomination",
+      "condition_id": "0x0f8ef3cc906ba7ba94a44724738df44bdd5f73e59e40c9c8b4ff8569e349643c",
+      "token_ids": [],
+      "question": "Will Kim Kardashian win the 2028 Democratic presidential nomination?",
+      "description": "This market will resolve to \u201cYes\u201d if the named individual wins and accepts the 2028 nomination of the Democratic Party for U.S. president. Otherwise, this market will resolve to \u201cNo\u201d.\n\nThe resolution source for this market will be a consensus of official Democratic Party sources.\n\nAny replacement of the democratic nominee before election day will not change the resolution of the market.",
+      "tags": [
+        "Politics",
+        "Primaries",
+        "World Elections",
+        "US Election",
+        "Elections",
+        "Earn 4%",
+        "Global Elections"
+      ],
+      "category": "politics",
+      "yes_price": 0.0075,
+      "no_price": 0.9925,
+      "volume_24h": 628536.1638489999,
+      "volume_total": 26247076.128073122,
+      "liquidity": 1912489.1643,
+      "end_date": "2028-11-07T00:00:00+00:00",
+      "days_to_res": 966.3996657341552,
+      "active": true,
+      "closed": false,
+      "url": "https://polymarket.com/event/will-kim-kardashian-win-the-2028-democratic-presidential-nomination",
+      "fetched_at": "2026-03-16T14:24:28.880576+00:00",
+      "yes_price_24h_ago": 0.5,
+      "yes_price_72h_ago": 0.5,
+      "spread": null,
+      "best_bid": null,
+      "best_ask": null,
+      "book_depth": 0,
+      "event_title": "Democratic Presidential Nominee 2028",
+      "event_id": "30829",
+      "pillars": {
+        "momentum": 0.0,
+        "volume": 85.8,
+        "sentiment": 70.6,
+        "edge": 92.4,
+        "decay": 0.0
+      },
+      "composite": 53.3,
+      "edge_pct": 17.0,
+      "model_prob": 0.1798,
+      "ml_confidence": 0.5033,
+      "direction": "YES",
+      "passes_filter": true,
+      "flags": [
+        "low_ml_confidence"
+      ],
+      "confidence": "LOW",
+      "sizing": {
+        "kelly_f": 0.1715,
+        "frac_kelly": 0.0429,
+        "position_usd": 20.0,
+        "max_usd": 20.0,
+        "pct_bankroll": 2.0
+      },
+      "sentiment": {
+        "score": 0.6059,
+        "raw": 0.717,
+        "article_count": 27,
+        "signals": {
+          "S06": 6,
+          "S21": 1,
+          "S02": 3,
+          "S07": 1,
+          "S22": 1,
+          "S03": 2,
+          "S09": 1
+        }
+      },
+      "scored_at": "2026-03-16T14:25:53.998182+00:00",
+      "return_estimate": {
+        "stake": 20.0,
+        "direction": "YES",
+        "entry_price": 0.01,
+        "shares": 2000.0,
+        "gross_win": 2000.0,
+        "net_profit": 1980.0,
+        "pct_return": 9900.0,
+        "decimal_odds": 100.0,
+        "net_loss": -20.0,
+        "expected_value": 339.6,
+        "ev_pct": 1698.0,
+        "is_positive_ev": true,
+        "edge": 0.1698,
+        "break_even_prob": 0.01,
+        "ci": {
+          "ev_low": 0.0,
+          "ev_central": 339.6,
+          "ev_high": 897.17,
+          "return_low": 0.0,
+          "return_central": 1698.0,
+          "return_high": 4485.9,
+          "calibration_error": 0.2788,
+          "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        },
+        "scenarios": [
+          {
+            "label": "Bear case",
+            "model_prob": 0.03,
+            "expected_value": 39.6,
+            "ev_pct": 198.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Base case",
+            "model_prob": 0.18,
+            "expected_value": 339.6,
+            "ev_pct": 1698.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Bull case",
+            "model_prob": 0.33,
+            "expected_value": 639.6,
+            "ev_pct": 3198.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Strong bull",
+            "model_prob": 0.43,
+            "expected_value": 839.6,
+            "ev_pct": 4198.0,
+            "is_positive_ev": true
+          }
+        ],
+        "summary": "You stake $20.00 on YES at 1% market price. Model estimates 18% chance of YES resolving \u2014 vs 1% market price. If correct: +$1980.00 net profit (9900% return). If wrong: -$20.00 (your full stake). Expected value: +339.60 per trade at this stake. Break-even: you need 1% win rate just to not lose money. Edge: model sees 17.0% discount vs market \u2014 positive expected value. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+      },
+      "macro": true,
+      "price_at_signal": 0.01,
+      "price_drift": -0.25,
+      "live_edge": 17.2,
+      "live_spread": null,
+      "live_depth": 0,
+      "live_passes": true,
+      "validation_status": "valid",
+      "validation_note": "Signal valid. Live: 0.8% (no drift). Edge: +17.2%.",
+      "validated_at": "2026-03-16T14:26:22.757784+00:00"
+    },
+    {
+      "id": "polymarket::0x64396449b471b10b006285fa49dd9a5df535694de7b4c703fdeb0d88d5c4cd33",
+      "source": "polymarket",
+      "slug": "will-vivek-ramaswamy-win-the-2028-us-presidential-election",
+      "condition_id": "0x64396449b471b10b006285fa49dd9a5df535694de7b4c703fdeb0d88d5c4cd33",
+      "token_ids": [],
+      "question": "Will Vivek Ramaswamy win the 2028 US Presidential Election?",
+      "description": "The 2028 US Presidential Election is scheduled to take place on November 7, 2028.\n\nThis market will resolve to the person who wins the 2028 US Presidential Election.\n\nThe resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven\u2019t called the race for the same candidate by the inauguration date (January 20, 2029) this market will resolve based on who is inaugurated.",
+      "tags": [
+        "President",
+        "Politics",
+        "World Elections",
+        "US Election",
+        "Elections",
+        "Earn 4%",
+        "Global Elections"
+      ],
+      "category": "politics",
+      "yes_price": 0.0105,
+      "no_price": 0.9895,
+      "volume_24h": 680559.7979939998,
+      "volume_total": 26228739.640731037,
+      "liquidity": 976699.54946,
+      "end_date": "2028-11-07T00:00:00+00:00",
+      "days_to_res": 966.3996657277083,
+      "active": true,
+      "closed": false,
+      "url": "https://polymarket.com/event/will-vivek-ramaswamy-win-the-2028-us-presidential-election",
+      "fetched_at": "2026-03-16T14:24:28.881135+00:00",
+      "yes_price_24h_ago": 0.5,
+      "yes_price_72h_ago": 0.5,
+      "spread": null,
+      "best_bid": null,
+      "best_ask": null,
+      "book_depth": 0,
+      "event_title": "Presidential Election Winner 2028",
+      "event_id": "31552",
+      "pillars": {
+        "momentum": 0.0,
+        "volume": 84.1,
+        "sentiment": 71.2,
+        "edge": 93.0,
+        "decay": 0.0
+      },
+      "composite": 53.2,
+      "edge_pct": 17.2,
+      "model_prob": 0.1824,
+      "ml_confidence": 0.4981,
+      "direction": "YES",
+      "passes_filter": true,
+      "flags": [
+        "low_ml_confidence"
+      ],
+      "confidence": "LOW",
+      "sizing": {
+        "kelly_f": 0.1737,
+        "frac_kelly": 0.0434,
+        "position_usd": 20.0,
+        "max_usd": 20.0,
+        "pct_bankroll": 2.0
+      },
+      "sentiment": {
+        "score": 0.6116,
+        "raw": 0.7568,
+        "article_count": 31,
+        "signals": {
+          "S06": 6,
+          "S21": 2,
+          "S02": 5,
+          "S07": 1,
+          "S22": 1,
+          "S03": 2,
+          "S09": 1
+        }
+      },
+      "scored_at": "2026-03-16T14:25:53.947955+00:00",
+      "return_estimate": {
+        "stake": 20.0,
+        "direction": "YES",
+        "entry_price": 0.0105,
+        "shares": 1904.7619,
+        "gross_win": 1904.76,
+        "net_profit": 1884.76,
+        "pct_return": 9423.8,
+        "decimal_odds": 95.238,
+        "net_loss": -20.0,
+        "expected_value": 327.43,
+        "ev_pct": 1637.14,
+        "is_positive_ev": true,
+        "edge": 0.1719,
+        "break_even_prob": 0.0105,
+        "ci": {
+          "ev_low": -0.95,
+          "ev_central": 327.43,
+          "ev_high": 858.45,
+          "return_low": -4.8,
+          "return_central": 1637.1,
+          "return_high": 4292.2,
+          "calibration_error": 0.2788,
+          "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        },
+        "scenarios": [
+          {
+            "label": "Bear case",
+            "model_prob": 0.032,
+            "expected_value": 41.71,
+            "ev_pct": 208.57,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Base case",
+            "model_prob": 0.182,
+            "expected_value": 327.43,
+            "ev_pct": 1637.14,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Bull case",
+            "model_prob": 0.332,
+            "expected_value": 613.14,
+            "ev_pct": 3065.71,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Strong bull",
+            "model_prob": 0.432,
+            "expected_value": 803.62,
+            "ev_pct": 4018.09,
+            "is_positive_ev": true
+          }
+        ],
+        "summary": "You stake $20.00 on YES at 1% market price. Model estimates 18% chance of YES resolving \u2014 vs 1% market price. If correct: +$1884.76 net profit (9424% return). If wrong: -$20.00 (your full stake). Expected value: +327.43 per trade at this stake. Break-even: you need 1% win rate just to not lose money. Edge: model sees 17.2% discount vs market \u2014 positive expected value. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+      },
+      "macro": true,
+      "price_at_signal": 0.0105,
+      "price_drift": 0.0,
+      "live_edge": 17.2,
+      "live_spread": null,
+      "live_depth": 0,
+      "live_passes": true,
+      "validation_status": "valid",
+      "validation_note": "Signal valid. Live: 1.1% (no drift). Edge: +17.2%.",
+      "validated_at": "2026-03-16T14:26:23.111972+00:00"
+    },
+    {
+      "id": "polymarket::0xae70ab9bf1c3726fe430a2ba8b517697ae24e0f0ab554b876a5b521153068882",
+      "source": "polymarket",
+      "slug": "will-tim-walz-win-the-2028-us-presidential-election",
+      "condition_id": "0xae70ab9bf1c3726fe430a2ba8b517697ae24e0f0ab554b876a5b521153068882",
+      "token_ids": [],
+      "question": "Will Tim Walz win the 2028 US Presidential Election?",
+      "description": "The 2028 US Presidential Election is scheduled to take place on November 7, 2028.\n\nThis market will resolve to the person who wins the 2028 US Presidential Election.\n\nThe resolution source for this market is the Associated Press, Fox News, and NBC. This market will resolve once all three sources call the race for the same candidate. If all three sources haven\u2019t called the race for the same candidate by the inauguration date (January 20, 2029) this market will resolve based on who is inaugurated.",
+      "tags": [
+        "President",
+        "Politics",
+        "World Elections",
+        "US Election",
+        "Elections",
+        "Earn 4%",
+        "Global Elections"
+      ],
+      "category": "politics",
+      "yes_price": 0.0075,
+      "no_price": 0.9925,
+      "volume_24h": 137200.090845,
+      "volume_total": 35526828.85261118,
+      "liquidity": 1657877.83968,
+      "end_date": "2028-11-07T00:00:00+00:00",
+      "days_to_res": 966.3996657281366,
+      "active": true,
+      "closed": false,
+      "url": "https://polymarket.com/event/will-tim-walz-win-the-2028-us-presidential-election",
+      "fetched_at": "2026-03-16T14:24:28.881096+00:00",
+      "yes_price_24h_ago": 0.5,
+      "yes_price_72h_ago": 0.5,
+      "spread": null,
+      "best_bid": null,
+      "best_ask": null,
+      "book_depth": 0,
+      "event_title": "Presidential Election Winner 2028",
+      "event_id": "31552",
+      "pillars": {
+        "momentum": 0.0,
+        "volume": 82.5,
+        "sentiment": 71.2,
+        "edge": 93.0,
+        "decay": 0.0
+      },
+      "composite": 52.9,
+      "edge_pct": 17.2,
+      "model_prob": 0.182,
+      "ml_confidence": 0.4987,
+      "direction": "YES",
+      "passes_filter": true,
+      "flags": [
+        "low_ml_confidence"
+      ],
+      "confidence": "LOW",
+      "sizing": {
+        "kelly_f": 0.1738,
+        "frac_kelly": 0.0434,
+        "position_usd": 20.0,
+        "max_usd": 20.0,
+        "pct_bankroll": 2.0
+      },
+      "sentiment": {
+        "score": 0.6116,
+        "raw": 0.7568,
+        "article_count": 31,
+        "signals": {
+          "S06": 6,
+          "S21": 2,
+          "S02": 5,
+          "S07": 1,
+          "S22": 1,
+          "S03": 2,
+          "S09": 1
+        }
+      },
+      "scored_at": "2026-03-16T14:25:57.654713+00:00",
+      "return_estimate": {
+        "stake": 20.0,
+        "direction": "YES",
+        "entry_price": 0.01,
+        "shares": 2000.0,
+        "gross_win": 2000.0,
+        "net_profit": 1980.0,
+        "pct_return": 9900.0,
+        "decimal_odds": 100.0,
+        "net_loss": -20.0,
+        "expected_value": 344.0,
+        "ev_pct": 1720.0,
+        "is_positive_ev": true,
+        "edge": 0.172,
+        "break_even_prob": 0.01,
+        "ci": {
+          "ev_low": 0.0,
+          "ev_central": 344.0,
+          "ev_high": 901.57,
+          "return_low": 0.0,
+          "return_central": 1720.0,
+          "return_high": 4507.9,
+          "calibration_error": 0.2788,
+          "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        },
+        "scenarios": [
+          {
+            "label": "Bear case",
+            "model_prob": 0.032,
+            "expected_value": 44.0,
+            "ev_pct": 220.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Base case",
+            "model_prob": 0.182,
+            "expected_value": 344.0,
+            "ev_pct": 1720.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Bull case",
+            "model_prob": 0.332,
+            "expected_value": 644.0,
+            "ev_pct": 3220.0,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Strong bull",
+            "model_prob": 0.432,
+            "expected_value": 844.0,
+            "ev_pct": 4220.0,
+            "is_positive_ev": true
+          }
+        ],
+        "summary": "You stake $20.00 on YES at 1% market price. Model estimates 18% chance of YES resolving \u2014 vs 1% market price. If correct: +$1980.00 net profit (9900% return). If wrong: -$20.00 (your full stake). Expected value: +344.00 per trade at this stake. Break-even: you need 1% win rate just to not lose money. Edge: model sees 17.2% discount vs market \u2014 positive expected value. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+      },
+      "macro": true,
+      "price_at_signal": 0.01,
+      "price_drift": -0.25,
+      "live_edge": 17.5,
+      "live_spread": null,
+      "live_depth": 0,
+      "live_passes": true,
+      "validation_status": "valid",
+      "validation_note": "Signal valid. Live: 0.8% (no drift). Edge: +17.5%.",
+      "validated_at": "2026-03-16T14:26:23.464810+00:00"
+    }
+  ],
+  "universe": 583,
+  "filtered_in": 98,
+  "run_date": "2026-03-16",
+  "rejected_picks": [],
+  "correlation_flags": [
+    "Correlation guard: dropped 'Will Tim Walz win the 2028 US Presidential El\u2026' (3rd politics pick \u2014 portfolio already has 2)",
+    "Correlation guard: dropped 'Will Tim Walz win the 2028 Democratic preside\u2026' (3rd politics pick \u2014 portfolio already has 2)",
+    "Correlation guard: dropped 'Will Michelle Obama win the 2028 Democratic p\u2026' (3rd politics pick \u2014 portfolio already has 2)",
+    "Correlation guard: dropped 'Will Nikki Haley win the 2028 US Presidential\u2026' (3rd politics pick \u2014 portfolio already has 2)",
+    "Correlation guard: dropped 'Will LeBron James win the 2028 Democratic pre\u2026' (3rd politics pick \u2014 portfolio already has 2)"
+  ],
+  "validated_at": "2026-03-16T14:26:24.016522+00:00",
+  "circuit_breaker": {
+    "status": "active",
+    "reason": "Normal operation",
+    "multiplier": 1.0
+  },
+  "bankroll_summary": {
+    "current_bankroll": 1000.0,
+    "initial_bankroll": 1000.0,
+    "peak_bankroll": 1000.0,
+    "all_time_pnl": 0.0,
+    "total_return_pct": 0.0,
+    "drawdown_from_peak": 0.0,
+    "status": "active",
+    "status_reason": null,
+    "consecutive_losses": 0,
+    "consecutive_wins": 0,
+    "daily_pnl_7d": [
+      {
+        "date": "2026-03-10",
+        "pnl": 0
+      },
+      {
+        "date": "2026-03-11",
+        "pnl": 0
+      },
+      {
+        "date": "2026-03-12",
+        "pnl": 0
+      },
+      {
+        "date": "2026-03-13",
+        "pnl": 0
+      },
+      {
+        "date": "2026-03-14",
+        "pnl": 0
+      },
+      {
+        "date": "2026-03-15",
+        "pnl": 0
+      },
+      {
+        "date": "2026-03-16",
+        "pnl": 0
+      }
+    ],
+    "trade_history": [],
+    "thresholds": {
+      "reduce_at_drawdown": "10%",
+      "halt_at_drawdown": "15%",
+      "halt_at_streak": 6,
+      "recovery_streak": 3
+    }
+  },
+  "saved_at": "2026-03-16T14:26:24.019746+00:00"
+}
