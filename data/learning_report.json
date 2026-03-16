@@ -1,8 +1,8 @@
 {
   "summary": {
-    "total_tracked": 10,
+    "total_tracked": 17,
     "total_resolved": 0,
-    "total_unresolved": 10,
+    "total_unresolved": 17,
     "overall_win_rate": 0,
     "win_trend": null,
     "recent_10_wr": 0.0,
@@ -33,5 +33,5 @@
     "what_drives_returns": "Calibration quality \u00d7 Kelly sizing \u00d7 edge detection",
     "why_not_98pct": "Prediction markets price in all public information. 98% accuracy would require predicting the future. A well-calibrated 65% win rate with proper Kelly sizing is genuinely profitable and what professional traders target."
   },
-  "generated_at": "2026-03-16T20:06:43.757410+00:00"
+  "generated_at": "2026-03-16T20:25:10.510670+00:00"
 }

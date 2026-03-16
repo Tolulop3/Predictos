@@ -715,5 +715,47 @@
     "gross_pnl": null,
     "predicted_pnl": null,
     "predicted_ev": null
+  },
+  {
+    "record_id": "polymarket::0x333b6e860ab3eaaf663e7a7df9259d849a6ee02445b822f82e737414b78614ee::2026-03-16",
+    "market_id": "polymarket::0x333b6e860ab3eaaf663e7a7df9259d849a6ee02445b822f82e737414b78614ee",
+    "source": "polymarket",
+    "question": "Will Byeong Hun An win the 2026 Masters tournament?",
+    "category": "sports",
+    "yes_price_at_signal": 0.0025,
+    "model_prob_at_signal": 0.5216799974441528,
+    "sentiment_score": 0.5542,
+    "composite_score": 53.8,
+    "momentum_24h": -0.4975,
+    "momentum_72h": -0.4975,
+    "volume_24h": 20590.634499999996,
+    "liquidity": 30182.0502,
+    "days_to_res_at_signal": 27.149166990138887,
+    "spread": null,
+    "book_depth": 0,
+    "pillars": {
+      "momentum": 50.0,
+      "volume": 62.4,
+      "sentiment": 65.4,
+      "edge": 55.4,
+      "decay": 26.2
+    },
+    "direction": "YES",
+    "confidence": "LOW",
+    "flags": [
+      "low_ml_confidence"
+    ],
+    "signal_date": "2026-03-16",
+    "signal_ts": "2026-03-16T20:27:28.566465+00:00",
+    "end_date": "2026-04-13T00:00:00+00:00",
+    "resolved": false,
+    "resolved_yes": null,
+    "won": null,
+    "resolved_at": null,
+    "resolution_date": null,
+    "stake": null,
+    "gross_pnl": null,
+    "predicted_pnl": null,
+    "predicted_ev": null
   }
 ]
