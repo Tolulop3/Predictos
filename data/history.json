@@ -206,5 +206,18 @@
       "by_category": {},
       "by_source": {}
     }
+  },
+  {
+    "date": "2026-03-16",
+    "newly_resolved": 0,
+    "total_resolved": 0,
+    "stats": {
+      "total": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate": 0.0,
+      "by_category": {},
+      "by_source": {}
+    }
   }
 ]
