@@ -7,7 +7,7 @@
   "run_date": "2026-03-16",
   "rejected_picks": [],
   "correlation_flags": [],
-  "validated_at": "2026-03-16T16:48:28.943312+00:00",
+  "validated_at": "2026-03-16T17:17:05.617392+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
@@ -62,5 +62,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-03-16T16:48:28.943683+00:00"
+  "saved_at": "2026-03-16T17:17:05.617694+00:00"
 }
