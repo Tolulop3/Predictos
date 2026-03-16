@@ -10,17 +10,17 @@
       "description": "This polymarket will resolve according to the player who wins the 2026 Masters Tournament.\n\nIf this player is eliminated from contention for The Masters based on the official rules of the tournament, the relevant market will resolve to \"No\".\n\nIn the event of a tie, this market will resolve according to the official winner as determined by The Masters official tournament rules.\n\nIf no winner is announced by December 31, 2026, this market will resolve to \"Other\".\n\nThe primary resolution sources will be the official results published by the PGA TOUR website and The Masters website. A consensus of credible reporting may also be used.",
       "tags": [],
       "category": "sports",
-      "yes_price": 0.012,
-      "no_price": 0.988,
-      "volume_24h": 101162.806862,
-      "volume_total": 346903.6716650002,
-      "liquidity": 18838.21618,
+      "yes_price": 0.0115,
+      "no_price": 0.9885,
+      "volume_24h": 101934.806862,
+      "volume_total": 347675.6716650002,
+      "liquidity": 18920.80318,
       "end_date": "2026-04-13T00:00:00+00:00",
-      "days_to_res": 27.092865779675925,
+      "days_to_res": 27.088377086921295,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-min-woo-lee-win-the-2026-masters-tournament",
-      "fetched_at": "2026-03-16T21:46:16.396648+00:00",
+      "fetched_at": "2026-03-16T21:52:44.219703+00:00",
       "yes_price_24h_ago": 0.5,
       "yes_price_72h_ago": 0.5,
       "spread": null,
@@ -30,18 +30,18 @@
       "yes_price_1h_ago": 0.5,
       "yes_price_4h_ago": 0.5,
       "price_velocity": 0.0,
-      "vol_trend": -14.3,
+      "vol_trend": -14.2,
       "pillars": {
         "momentum": 50.0,
         "volume": 69.8,
-        "sentiment": 67.7,
-        "edge": 57.7,
+        "sentiment": 67.8,
+        "edge": 57.8,
         "decay": 26.2
       },
       "composite": 56.4,
       "edge_pct": 3.1,
-      "model_prob": 0.5308,
-      "ml_confidence": 0.0617,
+      "model_prob": 0.531,
+      "ml_confidence": 0.062,
       "direction": "YES",
       "passes_filter": true,
       "flags": [
@@ -49,22 +49,22 @@
       ],
       "confidence": "LOW",
       "sizing": {
-        "kelly_f": 0.0617,
-        "frac_kelly": 0.0154,
-        "position_usd": 15.42,
+        "kelly_f": 0.062,
+        "frac_kelly": 0.0155,
+        "position_usd": 15.5,
         "max_usd": 20.0,
-        "pct_bankroll": 1.54
+        "pct_bankroll": 1.55
       },
       "sentiment": {
-        "score": 0.5771,
-        "raw": 0.5179,
-        "article_count": 130,
+        "score": 0.5775,
+        "raw": 0.5212,
+        "article_count": 131,
         "signals": {
           "S06": 22,
           "S20": 3,
           "S10": 2,
           "S18": 4,
-          "S07": 11,
+          "S07": 12,
           "S09": 2,
           "S16": 2,
           "S22": 12,
@@ -81,27 +81,27 @@
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-16T21:47:37.527166+00:00",
+      "scored_at": "2026-03-16T21:54:02.193288+00:00",
       "return_estimate": {
-        "stake": 15.42,
+        "stake": 15.5,
         "direction": "YES",
         "entry_price": 0.5,
-        "shares": 30.84,
-        "gross_win": 30.84,
-        "net_profit": 15.42,
+        "shares": 31.0,
+        "gross_win": 31.0,
+        "net_profit": 15.5,
         "pct_return": 100.0,
         "decimal_odds": 2.0,
-        "net_loss": -15.42,
-        "expected_value": 0.95,
-        "ev_pct": 6.16,
+        "net_loss": -15.5,
+        "expected_value": 0.96,
+        "ev_pct": 6.2,
         "is_positive_ev": true,
-        "edge": 0.0308,
+        "edge": 0.031,
         "break_even_prob": 0.5,
         "ci": {
-          "ev_low": -7.65,
-          "ev_central": 0.95,
-          "ev_high": 9.55,
-          "return_low": -49.6,
+          "ev_low": -7.68,
+          "ev_central": 0.96,
+          "ev_high": 9.6,
+          "return_low": -49.5,
           "return_central": 6.2,
           "return_high": 61.9,
           "calibration_error": 0.2788,
@@ -111,43 +111,43 @@
           {
             "label": "Bear case",
             "model_prob": 0.381,
-            "expected_value": -3.68,
-            "ev_pct": -23.84,
+            "expected_value": -3.69,
+            "ev_pct": -23.8,
             "is_positive_ev": false
           },
           {
             "label": "Base case",
             "model_prob": 0.531,
-            "expected_value": 0.95,
-            "ev_pct": 6.16,
+            "expected_value": 0.96,
+            "ev_pct": 6.2,
             "is_positive_ev": true
           },
           {
             "label": "Bull case",
             "model_prob": 0.681,
-            "expected_value": 5.58,
-            "ev_pct": 36.16,
+            "expected_value": 5.61,
+            "ev_pct": 36.2,
             "is_positive_ev": true
           },
           {
             "label": "Strong bull",
             "model_prob": 0.781,
-            "expected_value": 8.66,
-            "ev_pct": 56.16,
+            "expected_value": 8.71,
+            "ev_pct": 56.2,
             "is_positive_ev": true
           }
         ],
-        "summary": "You stake $15.42 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$15.42 net profit (100% return). If wrong: -$15.42 (your full stake). Expected value: +0.95 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        "summary": "You stake $15.50 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$15.50 net profit (100% return). If wrong: -$15.50 (your full stake). Expected value: +0.96 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
       },
       "price_at_signal": 0.5,
-      "price_drift": -48.8,
-      "live_edge": 51.9,
+      "price_drift": -48.85,
+      "live_edge": 52.0,
       "live_spread": null,
       "live_depth": 0,
       "live_passes": true,
       "validation_status": "stale",
-      "validation_note": "Price drifted -48.8% since scoring (50.0% \u2192 1.2%). Edge still +51.9%.",
-      "validated_at": "2026-03-16T21:48:42.559307+00:00"
+      "validation_note": "Price drifted -48.9% since scoring (50.0% \u2192 1.1%). Edge still +52.0%.",
+      "validated_at": "2026-03-16T21:55:08.079652+00:00"
     },
     {
       "id": "polymarket::0x2821de9fbe90c422cb220dad69fe44dfdea8fdf8fb779e562b44be6db8c1daff",
@@ -159,17 +159,17 @@
       "description": "This market will resolve to \"Yes\" if Anthropic's Claude 5 model is made available to the general public by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to \"No.\"\n\nFor this market to resolve to \"Yes,\" Claude 5 must be launched and publicly accessible, including via open beta or open rolling waitlist signups. A closed beta or any form of private access will not suffice. The release must be clearly defined and publicly announced by Anthropic as being accessible to the general public.\n\nClaude 5 refers to a product explicitly named Claude 5 (e.g. Claude 5.0 would count), or one that is recognized as a successor to Claude 4, similar to the progression from Claude 2 to Claude 3. Products labeled as Claude 4.5 or similar will not count for this market's resolution.\n\nThe primary resolution source for this market will be official information from Anthropic, with additional verification from a consensus of credible reporting.",
       "tags": [],
       "category": "other",
-      "yes_price": 0.062,
-      "no_price": 0.938,
-      "volume_24h": 5590.7573760000005,
-      "volume_total": 938578.2622560039,
-      "liquidity": 47456.85792,
+      "yes_price": 0.0625,
+      "no_price": 0.9375,
+      "volume_24h": 5790.7573760000005,
+      "volume_total": 938778.2622560039,
+      "liquidity": 47595.12905,
       "end_date": null,
       "days_to_res": 30,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-claude-5-be-released-by-march-31-2026-243-489-141-184",
-      "fetched_at": "2026-03-16T21:46:16.809006+00:00",
+      "fetched_at": "2026-03-16T21:52:44.600164+00:00",
       "yes_price_24h_ago": 0.5,
       "yes_price_72h_ago": 0.5,
       "spread": null,
@@ -179,15 +179,15 @@
       "yes_price_1h_ago": 0.5,
       "yes_price_4h_ago": 0.5,
       "price_velocity": 0.0,
-      "vol_trend": 18.2,
+      "vol_trend": 19.0,
       "pillars": {
         "momentum": 50.0,
-        "volume": 60.8,
+        "volume": 60.9,
         "sentiment": 68.1,
         "edge": 58.1,
         "decay": 26.2
       },
-      "composite": 54.7,
+      "composite": 54.8,
       "edge_pct": 3.2,
       "model_prob": 0.5323,
       "ml_confidence": 0.0646,
@@ -228,7 +228,7 @@
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-16T21:47:59.704709+00:00",
+      "scored_at": "2026-03-16T21:54:24.315969+00:00",
       "return_estimate": {
         "stake": 16.14,
         "direction": "YES",
@@ -287,14 +287,14 @@
         "summary": "You stake $16.14 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$16.14 net profit (100% return). If wrong: -$16.14 (your full stake). Expected value: +1.04 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
       },
       "price_at_signal": 0.5,
-      "price_drift": -43.8,
+      "price_drift": -43.75,
       "live_edge": 47.0,
       "live_spread": null,
       "live_depth": 0,
       "live_passes": true,
       "validation_status": "stale",
       "validation_note": "Price drifted -43.8% since scoring (50.0% \u2192 6.2%). Edge still +47.0%.",
-      "validated_at": "2026-03-16T21:48:42.875209+00:00"
+      "validated_at": "2026-03-16T21:55:08.396317+00:00"
     },
     {
       "id": "polymarket::0xe857d6cd180acdb314dd38e583e625172407fa83d54156c78679e601b312d068",
@@ -312,11 +312,11 @@
       "volume_total": 478893.72015399893,
       "liquidity": 15367.6362,
       "end_date": "2026-04-01T04:00:00+00:00",
-      "days_to_res": 15.259527674988426,
+      "days_to_res": 15.255039351597222,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-bitcoin-hit-150k-by-march-31-2026",
-      "fetched_at": "2026-03-16T21:46:16.808897+00:00",
+      "fetched_at": "2026-03-16T21:52:44.600038+00:00",
       "yes_price_24h_ago": 0.5,
       "yes_price_72h_ago": 0.5,
       "spread": null,
@@ -377,7 +377,7 @@
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-16T21:48:01.989582+00:00",
+      "scored_at": "2026-03-16T21:54:26.890098+00:00",
       "return_estimate": {
         "stake": 10.24,
         "direction": "YES",
@@ -443,7 +443,7 @@
       "live_passes": true,
       "validation_status": "stale",
       "validation_note": "Price drifted -49.2% since scoring (50.0% \u2192 0.8%). Edge still +51.3%.",
-      "validated_at": "2026-03-16T21:48:43.190160+00:00"
+      "validated_at": "2026-03-16T21:55:08.769846+00:00"
     },
     {
       "id": "polymarket::0xe9674aadfabfa7171bcee4e38b66f1a7d7e0af538d3718301e7b3cf111e9b5dd",
@@ -454,25 +454,25 @@
       "question": "Will OpenAI launch a new consumer hardware product by March 31, 2026?",
       "description": "This market will resolve to \"Yes\" if OpenAI publicly announces and launches a new consumer hardware product by March 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to \"No\". \n\nA \"consumer hardware product\" is defined as a physical device intended for direct use by individual consumers, rather than enterprise or developer tools. The product must be newly introduced and not a rebrand, update, or iteration of any previously released device.\n\nExamples that would qualify include an AI-powered wearable, smart home assistant, or augmented reality device. Developer tools, AI chips, or servers marketed exclusively for enterprise use would not qualify.\n\nThe resolution source will be official information from OpenAI.",
       "tags": [
-        "Tech",
-        "GPT-5",
-        "Big Tech",
         "OpenAI",
         "sam altman",
-        "AI"
+        "Big Tech",
+        "AI",
+        "GPT-5",
+        "Tech"
       ],
       "category": "science",
-      "yes_price": 0.011,
-      "no_price": 0.989,
-      "volume_24h": 2428.809088,
+      "yes_price": 0.0105,
+      "no_price": 0.9895,
+      "volume_24h": 2012.8090880000002,
       "volume_total": 119890.57658900015,
-      "liquidity": 9932.91531,
+      "liquidity": 9927.39125,
       "end_date": null,
       "days_to_res": 30,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-openai-launch-a-new-consumer-hardware-product-by-march-31-2026",
-      "fetched_at": "2026-03-16T21:46:12.838130+00:00",
+      "fetched_at": "2026-03-16T21:52:43.015488+00:00",
       "yes_price_24h_ago": 0.5,
       "yes_price_72h_ago": 0.5,
       "spread": null,
@@ -484,15 +484,15 @@
       "yes_price_1h_ago": 0.5,
       "yes_price_4h_ago": 0.5,
       "price_velocity": 0.0,
-      "vol_trend": -27.7,
+      "vol_trend": -31.4,
       "pillars": {
         "momentum": 50.0,
-        "volume": 52.4,
+        "volume": 52.0,
         "sentiment": 67.0,
         "edge": 57.0,
         "decay": 26.2
       },
-      "composite": 52.6,
+      "composite": 52.5,
       "edge_pct": 2.8,
       "model_prob": 0.528,
       "ml_confidence": 0.0559,
@@ -536,7 +536,7 @@
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-16T21:48:05.334442+00:00",
+      "scored_at": "2026-03-16T21:54:31.060736+00:00",
       "return_estimate": {
         "stake": 13.98,
         "direction": "YES",
@@ -595,14 +595,14 @@
         "summary": "You stake $13.98 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$13.98 net profit (100% return). If wrong: -$13.98 (your full stake). Expected value: +0.78 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
       },
       "price_at_signal": 0.5,
-      "price_drift": -48.9,
+      "price_drift": -48.95,
       "live_edge": 51.7,
       "live_spread": null,
       "live_depth": 0,
       "live_passes": true,
       "validation_status": "stale",
       "validation_note": "Price drifted -48.9% since scoring (50.0% \u2192 1.1%). Edge still +51.7%.",
-      "validated_at": "2026-03-16T21:48:43.513314+00:00"
+      "validated_at": "2026-03-16T21:55:09.078448+00:00"
     },
     {
       "id": "polymarket::0x0622b01925e56a091f248c42fb194d3b86d58165f6647d6bcb7afc6fb4638531",
@@ -618,13 +618,13 @@
       "no_price": 0.9985,
       "volume_24h": 71319.86899999999,
       "volume_total": 1689314.9996200108,
-      "liquidity": 72155.38159,
+      "liquidity": 72241.48359,
       "end_date": "2026-06-21T14:00:00+00:00",
-      "days_to_res": 96.67619909439814,
+      "days_to_res": 96.6717104005324,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-mauricio-cardenas-win-the-2026-colombian-presidential-election",
-      "fetched_at": "2026-03-16T21:46:16.398251+00:00",
+      "fetched_at": "2026-03-16T21:52:44.221401+00:00",
       "yes_price_24h_ago": 0.5,
       "yes_price_72h_ago": 0.5,
       "spread": null,
@@ -686,7 +686,7 @@
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-16T21:47:41.050125+00:00",
+      "scored_at": "2026-03-16T21:54:05.801525+00:00",
       "return_estimate": {
         "stake": 14.82,
         "direction": "YES",
@@ -752,7 +752,7 @@
       "live_passes": true,
       "validation_status": "stale",
       "validation_note": "Price drifted -49.9% since scoring (50.0% \u2192 0.1%). Edge still +52.8%.",
-      "validated_at": "2026-03-16T21:48:43.833710+00:00"
+      "validated_at": "2026-03-16T21:55:09.388478+00:00"
     }
   ],
   "no_picks": [],
@@ -773,11 +773,11 @@
       "volume_total": 478893.72015399893,
       "liquidity": 15367.6362,
       "end_date": "2026-04-01T04:00:00+00:00",
-      "days_to_res": 15.259527674988426,
+      "days_to_res": 15.255039351597222,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-bitcoin-hit-150k-by-march-31-2026",
-      "fetched_at": "2026-03-16T21:46:16.808897+00:00",
+      "fetched_at": "2026-03-16T21:52:44.600038+00:00",
       "yes_price_24h_ago": 0.5,
       "yes_price_72h_ago": 0.5,
       "spread": null,
@@ -838,7 +838,7 @@
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-16T21:48:01.989582+00:00",
+      "scored_at": "2026-03-16T21:54:26.890098+00:00",
       "return_estimate": {
         "stake": 10.24,
         "direction": "YES",
@@ -905,7 +905,7 @@
       "live_passes": true,
       "validation_status": "stale",
       "validation_note": "Price drifted -49.2% since scoring (50.0% \u2192 0.8%). Edge still +51.3%.",
-      "validated_at": "2026-03-16T21:48:45.154886+00:00"
+      "validated_at": "2026-03-16T21:55:10.634423+00:00"
     },
     {
       "id": "polymarket::0x0622b01925e56a091f248c42fb194d3b86d58165f6647d6bcb7afc6fb4638531",
@@ -921,13 +921,13 @@
       "no_price": 0.9985,
       "volume_24h": 71319.86899999999,
       "volume_total": 1689314.9996200108,
-      "liquidity": 72155.38159,
+      "liquidity": 72241.48359,
       "end_date": "2026-06-21T14:00:00+00:00",
-      "days_to_res": 96.67619909439814,
+      "days_to_res": 96.6717104005324,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-mauricio-cardenas-win-the-2026-colombian-presidential-election",
-      "fetched_at": "2026-03-16T21:46:16.398251+00:00",
+      "fetched_at": "2026-03-16T21:52:44.221401+00:00",
       "yes_price_24h_ago": 0.5,
       "yes_price_72h_ago": 0.5,
       "spread": null,
@@ -989,7 +989,7 @@
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-16T21:47:41.050125+00:00",
+      "scored_at": "2026-03-16T21:54:05.801525+00:00",
       "return_estimate": {
         "stake": 14.82,
         "direction": "YES",
@@ -1056,7 +1056,7 @@
       "live_passes": true,
       "validation_status": "stale",
       "validation_note": "Price drifted -49.9% since scoring (50.0% \u2192 0.1%). Edge still +52.8%.",
-      "validated_at": "2026-03-16T21:48:45.467066+00:00"
+      "validated_at": "2026-03-16T21:55:10.945971+00:00"
     },
     {
       "id": "polymarket::0xd6591e966aebf061547ef34cdf3494ed318969887c8b7fb53f10ed5d5461a547",
@@ -1068,17 +1068,17 @@
       "description": "Colombia's presidential elections are scheduled for May 31, 2026, and a second round (if required) on June 21, 2026, in case no candidate secures more than 50% of the valid votes in the first round.\n\nThis market will resolve according to the listed candidate that wins this election. \n\nThis market includes any potential second round. If the result of this election isn't known by December 31, 2026, 11:59 PM ET, the market will resolve to \"Other\".\n\nThis market will resolve based on the election results, as indicated by a consensus of credible reporting. If there is ambiguity, this market will resolve based solely on the official results as reported by Colombia's National Civil Registry (Registradur\u00eda Nacional del Estado Civil) (https://registraduria.gov.co).",
       "tags": [],
       "category": "politics",
-      "yes_price": 0.4045,
-      "no_price": 0.5955,
+      "yes_price": 0.406,
+      "no_price": 0.594,
       "volume_24h": 61161.55646,
-      "volume_total": 420160.3440400002,
-      "liquidity": 22144.37672,
+      "volume_total": 420166.7940400002,
+      "liquidity": 22837.32278,
       "end_date": "2026-06-21T14:00:00+00:00",
-      "days_to_res": 96.6761990927199,
+      "days_to_res": 96.67171039909722,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-paloma-valencia-win-the-2026-colombian-presidential-election",
-      "fetched_at": "2026-03-16T21:46:16.398396+00:00",
+      "fetched_at": "2026-03-16T21:52:44.221524+00:00",
       "yes_price_24h_ago": 0.5,
       "yes_price_72h_ago": 0.5,
       "spread": null,
@@ -1140,7 +1140,7 @@
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-16T21:47:42.875468+00:00",
+      "scored_at": "2026-03-16T21:54:07.653601+00:00",
       "return_estimate": {
         "stake": 14.82,
         "direction": "YES",
@@ -1200,14 +1200,14 @@
       },
       "macro": true,
       "price_at_signal": 0.5,
-      "price_drift": -9.55,
-      "live_edge": 12.5,
+      "price_drift": -9.4,
+      "live_edge": 12.4,
       "live_spread": null,
       "live_depth": 0,
       "live_passes": true,
       "validation_status": "stale",
-      "validation_note": "Price drifted -9.6% since scoring (50.0% \u2192 40.5%). Edge still +12.5%.",
-      "validated_at": "2026-03-16T21:48:45.780603+00:00"
+      "validation_note": "Price drifted -9.4% since scoring (50.0% \u2192 40.6%). Edge still +12.4%.",
+      "validated_at": "2026-03-16T21:55:11.257219+00:00"
     }
   ],
   "universe": 722,
@@ -1217,7 +1217,7 @@
   "correlation_flags": [
     "Correlation guard: dropped 'Will Luis Gilberto Murillo win the 2026 Colom\u2026' (3rd politics pick \u2014 portfolio already has 2)"
   ],
-  "validated_at": "2026-03-16T21:48:46.305106+00:00",
+  "validated_at": "2026-03-16T21:55:11.767756+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
@@ -1272,5 +1272,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-03-16T21:48:46.318810+00:00"
+  "saved_at": "2026-03-16T21:55:11.780815+00:00"
 }
