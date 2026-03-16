@@ -1,0 +1,16 @@
+# PredictOS — Python dependencies
+# All packages have free tiers; no paid services required
+
+# HTTP & feeds
+requests>=2.31.0
+feedparser>=6.0.11
+
+# Data & ML
+numpy>=1.26.0
+xgboost>=2.0.3
+
+# Utilities
+python-dateutil>=2.9.0
+
+# Optional: faster JSON
+# orjson>=3.9.0
