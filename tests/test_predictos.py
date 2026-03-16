@@ -181,7 +181,8 @@ class TestScorer(unittest.TestCase):
     def test_composite_weights(self):
         pillars = {"momentum": 80, "volume": 70, "sentiment": 60, "edge": 90, "decay": 50}
         score = compute_composite(pillars)
-        expected = (0.25*80 + 0.20*70 + 0.25*60 + 0.20*90 + 0.10*50)
+        import config as cfg
+        expected = sum(cfg.PILLAR_WEIGHTS[k] * v for k, v in pillars.items())
         self.assertAlmostEqual(score, expected, delta=0.1)
 
     def test_filter_binary_event_risk(self):
