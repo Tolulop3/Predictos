@@ -87,21 +87,29 @@ def _pick_card(pick: dict, side: str, rank: int, paper_status: str = "accumulati
     edge_sign  = f"+{edge:.1f}%" if edge >= 0 else f"{edge:.1f}%"
 
     # Validation badge
-    val_map = {"valid":("✓ LIVE","#00ff88"),"stale":("⚠ STALE","#ffd700"),
-               "edge_gone":("✗ EDGE GONE","#ff4466"),"unavailable":("◎ UNVERIFIED","#5a7a9a")}
+    val_map = {
+        "valid":        ("✓ LIVE",      "#00ff88"),
+        "stale":        ("⚠ STALE",     "#ffd700"),
+        "edge_gone":    ("✗ EDGE GONE", "#ff4466"),
+        "unavailable":  ("◎ UNVERIFIED","#5a7a9a"),
+        "exit_signal":  ("⚡ EXIT NOW",  "#ff9900"),
+        "extreme_longshot": ("✗ BLOCKED","#ff4466"),
+    }
     val_label, val_color = val_map.get(val_status, ("?","#5a7a9a"))
 
     # Action label
-    if cb:
-        act_label, act_color = "⏸ HALTED",    "#5a7a9a"
+    if val_status == "exit_signal":
+        act_label, act_color = "⚡ TAKE PROFIT", "#ff9900"
+    elif cb:
+        act_label, act_color = "⏸ HALTED",       "#5a7a9a"
     elif paper_status == "validated" and conf == "HIGH":
-        act_label, act_color = "▶ FOLLOW",     "#00ff88"
+        act_label, act_color = "▶ FOLLOW",        "#00ff88"
     elif paper_status == "validated":
-        act_label, act_color = "◎ OPTIONAL",   "#00aaff"
+        act_label, act_color = "◎ OPTIONAL",      "#00aaff"
     elif paper_status == "promising" and conf == "HIGH":
-        act_label, act_color = "▶ OPTIONAL",   "#ffd700"
+        act_label, act_color = "▶ OPTIONAL",      "#ffd700"
     else:
-        act_label, act_color = "◎ PAPER",      "#ffd700"
+        act_label, act_color = "◎ PAPER",         "#ffd700"
 
     conf_cls = {"HIGH":"conf-high","MEDIUM":"conf-mid","LOW":"conf-low"}.get(conf,"conf-low")
 
