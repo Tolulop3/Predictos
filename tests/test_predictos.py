@@ -199,15 +199,20 @@ class TestScorer(unittest.TestCase):
 
     def test_filter_graham_edge(self):
         m = make_market(yes_price=0.50)
-        # When model IS trained: edge < 6% should block (model=0.55, market=0.50 → 5% edge)
+        # When model IS trained: 2x rule — model=0.55 on market=0.50 fails (0.50 > 0.55*0.5=0.275)
         passes, flags = apply_filters(m, {"article_count": 5}, 0.55, 0.7, model_is_trained=True)
         self.assertFalse(passes)
         self.assertIn("insufficient_edge", flags)
 
-        # When model is NOT trained: 2% threshold — same 5% edge should PASS
+        # When model is NOT trained: need 10% edge — model=0.55, market=0.50 → 5% edge → FAIL
         passes2, flags2 = apply_filters(m, {"article_count": 5}, 0.55, 0.7, model_is_trained=False)
-        self.assertTrue(passes2)
-        self.assertNotIn("insufficient_edge", flags2)
+        self.assertFalse(passes2)
+        self.assertIn("insufficient_edge", flags2)
+
+        # When model is NOT trained: 15% edge → model=0.65, market=0.50 → 15% edge → PASS
+        passes3, flags3 = apply_filters(m, {"article_count": 5}, 0.65, 0.7, model_is_trained=False)
+        self.assertTrue(passes3)
+        self.assertNotIn("insufficient_edge", flags3)
 
     def test_filter_passes(self):
         m = make_market(yes_price=0.40, volume_24h=50_000, days_to_res=10)
