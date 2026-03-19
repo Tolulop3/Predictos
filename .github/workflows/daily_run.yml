@@ -67,7 +67,9 @@ jobs:
           git add models/ || true
 
           git diff --staged --quiet || git commit -m "PredictOS daily run — $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git stash || true
           git pull --rebase origin main || true
+          git stash pop || true
           git push
 
       # ── Summary ──────────────────────────────────────────────────────────
