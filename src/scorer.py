@@ -227,7 +227,7 @@ def apply_filters(market: dict, sentiment: dict, model_prob: float,
         # Markets with no news coverage (article_count=0) are automatically excluded.
         edge_abs = abs(model_prob - yes_price)
         has_news = sentiment.get("article_count", 0) >= 1
-        if edge_abs < 0.02 or not has_news:
+        if edge_abs < 0.02:
             flags.append("insufficient_edge")
             passes = False
 
