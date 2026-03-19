@@ -12,15 +12,15 @@
       "category": "sports",
       "yes_price": 0.018,
       "no_price": 0.982,
-      "volume_24h": 12722.357192,
-      "volume_total": 4649547.875184978,
-      "liquidity": 68797.00097,
+      "volume_24h": 12475.127192000004,
+      "volume_total": 4649915.645184978,
+      "liquidity": 68127.38568,
       "end_date": "2026-04-13T00:00:00+00:00",
-      "days_to_res": 24.04721133986111,
+      "days_to_res": 24.028674671655093,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-jordan-spieth-win-the-2026-masters-tournament",
-      "fetched_at": "2026-03-19T22:52:00.940247+00:00",
+      "fetched_at": "2026-03-19T23:18:42.508380+00:00",
       "yes_price_24h_ago": 0.018,
       "yes_price_72h_ago": 0.018,
       "spread": null,
@@ -29,19 +29,19 @@
       "book_depth": 0,
       "yes_price_1h_ago": 0.018,
       "yes_price_4h_ago": 0.018,
-      "price_velocity": 0.6444,
+      "price_velocity": 0.6406,
       "vol_trend": -15.4,
       "pillars": {
         "momentum": 100.0,
-        "volume": 63.9,
-        "sentiment": 63.2,
+        "volume": 63.8,
+        "sentiment": 63.4,
         "edge": 56.8,
         "decay": 35.0
       },
       "composite": 65.2,
       "edge_pct": 2.7,
-      "model_prob": 0.5272,
-      "ml_confidence": 0.4713,
+      "model_prob": 0.5273,
+      "ml_confidence": 0.4714,
       "direction": "YES",
       "passes_filter": true,
       "flags": [
@@ -49,198 +49,52 @@
       ],
       "confidence": "MEDIUM",
       "sizing": {
-        "kelly_f": 0.0544,
+        "kelly_f": 0.0546,
         "frac_kelly": 0.0136,
-        "position_usd": 13.61,
+        "position_usd": 13.64,
         "max_usd": 20.0,
         "pct_bankroll": 1.36
       },
       "sentiment": {
-        "score": 0.5321,
-        "raw": 0.2141,
-        "article_count": 332,
+        "score": 0.5345,
+        "raw": 0.2306,
+        "article_count": 337,
         "signals": {
-          "S22": 36,
+          "S06": 32,
+          "S22": 37,
           "S18": 15,
-          "S21": 24,
+          "S09": 6,
+          "S02": 26,
+          "S17": 3,
+          "S21": 23,
           "S10": 6,
-          "S20": 4,
-          "S06": 27,
+          "S20": 3,
           "S03": 6,
           "S04": 8,
           "S08": 1,
-          "S09": 5,
-          "S02": 25,
-          "S16": 4,
-          "S07": 16,
+          "S16": 5,
+          "S07": 15,
           "S12": 4,
           "S01": 4,
           "S11": 4,
           "S13": 6,
           "S14": 8,
           "S05": 3,
-          "S19": 1,
-          "S17": 2
+          "S19": 1
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-19T22:53:52.548544+00:00",
+      "scored_at": "2026-03-19T23:20:24.131569+00:00",
       "return_estimate": {
-        "stake": 13.61,
+        "stake": 13.64,
         "direction": "YES",
         "entry_price": 0.5,
-        "shares": 27.22,
-        "gross_win": 27.22,
-        "net_profit": 13.61,
+        "shares": 27.28,
+        "gross_win": 27.28,
+        "net_profit": 13.64,
         "pct_return": 100.0,
         "decimal_odds": 2.0,
-        "net_loss": -13.61,
-        "expected_value": 0.74,
-        "ev_pct": 5.44,
-        "is_positive_ev": true,
-        "edge": 0.0272,
-        "break_even_prob": 0.5,
-        "ci": {
-          "ev_low": -6.85,
-          "ev_central": 0.74,
-          "ev_high": 8.33,
-          "return_low": -50.3,
-          "return_central": 5.4,
-          "return_high": 61.2,
-          "calibration_error": 0.2788,
-          "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
-        },
-        "scenarios": [
-          {
-            "label": "Bear case",
-            "model_prob": 0.377,
-            "expected_value": -3.34,
-            "ev_pct": -24.56,
-            "is_positive_ev": false
-          },
-          {
-            "label": "Base case",
-            "model_prob": 0.527,
-            "expected_value": 0.74,
-            "ev_pct": 5.44,
-            "is_positive_ev": true
-          },
-          {
-            "label": "Bull case",
-            "model_prob": 0.677,
-            "expected_value": 4.82,
-            "ev_pct": 35.44,
-            "is_positive_ev": true
-          },
-          {
-            "label": "Strong bull",
-            "model_prob": 0.777,
-            "expected_value": 7.55,
-            "ev_pct": 55.44,
-            "is_positive_ev": true
-          }
-        ],
-        "summary": "You stake $13.61 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$13.61 net profit (100% return). If wrong: -$13.61 (your full stake). Expected value: +0.74 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
-      },
-      "price_at_signal": 0.5,
-      "price_drift": -48.2,
-      "live_edge": 50.9,
-      "live_spread": null,
-      "live_depth": 0,
-      "live_passes": true,
-      "validation_status": "stale",
-      "validation_note": "Price drifted -48.2% since scoring (50.0% \u2192 1.8%). Edge still +50.9%.",
-      "validated_at": "2026-03-19T22:54:35.021152+00:00"
-    },
-    {
-      "id": "polymarket::0xcccb7e7613a087c132b69cbf3a02bece3fdcb824c1da54ae79acc8d4a562d902",
-      "source": "polymarket",
-      "slug": "gta-vi-released-before-june-2026",
-      "condition_id": "0xcccb7e7613a087c132b69cbf3a02bece3fdcb824c1da54ae79acc8d4a562d902",
-      "token_ids": [],
-      "question": "GTA VI released before June 2026?",
-      "description": "This market will resolve to \"Yes\" if it Grand Theft Auto VI is officially released in the US by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nFor the purposes of this market, \"release\" refers to the game becoming publicly available for purchase or download in the US. Early access, beta versions, other forms of pre-release availability, or leaks will not count as an official release. If the release is only for certain consoles (e.g. Xbox Series X/S) it will count.\n\nThe resolution source will be official information from Rockstar Games or its parent company, Take-Two Interactive.",
-      "tags": [
-        "Culture",
-        "GTA VI",
-        "Breaking News"
-      ],
-      "category": "other",
-      "yes_price": 0.0285,
-      "no_price": 0.9715,
-      "volume_24h": 21340.561972999996,
-      "volume_total": 12716567.183093999,
-      "liquidity": 58687.94431,
-      "end_date": "2026-05-31T12:00:00+00:00",
-      "days_to_res": 72.54722374150462,
-      "active": true,
-      "closed": false,
-      "url": "https://polymarket.com/event/gta-vi-released-before-june-2026",
-      "fetched_at": "2026-03-19T22:51:59.868752+00:00",
-      "yes_price_24h_ago": 0.0285,
-      "yes_price_72h_ago": 0.0285,
-      "spread": null,
-      "best_bid": null,
-      "best_ask": null,
-      "book_depth": 0,
-      "event_title": "GTA VI released before June 2026?",
-      "event_id": "23792",
-      "yes_price_1h_ago": 0.0285,
-      "yes_price_4h_ago": 0.0285,
-      "price_velocity": 0.6294,
-      "vol_trend": -41.6,
-      "pillars": {
-        "momentum": 100.0,
-        "volume": 64.5,
-        "sentiment": 63.3,
-        "edge": 56.8,
-        "decay": 0.0
-      },
-      "composite": 60.1,
-      "edge_pct": 2.7,
-      "model_prob": 0.5273,
-      "ml_confidence": 0.4713,
-      "direction": "YES",
-      "passes_filter": true,
-      "flags": [
-        "low_ml_confidence"
-      ],
-      "confidence": "MEDIUM",
-      "sizing": {
-        "kelly_f": 0.0545,
-        "frac_kelly": 0.0136,
-        "position_usd": 13.63,
-        "max_usd": 20.0,
-        "pct_bankroll": 1.36
-      },
-      "sentiment": {
-        "score": 0.5334,
-        "raw": 0.2231,
-        "article_count": 75,
-        "signals": {
-          "S22": 3,
-          "S18": 4,
-          "S21": 6,
-          "S06": 3,
-          "S02": 7,
-          "S01": 2,
-          "S07": 2,
-          "S09": 2,
-          "S17": 1
-        },
-        "category_fallback": false
-      },
-      "scored_at": "2026-03-19T22:53:48.936298+00:00",
-      "return_estimate": {
-        "stake": 13.63,
-        "direction": "YES",
-        "entry_price": 0.5,
-        "shares": 27.26,
-        "gross_win": 27.26,
-        "net_profit": 13.63,
-        "pct_return": 100.0,
-        "decimal_odds": 2.0,
-        "net_loss": -13.63,
+        "net_loss": -13.64,
         "expected_value": 0.74,
         "ev_pct": 5.46,
         "is_positive_ev": true,
@@ -249,7 +103,7 @@
         "ci": {
           "ev_low": -6.86,
           "ev_central": 0.74,
-          "ev_high": 8.34,
+          "ev_high": 8.35,
           "return_low": -50.3,
           "return_central": 5.5,
           "return_high": 61.2,
@@ -260,7 +114,7 @@
           {
             "label": "Bear case",
             "model_prob": 0.377,
-            "expected_value": -3.34,
+            "expected_value": -3.35,
             "ev_pct": -24.54,
             "is_positive_ev": false
           },
@@ -274,7 +128,7 @@
           {
             "label": "Bull case",
             "model_prob": 0.677,
-            "expected_value": 4.83,
+            "expected_value": 4.84,
             "ev_pct": 35.46,
             "is_positive_ev": true
           },
@@ -286,7 +140,153 @@
             "is_positive_ev": true
           }
         ],
-        "summary": "You stake $13.63 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$13.63 net profit (100% return). If wrong: -$13.63 (your full stake). Expected value: +0.74 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        "summary": "You stake $13.64 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$13.64 net profit (100% return). If wrong: -$13.64 (your full stake). Expected value: +0.74 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+      },
+      "price_at_signal": 0.5,
+      "price_drift": -48.2,
+      "live_edge": 50.9,
+      "live_spread": null,
+      "live_depth": 0,
+      "live_passes": true,
+      "validation_status": "stale",
+      "validation_note": "Price drifted -48.2% since scoring (50.0% \u2192 1.8%). Edge still +50.9%.",
+      "validated_at": "2026-03-19T23:21:13.238595+00:00"
+    },
+    {
+      "id": "polymarket::0xcccb7e7613a087c132b69cbf3a02bece3fdcb824c1da54ae79acc8d4a562d902",
+      "source": "polymarket",
+      "slug": "gta-vi-released-before-june-2026",
+      "condition_id": "0xcccb7e7613a087c132b69cbf3a02bece3fdcb824c1da54ae79acc8d4a562d902",
+      "token_ids": [],
+      "question": "GTA VI released before June 2026?",
+      "description": "This market will resolve to \"Yes\" if it Grand Theft Auto VI is officially released in the US by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nFor the purposes of this market, \"release\" refers to the game becoming publicly available for purchase or download in the US. Early access, beta versions, other forms of pre-release availability, or leaks will not count as an official release. If the release is only for certain consoles (e.g. Xbox Series X/S) it will count.\n\nThe resolution source will be official information from Rockstar Games or its parent company, Take-Two Interactive.",
+      "tags": [
+        "GTA VI",
+        "Culture",
+        "Breaking News"
+      ],
+      "category": "other",
+      "yes_price": 0.0285,
+      "no_price": 0.9715,
+      "volume_24h": 21272.781972999997,
+      "volume_total": 12716567.183093999,
+      "liquidity": 58829.55624,
+      "end_date": "2026-05-31T12:00:00+00:00",
+      "days_to_res": 72.52869201962963,
+      "active": true,
+      "closed": false,
+      "url": "https://polymarket.com/event/gta-vi-released-before-june-2026",
+      "fetched_at": "2026-03-19T23:18:41.009524+00:00",
+      "yes_price_24h_ago": 0.0285,
+      "yes_price_72h_ago": 0.0285,
+      "spread": null,
+      "best_bid": null,
+      "best_ask": null,
+      "book_depth": 0,
+      "event_title": "GTA VI released before June 2026?",
+      "event_id": "23792",
+      "yes_price_1h_ago": 0.0285,
+      "yes_price_4h_ago": 0.0285,
+      "price_velocity": 0.6257,
+      "vol_trend": -41.6,
+      "pillars": {
+        "momentum": 100.0,
+        "volume": 64.5,
+        "sentiment": 62.6,
+        "edge": 56.8,
+        "decay": 0.0
+      },
+      "composite": 59.9,
+      "edge_pct": 2.7,
+      "model_prob": 0.527,
+      "ml_confidence": 0.4711,
+      "direction": "YES",
+      "passes_filter": true,
+      "flags": [
+        "low_ml_confidence"
+      ],
+      "confidence": "LOW",
+      "sizing": {
+        "kelly_f": 0.0541,
+        "frac_kelly": 0.0135,
+        "position_usd": 13.52,
+        "max_usd": 20.0,
+        "pct_bankroll": 1.35
+      },
+      "sentiment": {
+        "score": 0.5264,
+        "raw": 0.1763,
+        "article_count": 77,
+        "signals": {
+          "S18": 4,
+          "S22": 4,
+          "S17": 2,
+          "S21": 4,
+          "S06": 3,
+          "S02": 7,
+          "S01": 2,
+          "S07": 2,
+          "S09": 2
+        },
+        "category_fallback": false
+      },
+      "scored_at": "2026-03-19T23:20:19.919176+00:00",
+      "return_estimate": {
+        "stake": 13.52,
+        "direction": "YES",
+        "entry_price": 0.5,
+        "shares": 27.04,
+        "gross_win": 27.04,
+        "net_profit": 13.52,
+        "pct_return": 100.0,
+        "decimal_odds": 2.0,
+        "net_loss": -13.52,
+        "expected_value": 0.73,
+        "ev_pct": 5.4,
+        "is_positive_ev": true,
+        "edge": 0.027,
+        "break_even_prob": 0.5,
+        "ci": {
+          "ev_low": -6.81,
+          "ev_central": 0.73,
+          "ev_high": 8.27,
+          "return_low": -50.4,
+          "return_central": 5.4,
+          "return_high": 61.2,
+          "calibration_error": 0.2788,
+          "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        },
+        "scenarios": [
+          {
+            "label": "Bear case",
+            "model_prob": 0.377,
+            "expected_value": -3.33,
+            "ev_pct": -24.6,
+            "is_positive_ev": false
+          },
+          {
+            "label": "Base case",
+            "model_prob": 0.527,
+            "expected_value": 0.73,
+            "ev_pct": 5.4,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Bull case",
+            "model_prob": 0.677,
+            "expected_value": 4.79,
+            "ev_pct": 35.4,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Strong bull",
+            "model_prob": 0.777,
+            "expected_value": 7.49,
+            "ev_pct": 55.4,
+            "is_positive_ev": true
+          }
+        ],
+        "summary": "You stake $13.52 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$13.52 net profit (100% return). If wrong: -$13.52 (your full stake). Expected value: +0.73 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
       },
       "price_at_signal": 0.5,
       "price_drift": -47.15,
@@ -296,7 +296,7 @@
       "live_passes": true,
       "validation_status": "stale",
       "validation_note": "Price drifted -47.1% since scoring (50.0% \u2192 2.9%). Edge still +49.9%.",
-      "validated_at": "2026-03-19T22:54:35.383400+00:00"
+      "validated_at": "2026-03-19T23:21:13.594247+00:00"
     }
   ],
   "no_picks": [],
@@ -306,7 +306,7 @@
   "run_date": "2026-03-19",
   "rejected_picks": [],
   "correlation_flags": [],
-  "validated_at": "2026-03-19T22:54:35.583672+00:00",
+  "validated_at": "2026-03-19T23:21:13.794495+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
@@ -361,5 +361,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-03-19T22:54:35.584583+00:00"
+  "saved_at": "2026-03-19T23:21:13.795840+00:00"
 }
