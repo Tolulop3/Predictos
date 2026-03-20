@@ -59,17 +59,19 @@ jobs:
           git config --global user.name  "PredictOS Bot"
           git config --global user.email "predictos-bot@users.noreply.github.com"
 
+          # Only commit the files that need to persist — never tick data or training store
           git add index.html
           git add data/picks.json
-          git add data/scores.json
           git add data/outcomes.json
           git add data/history.json
           git add models/ || true
 
+          # Commit only if something changed
           git diff --staged --quiet || git commit -m "PredictOS daily run — $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git stash || true
-          git pull --rebase origin main || true
-          git stash pop || true
+
+          # Pull any manual edits before pushing
+          git fetch origin main
+          git rebase origin/main || (git rebase --abort && git push --force-with-lease)
           git push
 
       # ── Summary ──────────────────────────────────────────────────────────
