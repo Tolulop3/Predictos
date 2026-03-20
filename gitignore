@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.DS_Store
+
+# Runtime data — rebuilt every run, never commit
+data/ticks/
+data/training_store.json
+data/paper_trades.json
+data/learning_report.json
+data/scores.json
