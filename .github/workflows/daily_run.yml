@@ -42,6 +42,21 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      # ── Restore persistent data (ticks + training store) ──────────────────
+      # Fresh checkout wipes data/ every run. Cache preserves tick history
+      # and training_store.json across runs so momentum and ML learning work.
+      - name: Restore data cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            data/ticks
+            data/training_store.json
+            data/paper_trades.json
+          key: predictos-data-${{ runner.os }}-${{ hashFiles('src/tick_store.py') }}
+          restore-keys: |
+            predictos-data-${{ runner.os }}-
+            predictos-data-
+
       # ── Run pipeline ──────────────────────────────────────────────────────
       - name: Run PredictOS pipeline
         env:
@@ -59,9 +74,7 @@ jobs:
           git config --global user.name  "PredictOS Bot"
           git config --global user.email "predictos-bot@users.noreply.github.com"
 
-          # Remove tick/runtime files from git tracking (gitignore won't help if already tracked)
-          git rm -r --cached data/ticks/ data/training_store.json data/scores.json data/learning_report.json data/paper_trades.json 2>/dev/null || true
-
+          # Tick/runtime files are gitignored and cache-managed — no git rm needed
           # Stage only the 4 files that need to persist
           git add index.html
           git add data/picks.json
