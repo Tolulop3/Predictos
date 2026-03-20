@@ -85,9 +85,7 @@ jobs:
           # Commit if anything staged changed
           git diff --staged --quiet || git commit -m "PredictOS daily run — $(date -u '+%Y-%m-%d %H:%M UTC')"
 
-          # Discard any remaining unstaged changes (tick files etc) then sync with remote
-          git checkout -- . 2>/dev/null || true
-          git clean -fd data/ticks/ 2>/dev/null || true
+          # Sync with remote — do NOT checkout/clean (deletes ticks before cache saves)
           git fetch origin main
           git rebase origin/main || (git rebase --abort && git push --force-with-lease && exit 0)
           git push
