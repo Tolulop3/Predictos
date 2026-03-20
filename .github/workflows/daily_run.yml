@@ -52,7 +52,7 @@ jobs:
             data/ticks
             data/training_store.json
             data/paper_trades.json
-          key: predictos-data-${{ runner.os }}-${{ hashFiles('src/tick_store.py') }}
+          key: predictos-data-${{ runner.os }}-${{ github.run_id }}
           restore-keys: |
             predictos-data-${{ runner.os }}-
             predictos-data-
