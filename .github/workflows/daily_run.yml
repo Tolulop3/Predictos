@@ -75,8 +75,12 @@ jobs:
           git config --global user.email "predictos-bot@users.noreply.github.com"
 
           # Tick/runtime files are gitignored and cache-managed — no git rm needed
-          # Stage only the 4 files that need to persist
+          # Copy dashboard to docs/ so GitHub Pages (served from /docs) stays current
+          cp index.html docs/index.html
+
+          # Stage only the files that need to persist
           git add index.html
+          git add docs/index.html
           git add data/picks.json
           git add data/outcomes.json
           git add data/history.json
