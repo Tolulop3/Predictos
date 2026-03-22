@@ -1,27 +1,27 @@
 {
   "yes_picks": [
     {
-      "id": "polymarket::0x068d4f079da544e312b1a7b86e2c5dd39d3fc6a0f5a21b0ec866d1ff34767839",
+      "id": "polymarket::0x1480b819d03d4b6388d70e848b0384adf38c38d955cb783cdbcf6d4a436dee14",
       "source": "polymarket",
-      "slug": "will-the-next-prime-minister-of-hungary-be-istvn-kapitny",
-      "condition_id": "0x068d4f079da544e312b1a7b86e2c5dd39d3fc6a0f5a21b0ec866d1ff34767839",
+      "slug": "will-the-next-prime-minister-of-hungary-be-pter-magyar",
+      "condition_id": "0x1480b819d03d4b6388d70e848b0384adf38c38d955cb783cdbcf6d4a436dee14",
       "token_ids": [],
-      "question": "Will the next Prime Minister of Hungary be Istv\u00e1n Kapit\u00e1ny?",
+      "question": "Will the next Prime Minister of Hungary be P\u00e9ter Magyar?",
       "description": "Parliamentary elections are scheduled to be held in Hungary on April 12 2026.\n\nThis market will resolve to the individual who is next officially appointed and confirmed as Prime Minister of Hungary following the 2026 parliamentary election.\n\nTo count for resolution, the individual must be formally elected and appointed to the role of Prime Minister. Any interim or caretaker Prime Minister will not count toward the resolution of this market.\n\nIf no such Prime Minister is confirmed by December 31, 2026, 11:59 PM ET, this market will resolve to \u201cOther.\u201d\n\nThe primary resolution source for this market will be official information from the Government of Hungary; however, a consensus of credible reporting may also be used.",
       "tags": [],
       "category": "other",
-      "yes_price": 0.0025,
-      "no_price": 0.9975,
-      "volume_24h": 16153.773500000001,
-      "volume_total": 8914453.175105976,
-      "liquidity": 235402.70995,
+      "yes_price": 0.635,
+      "no_price": 0.365,
+      "volume_24h": 95394.868798,
+      "volume_total": 3772847.96244096,
+      "liquidity": 114148.8492,
       "end_date": "2026-04-12T00:00:00+00:00",
-      "days_to_res": 21.284790915578704,
+      "days_to_res": 20.67973377611111,
       "active": true,
       "closed": false,
-      "url": "https://polymarket.com/event/will-the-next-prime-minister-of-hungary-be-istvn-kapitny",
-      "fetched_at": "2026-03-21T17:09:54.064912+00:00",
-      "yes_price_24h_ago": 0.01,
+      "url": "https://polymarket.com/event/will-the-next-prime-minister-of-hungary-be-pter-magyar",
+      "fetched_at": "2026-03-22T07:41:11.001773+00:00",
+      "yes_price_24h_ago": 0.5,
       "yes_price_72h_ago": 0.5,
       "spread": null,
       "best_bid": null,
@@ -29,18 +29,18 @@
       "book_depth": 0,
       "yes_price_1h_ago": 0.5,
       "yes_price_4h_ago": 0.5,
-      "price_velocity": 0.8654,
+      "price_velocity": 0.1167,
       "pillars": {
-        "momentum": 100.0,
-        "volume": 70.2,
-        "sentiment": 60.1,
-        "edge": 56.6,
-        "decay": 35.0
+        "momentum": 92.7,
+        "volume": 71.5,
+        "sentiment": 62.0,
+        "edge": 54.2,
+        "decay": 53.0
       },
-      "composite": 65.6,
-      "edge_pct": 2.6,
-      "model_prob": 0.5263,
-      "ml_confidence": 0.47,
+      "composite": 67.1,
+      "edge_pct": 1.7,
+      "model_prob": 0.6517,
+      "ml_confidence": 0.4573,
       "direction": "YES",
       "passes_filter": true,
       "flags": [
@@ -48,256 +48,115 @@
       ],
       "confidence": "MEDIUM",
       "sizing": {
-        "kelly_f": 0.0526,
-        "frac_kelly": 0.0131,
-        "position_usd": 13.14,
+        "kelly_f": 0.0458,
+        "frac_kelly": 0.0114,
+        "position_usd": 11.45,
         "max_usd": 20.0,
-        "pct_bankroll": 1.31
+        "pct_bankroll": 1.14
       },
       "sentiment": {
-        "score": 0.5009,
-        "raw": 0.0059,
-        "article_count": 220,
+        "score": 0.5197,
+        "raw": 0.1316,
+        "article_count": 198,
         "signals": {
-          "S21": 28,
-          "S13": 6,
-          "S20": 3,
+          "S06": 22,
+          "S16": 8,
           "S22": 24,
-          "S09": 5,
-          "S07": 12,
+          "S19": 1,
+          "S07": 5,
+          "S13": 4,
+          "S18": 3,
+          "S21": 18,
+          "S03": 8,
           "S02": 5,
-          "S10": 4,
-          "S06": 17,
-          "S18": 7,
-          "S17": 6,
-          "S05": 4,
-          "S16": 5,
-          "S11": 2,
-          "S08": 1,
-          "S03": 2,
-          "S12": 1,
-          "S04": 2,
-          "S01": 1
+          "S17": 3,
+          "S11": 3,
+          "S01": 1,
+          "S10": 1,
+          "S04": 4,
+          "S09": 4,
+          "S20": 1,
+          "S08": 1
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-21T17:11:16.982558+00:00",
+      "scored_at": "2026-03-22T07:42:44.521827+00:00",
       "return_estimate": {
-        "stake": 13.14,
+        "stake": 11.45,
         "direction": "YES",
-        "entry_price": 0.5,
-        "shares": 26.28,
-        "gross_win": 26.28,
-        "net_profit": 13.14,
-        "pct_return": 100.0,
-        "decimal_odds": 2.0,
-        "net_loss": -13.14,
-        "expected_value": 0.69,
-        "ev_pct": 5.26,
+        "entry_price": 0.635,
+        "shares": 18.0315,
+        "gross_win": 18.03,
+        "net_profit": 6.58,
+        "pct_return": 57.5,
+        "decimal_odds": 1.575,
+        "net_loss": -11.45,
+        "expected_value": 0.3,
+        "ev_pct": 2.62,
         "is_positive_ev": true,
-        "edge": 0.0263,
-        "break_even_prob": 0.5,
+        "edge": 0.0167,
+        "break_even_prob": 0.635,
         "ci": {
-          "ev_low": -6.64,
-          "ev_central": 0.69,
-          "ev_high": 8.02,
-          "return_low": -50.5,
-          "return_central": 5.3,
-          "return_high": 61.0,
+          "ev_low": -4.73,
+          "ev_central": 0.3,
+          "ev_high": 5.33,
+          "return_low": -41.3,
+          "return_central": 2.6,
+          "return_high": 46.6,
           "calibration_error": 0.2788,
           "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
         },
         "scenarios": [
           {
             "label": "Bear case",
-            "model_prob": 0.376,
-            "expected_value": -3.25,
-            "ev_pct": -24.74,
+            "model_prob": 0.502,
+            "expected_value": -2.4,
+            "ev_pct": -21.0,
             "is_positive_ev": false
           },
           {
             "label": "Base case",
-            "model_prob": 0.526,
-            "expected_value": 0.69,
-            "ev_pct": 5.26,
+            "model_prob": 0.652,
+            "expected_value": 0.3,
+            "ev_pct": 2.62,
             "is_positive_ev": true
           },
           {
             "label": "Bull case",
-            "model_prob": 0.676,
-            "expected_value": 4.63,
-            "ev_pct": 35.26,
+            "model_prob": 0.802,
+            "expected_value": 3.0,
+            "ev_pct": 26.24,
             "is_positive_ev": true
           },
           {
             "label": "Strong bull",
-            "model_prob": 0.776,
-            "expected_value": 7.26,
-            "ev_pct": 55.26,
+            "model_prob": 0.902,
+            "expected_value": 4.81,
+            "ev_pct": 41.99,
             "is_positive_ev": true
           }
         ],
-        "summary": "You stake $13.14 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$13.14 net profit (100% return). If wrong: -$13.14 (your full stake). Expected value: +0.69 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        "summary": "You stake $11.45 on YES at 64% market price. Model estimates 65% chance of YES resolving \u2014 vs 64% market price. If correct: +$6.58 net profit (58% return). If wrong: -$11.45 (your full stake). Expected value: +0.30 per trade at this stake. Break-even: you need 64% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
       },
-      "price_at_signal": 0.5,
-      "price_drift": -49.75,
-      "live_edge": 52.4,
-      "live_spread": null,
-      "live_depth": 0,
-      "live_passes": true,
-      "validation_status": "stale",
-      "validation_note": "Price drifted -49.8% since scoring (50.0% \u2192 0.2%). Edge still +52.4%.",
-      "validated_at": "2026-03-21T17:12:05.363603+00:00"
-    }
-  ],
-  "no_picks": [
-    {
-      "id": "polymarket::0xb48621f7eba07b0a3eeabc6afb09ae42490239903997b9d412b0f69aeb040c8b",
-      "source": "polymarket",
-      "slug": "bitboy-convicted",
-      "condition_id": "0xb48621f7eba07b0a3eeabc6afb09ae42490239903997b9d412b0f69aeb040c8b",
-      "token_ids": [],
-      "question": "BitBoy convicted?",
-      "description": "BitBoy was recently arrested due to a warrant issued for threatening communications he sent to a Judge. You can read more about that here: https://www.binance.com/en/square/post/22059661159362\n\nThis market will resolve to \"Yes\" if BitBoy (Ben Armstrong) is convicted of any charges related to the emails he sent to Judge Kimberly Childs, by March 31, 2026 ET. Otherwise, this market will resolve to \"No\".\n\nConvictions must be for criminal charges.\n\nIf the case is completely dropped for whatever reason, due to a plea agreement without an admission of guilt, a dismissal, or any other situation occurs in which no judgement is rendered or will be rendered by the court, this market will resolve to \"No\".\n\nOnce an individual is convicted it qualifies for an immediate \"Yes\" resolution, regardless of later appeals, etc. This market will resolve based on the first conviction in a qualifying case.\n\nThe primary resolution source will be official court records, however a consensus of credible reporting will also be used.",
-      "tags": [
-        "Culture",
-        "Courts",
-        "bitboy",
-        "Other",
-        "Crypto"
-      ],
-      "category": "crypto",
-      "yes_price": 0.276,
-      "no_price": 0.724,
-      "volume_24h": 5549.391833000001,
-      "volume_total": 164943.62389399853,
-      "liquidity": 2399.80955,
-      "end_date": "2026-03-31T12:00:00+00:00",
-      "days_to_res": 9.784801763217592,
-      "active": true,
-      "closed": false,
-      "url": "https://polymarket.com/event/bitboy-convicted",
-      "fetched_at": "2026-03-21T17:09:53.127699+00:00",
-      "yes_price_24h_ago": 0.5,
-      "yes_price_72h_ago": 0.5,
-      "spread": null,
-      "best_bid": null,
-      "best_ask": null,
-      "book_depth": 0,
-      "event_title": "BitBoy convicted?",
-      "event_id": "21662",
-      "yes_price_1h_ago": 0.5,
-      "yes_price_4h_ago": 0.5,
-      "price_velocity": 0.0,
-      "pillars": {
-        "momentum": 50.0,
-        "volume": 52.3,
-        "sentiment": 23.7,
-        "edge": 46.4,
-        "decay": 52.5
-      },
-      "composite": 43.5,
-      "edge_pct": -1.4,
-      "model_prob": 0.4857,
-      "ml_confidence": 0.4541,
-      "direction": "NO",
-      "passes_filter": true,
-      "flags": [
-        "low_ml_confidence"
-      ],
-      "confidence": "LOW",
-      "sizing": {
-        "kelly_f": 0.0,
-        "frac_kelly": 0.0,
-        "position_usd": 0.0,
-        "max_usd": 20.0,
-        "pct_bankroll": 0.0
-      },
-      "sentiment": {
-        "score": 0.2423,
-        "raw": -1.9,
-        "article_count": 1,
-        "signals": {
-          "S13": 1
-        },
-        "category_fallback": false
-      },
-      "scored_at": "2026-03-21T17:11:23.521339+00:00",
-      "return_estimate": {
-        "stake": 1,
-        "direction": "NO",
-        "entry_price": 0.5,
-        "shares": 2.0,
-        "gross_win": 2.0,
-        "net_profit": 1.0,
-        "pct_return": 100.0,
-        "decimal_odds": 2.0,
-        "net_loss": -1,
-        "expected_value": 0.03,
-        "ev_pct": 2.86,
-        "is_positive_ev": true,
-        "edge": 0.0143,
-        "break_even_prob": 0.5,
-        "ci": {
-          "ev_low": 0.53,
-          "ev_central": 0.03,
-          "ev_high": -0.59,
-          "return_low": 53.0,
-          "return_central": 2.9,
-          "return_high": -59.0,
-          "calibration_error": 0.2788,
-          "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
-        },
-        "scenarios": [
-          {
-            "label": "Bear case",
-            "model_prob": 0.336,
-            "expected_value": 0.33,
-            "ev_pct": 32.86,
-            "is_positive_ev": true
-          },
-          {
-            "label": "Base case",
-            "model_prob": 0.486,
-            "expected_value": 0.03,
-            "ev_pct": 2.86,
-            "is_positive_ev": true
-          },
-          {
-            "label": "Bull case",
-            "model_prob": 0.636,
-            "expected_value": -0.27,
-            "ev_pct": -27.14,
-            "is_positive_ev": false
-          },
-          {
-            "label": "Strong bull",
-            "model_prob": 0.736,
-            "expected_value": -0.47,
-            "ev_pct": -47.14,
-            "is_positive_ev": false
-          }
-        ],
-        "summary": "You stake $1.00 on NO at 50% market price. Model estimates 49% chance of NO resolving \u2014 vs 50% market price. If correct: +$1.00 net profit (100% return). If wrong: -$1.00 (your full stake). Expected value: +0.03 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
-      },
-      "price_at_signal": 0.5,
-      "price_drift": -22.4,
-      "live_edge": -21.0,
+      "price_at_signal": 0.635,
+      "price_drift": 0.0,
+      "live_edge": 1.7,
       "live_spread": null,
       "live_depth": 0,
       "live_passes": true,
       "validation_status": "exit_signal",
-      "validation_note": "EXIT SIGNAL: Market (27.6%) reached 156% of model target (46.3%). Reason: target_reached. Consider closing position.",
-      "validated_at": "2026-03-21T17:12:05.679108+00:00"
+      "validation_note": "EXIT SIGNAL: Market (63.5%) reached 108% of model target (58.7%). Reason: target_reached. Consider closing position.",
+      "validated_at": "2026-03-22T07:43:50.205116+00:00"
     }
   ],
+  "no_picks": [],
   "macro_plays": [],
-  "universe": 750,
-  "filtered_in": 2,
-  "run_date": "2026-03-21",
+  "universe": 743,
+  "filtered_in": 1,
+  "run_date": "2026-03-22",
   "rejected_picks": [],
   "correlation_flags": [],
-  "validated_at": "2026-03-21T17:12:05.879331+00:00",
+  "validated_at": "2026-03-22T07:43:50.405386+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
@@ -315,10 +174,6 @@
     "consecutive_losses": 0,
     "consecutive_wins": 0,
     "daily_pnl_7d": [
-      {
-        "date": "2026-03-15",
-        "pnl": 0
-      },
       {
         "date": "2026-03-16",
         "pnl": 0
@@ -342,6 +197,10 @@
       {
         "date": "2026-03-21",
         "pnl": 0
+      },
+      {
+        "date": "2026-03-22",
+        "pnl": 0
       }
     ],
     "trade_history": [],
@@ -352,5 +211,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-03-21T17:12:05.880148+00:00"
+  "saved_at": "2026-03-22T07:43:50.406616+00:00"
 }
