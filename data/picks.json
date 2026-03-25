@@ -1,164 +1,164 @@
 {
-  "yes_picks": [],
-  "no_picks": [
+  "yes_picks": [
     {
-      "id": "polymarket::0x1480b819d03d4b6388d70e848b0384adf38c38d955cb783cdbcf6d4a436dee14",
+      "id": "polymarket::0x213cf960590ddffa1b607258fd086774a3072e56bde0038cba6ac6dea205166a",
       "source": "polymarket",
-      "slug": "will-the-next-prime-minister-of-hungary-be-pter-magyar",
-      "condition_id": "0x1480b819d03d4b6388d70e848b0384adf38c38d955cb783cdbcf6d4a436dee14",
+      "slug": "will-matt-fitzpatrick-win-the-2026-masters-tournament",
+      "condition_id": "0x213cf960590ddffa1b607258fd086774a3072e56bde0038cba6ac6dea205166a",
       "token_ids": [],
-      "question": "Will the next Prime Minister of Hungary be P\u00e9ter Magyar?",
-      "description": "Parliamentary elections are scheduled to be held in Hungary on April 12 2026.\n\nThis market will resolve to the individual who is next officially appointed and confirmed as Prime Minister of Hungary following the 2026 parliamentary election.\n\nTo count for resolution, the individual must be formally elected and appointed to the role of Prime Minister. Any interim or caretaker Prime Minister will not count toward the resolution of this market.\n\nIf no such Prime Minister is confirmed by December 31, 2026, 11:59 PM ET, this market will resolve to \u201cOther.\u201d\n\nThe primary resolution source for this market will be official information from the Government of Hungary; however, a consensus of credible reporting may also be used.",
+      "question": "Will Matt Fitzpatrick win the 2026 Masters tournament?",
+      "description": "This polymarket will resolve according to the player who wins the 2026 Masters Tournament.\n\nIf this player is eliminated from contention for The Masters based on the official rules of the tournament, the relevant market will resolve to \"No\".\n\nIn the event of a tie, this market will resolve according to the official winner as determined by The Masters official tournament rules.\n\nIf no winner is announced by December 31, 2026, this market will resolve to \"Other\".\n\nThe primary resolution sources will be the official results published by the PGA TOUR website and The Masters website. A consensus of credible reporting may also be used.",
       "tags": [],
-      "category": "other",
-      "yes_price": 0.635,
-      "no_price": 0.365,
-      "volume_24h": 65284.86135600001,
-      "volume_total": 3848162.4083569595,
-      "liquidity": 164214.3958,
-      "end_date": "2026-04-12T00:00:00+00:00",
-      "days_to_res": 18.668894902118055,
+      "category": "sports",
+      "yes_price": 0.037,
+      "no_price": 0.963,
+      "volume_24h": 13771.243255000001,
+      "volume_total": 4290046.11470501,
+      "liquidity": 38170.0135,
+      "end_date": "2026-04-13T00:00:00+00:00",
+      "days_to_res": 18.66897013630787,
       "active": true,
       "closed": false,
-      "url": "https://polymarket.com/event/will-the-next-prime-minister-of-hungary-be-pter-magyar",
-      "fetched_at": "2026-03-24T07:56:47.480475+00:00",
-      "yes_price_24h_ago": 0.635,
-      "yes_price_72h_ago": 0.5,
+      "url": "https://polymarket.com/event/will-matt-fitzpatrick-win-the-2026-masters-tournament",
+      "fetched_at": "2026-03-25T07:56:40.980236+00:00",
+      "yes_price_24h_ago": 0.047,
+      "yes_price_72h_ago": 0.0225,
       "spread": null,
       "best_bid": null,
       "best_ask": null,
       "book_depth": 0,
-      "yes_price_1h_ago": 0.5,
-      "yes_price_4h_ago": 0.5,
-      "price_velocity": 0.0028,
+      "yes_price_1h_ago": 0.047,
+      "yes_price_4h_ago": 0.047,
+      "price_velocity": 0.3806,
       "pillars": {
-        "momentum": 23.0,
-        "volume": 71.1,
-        "sentiment": 38.6,
-        "edge": 44.6,
-        "decay": 33.8
+        "momentum": 100.0,
+        "volume": 61.8,
+        "sentiment": 63.1,
+        "edge": 56.8,
+        "decay": 55.0
       },
-      "composite": 42.5,
-      "edge_pct": -2.2,
-      "model_prob": 0.4783,
-      "ml_confidence": 0.4639,
-      "direction": "NO",
+      "composite": 67.7,
+      "edge_pct": 2.7,
+      "model_prob": 0.5272,
+      "ml_confidence": 0.4713,
+      "direction": "YES",
       "passes_filter": true,
       "flags": [
         "low_ml_confidence"
       ],
-      "confidence": "LOW",
+      "confidence": "MEDIUM",
       "sizing": {
-        "kelly_f": 0.0,
-        "frac_kelly": 0.0,
-        "position_usd": 0.0,
+        "kelly_f": 0.0544,
+        "frac_kelly": 0.0136,
+        "position_usd": 13.6,
         "max_usd": 20.0,
-        "pct_bankroll": 0.0
+        "pct_bankroll": 1.36
       },
       "sentiment": {
-        "score": 0.4858,
-        "raw": -0.0945,
-        "article_count": 207,
+        "score": 0.5315,
+        "raw": 0.2106,
+        "article_count": 345,
         "signals": {
-          "S16": 9,
-          "S06": 25,
-          "S13": 12,
-          "S07": 8,
-          "S17": 17,
-          "S22": 18,
-          "S09": 7,
-          "S20": 2,
+          "S21": 36,
+          "S07": 21,
+          "S02": 19,
+          "S13": 11,
+          "S06": 22,
+          "S11": 3,
+          "S20": 6,
+          "S09": 17,
+          "S14": 14,
+          "S16": 3,
+          "S10": 2,
+          "S01": 8,
+          "S22": 28,
+          "S17": 8,
           "S03": 5,
-          "S21": 15,
-          "S11": 4,
-          "S15": 1,
-          "S14": 5,
-          "S04": 4,
-          "S05": 2,
-          "S02": 2,
-          "S18": 3,
-          "S08": 2,
-          "S19": 3,
-          "S01": 2
+          "S05": 5,
+          "S04": 11,
+          "S18": 12,
+          "S12": 4,
+          "S19": 1
         },
         "category_fallback": false
       },
-      "scored_at": "2026-03-24T07:58:12.990360+00:00",
+      "scored_at": "2026-03-25T07:58:29.808458+00:00",
       "return_estimate": {
-        "stake": 1,
-        "direction": "NO",
+        "stake": 13.6,
+        "direction": "YES",
         "entry_price": 0.5,
-        "shares": 2.0,
-        "gross_win": 2.0,
-        "net_profit": 1.0,
+        "shares": 27.2,
+        "gross_win": 27.2,
+        "net_profit": 13.6,
         "pct_return": 100.0,
         "decimal_odds": 2.0,
-        "net_loss": -1,
-        "expected_value": 0.04,
-        "ev_pct": 4.34,
+        "net_loss": -13.6,
+        "expected_value": 0.74,
+        "ev_pct": 5.44,
         "is_positive_ev": true,
-        "edge": 0.0217,
+        "edge": 0.0272,
         "break_even_prob": 0.5,
         "ci": {
-          "ev_low": 0.51,
-          "ev_central": 0.04,
-          "ev_high": -0.6,
-          "return_low": 51.0,
-          "return_central": 4.3,
-          "return_high": -60.0,
+          "ev_low": -6.84,
+          "ev_central": 0.74,
+          "ev_high": 8.32,
+          "return_low": -50.3,
+          "return_central": 5.4,
+          "return_high": 61.2,
           "calibration_error": 0.2788,
           "confidence_note": "Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
         },
         "scenarios": [
           {
             "label": "Bear case",
-            "model_prob": 0.328,
-            "expected_value": 0.34,
-            "ev_pct": 34.34,
-            "is_positive_ev": true
+            "model_prob": 0.377,
+            "expected_value": -3.34,
+            "ev_pct": -24.56,
+            "is_positive_ev": false
           },
           {
             "label": "Base case",
-            "model_prob": 0.478,
-            "expected_value": 0.04,
-            "ev_pct": 4.34,
+            "model_prob": 0.527,
+            "expected_value": 0.74,
+            "ev_pct": 5.44,
             "is_positive_ev": true
           },
           {
             "label": "Bull case",
-            "model_prob": 0.628,
-            "expected_value": -0.26,
-            "ev_pct": -25.66,
-            "is_positive_ev": false
+            "model_prob": 0.677,
+            "expected_value": 4.82,
+            "ev_pct": 35.44,
+            "is_positive_ev": true
           },
           {
             "label": "Strong bull",
-            "model_prob": 0.728,
-            "expected_value": -0.46,
-            "ev_pct": -45.66,
-            "is_positive_ev": false
+            "model_prob": 0.777,
+            "expected_value": 7.54,
+            "ev_pct": 55.44,
+            "is_positive_ev": true
           }
         ],
-        "summary": "You stake $1.00 on NO at 50% market price. Model estimates 48% chance of NO resolving \u2014 vs 50% market price. If correct: +$1.00 net profit (100% return). If wrong: -$1.00 (your full stake). Expected value: +0.04 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
+        "summary": "You stake $13.60 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$13.60 net profit (100% return). If wrong: -$13.60 (your full stake). Expected value: +0.74 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 0 resolved outcomes. Return range will tighten over time."
       },
       "price_at_signal": 0.5,
-      "price_drift": 13.5,
-      "live_edge": 15.7,
+      "price_drift": -46.3,
+      "live_edge": 49.0,
       "live_spread": null,
       "live_depth": 0,
       "live_passes": true,
       "validation_status": "stale",
-      "validation_note": "Price drifted +13.5% since scoring (50.0% \u2192 63.5%). Edge still +15.7%.",
-      "validated_at": "2026-03-24T07:59:16.831634+00:00"
+      "validation_note": "Price drifted -46.3% since scoring (50.0% \u2192 3.7%). Edge still +49.0%.",
+      "validated_at": "2026-03-25T07:59:16.500740+00:00"
     }
   ],
+  "no_picks": [],
   "macro_plays": [],
-  "universe": 740,
+  "universe": 733,
   "filtered_in": 1,
-  "run_date": "2026-03-24",
+  "run_date": "2026-03-25",
   "rejected_picks": [],
   "correlation_flags": [],
-  "validated_at": "2026-03-24T07:59:17.031898+00:00",
+  "validated_at": "2026-03-25T07:59:16.701011+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
@@ -176,10 +176,6 @@
     "consecutive_losses": 0,
     "consecutive_wins": 0,
     "daily_pnl_7d": [
-      {
-        "date": "2026-03-18",
-        "pnl": 0
-      },
       {
         "date": "2026-03-19",
         "pnl": 0
@@ -203,6 +199,10 @@
       {
         "date": "2026-03-24",
         "pnl": 0
+      },
+      {
+        "date": "2026-03-25",
+        "pnl": 0
       }
     ],
     "trade_history": [],
@@ -213,5 +213,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-03-24T07:59:17.033198+00:00"
+  "saved_at": "2026-03-25T07:59:16.701580+00:00"
 }
