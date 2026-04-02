@@ -2,12 +2,12 @@
   "yes_picks": [],
   "no_picks": [],
   "macro_plays": [],
-  "universe": 795,
+  "universe": 0,
   "filtered_in": 0,
-  "run_date": "2026-04-01",
+  "run_date": "2026-04-02",
   "rejected_picks": [],
   "correlation_flags": [],
-  "validated_at": "2026-04-01T08:21:58.160133+00:00",
+  "validated_at": "2026-04-02T08:11:53.840435+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
@@ -25,10 +25,6 @@
     "consecutive_losses": 0,
     "consecutive_wins": 0,
     "daily_pnl_7d": [
-      {
-        "date": "2026-03-26",
-        "pnl": 0
-      },
       {
         "date": "2026-03-27",
         "pnl": 0
@@ -52,6 +48,10 @@
       {
         "date": "2026-04-01",
         "pnl": 0
+      },
+      {
+        "date": "2026-04-02",
+        "pnl": 0
       }
     ],
     "trade_history": [],
@@ -62,5 +62,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-04-01T08:21:58.160508+00:00"
+  "saved_at": "2026-04-02T08:11:53.840861+00:00"
 }
