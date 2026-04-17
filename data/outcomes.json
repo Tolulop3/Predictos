@@ -152,5 +152,152 @@
     "resolved_yes": false,
     "won": false,
     "resolved_at": "2026-04-11T07:53:29.202665+00:00"
+  },
+  {
+    "id": "polymarket::0x88a664d3b23cc19e37de1ebc922a8ed455476d8669338b9a6c8caf19551f4173",
+    "source": "polymarket",
+    "slug": "will-celta-win-the-2025-26-uefa-europa-league",
+    "condition_id": "0x88a664d3b23cc19e37de1ebc922a8ed455476d8669338b9a6c8caf19551f4173",
+    "token_ids": [],
+    "question": "Will Celta win the 2025-26 UEFA Europa League?",
+    "description": "This is a polymarket on whether the listed team will win the 2025\u201326 UEFA Europa League.\n\nThis market will resolve to \"Yes\" if the listed team is officially crowned the winner of the 2025\u201326 UEFA Europa League. Otherwise, it will resolve to \"No\".\n\nIf at any point it becomes impossible for the listed team to win the tournament (e.g. they are mathematically eliminated), the market will resolve to \"No\".\n\nIf the 2025\u201326 UEFA Europa League is canceled or not completed by October 1, 2026, this market will resolve to \"Other\".\n\nThe primary resolution source will be official information from UEFA Europa League (https://www.uefa.com/uefaeuropaleague/). A consensus of credible reporting may also be used.",
+    "tags": [],
+    "category": "sports",
+    "yes_price": 0.017,
+    "no_price": 0.983,
+    "volume_24h": 18956.002826999997,
+    "volume_total": 976215.8963759999,
+    "liquidity": 45469.51943,
+    "end_date": "2026-05-24T00:00:00+00:00",
+    "days_to_res": 37.633298604108795,
+    "active": true,
+    "closed": false,
+    "url": "https://polymarket.com/event/will-celta-win-the-2025-26-uefa-europa-league",
+    "fetched_at": "2026-04-16T08:48:03.000616+00:00",
+    "yes_price_24h_ago": 0.0165,
+    "yes_price_72h_ago": 0.5,
+    "spread": null,
+    "best_bid": null,
+    "best_ask": null,
+    "book_depth": 0,
+    "yes_price_1h_ago": 0.0165,
+    "yes_price_4h_ago": 0.0165,
+    "price_velocity": 0.6147,
+    "pillars": {
+      "momentum": 100.0,
+      "volume": 63.3,
+      "sentiment": 67.8,
+      "edge": 57.2,
+      "decay": 15.0
+    },
+    "composite": 63.3,
+    "edge_pct": 2.9,
+    "model_prob": 0.5286,
+    "ml_confidence": 0.4731,
+    "direction": "YES",
+    "passes_filter": true,
+    "flags": [
+      "low_ml_confidence"
+    ],
+    "confidence": "MEDIUM",
+    "sizing": {
+      "kelly_f": 0.0572,
+      "frac_kelly": 0.0143,
+      "position_usd": 14.3,
+      "max_usd": 20.0,
+      "pct_bankroll": 1.43
+    },
+    "sentiment": {
+      "score": 0.5785,
+      "raw": 0.5279,
+      "article_count": 69,
+      "signals": {
+        "S06": 19,
+        "S21": 8,
+        "S18": 2,
+        "S07": 4,
+        "S02": 4,
+        "S16": 3,
+        "S11": 4,
+        "S09": 3,
+        "S13": 4,
+        "S22": 3,
+        "S12": 1,
+        "S05": 1,
+        "S01": 1
+      },
+      "category_fallback": false
+    },
+    "scored_at": "2026-04-16T08:49:26.808611+00:00",
+    "return_estimate": {
+      "stake": 14.3,
+      "direction": "YES",
+      "entry_price": 0.5,
+      "shares": 28.6,
+      "gross_win": 28.6,
+      "net_profit": 14.3,
+      "pct_return": 100.0,
+      "decimal_odds": 2.0,
+      "net_loss": -14.3,
+      "expected_value": 0.82,
+      "ev_pct": 5.72,
+      "is_positive_ev": true,
+      "edge": 0.0286,
+      "break_even_prob": 0.5,
+      "ci": {
+        "ev_low": -7.16,
+        "ev_central": 0.82,
+        "ev_high": 8.79,
+        "return_low": -50.1,
+        "return_central": 5.7,
+        "return_high": 61.5,
+        "calibration_error": 0.2788,
+        "confidence_note": "Wide CI \u2014 only 1 resolved outcomes. Return range will tighten over time."
+      },
+      "scenarios": [
+        {
+          "label": "Bear case",
+          "model_prob": 0.379,
+          "expected_value": -3.47,
+          "ev_pct": -24.28,
+          "is_positive_ev": false
+        },
+        {
+          "label": "Base case",
+          "model_prob": 0.529,
+          "expected_value": 0.82,
+          "ev_pct": 5.72,
+          "is_positive_ev": true
+        },
+        {
+          "label": "Bull case",
+          "model_prob": 0.679,
+          "expected_value": 5.11,
+          "ev_pct": 35.72,
+          "is_positive_ev": true
+        },
+        {
+          "label": "Strong bull",
+          "model_prob": 0.779,
+          "expected_value": 7.97,
+          "ev_pct": 55.72,
+          "is_positive_ev": true
+        }
+      ],
+      "summary": "You stake $14.30 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$14.30 net profit (100% return). If wrong: -$14.30 (your full stake). Expected value: +0.82 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 1 resolved outcomes. Return range will tighten over time."
+    },
+    "price_at_signal": 0.5,
+    "price_drift": -48.3,
+    "live_edge": 51.2,
+    "live_spread": null,
+    "live_depth": 0,
+    "live_passes": true,
+    "validation_status": "stale",
+    "validation_note": "Price drifted -48.3% since scoring (50.0% \u2192 1.7%). Edge still +51.2%.",
+    "validated_at": "2026-04-16T08:50:24.988216+00:00",
+    "resolved": true,
+    "resolved_yes": false,
+    "won": false,
+    "resolved_at": "2026-04-17T08:27:50.779772+00:00"
   }
 ]

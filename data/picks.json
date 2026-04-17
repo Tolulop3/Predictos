@@ -1,46 +1,53 @@
 {
   "yes_picks": [
     {
-      "id": "polymarket::0x88a664d3b23cc19e37de1ebc922a8ed455476d8669338b9a6c8caf19551f4173",
+      "id": "polymarket::0x8df5a4256840dee05851250c0490da7593597faff3a7f9a156ccbbda7fec76f8",
       "source": "polymarket",
-      "slug": "will-celta-win-the-2025-26-uefa-europa-league",
-      "condition_id": "0x88a664d3b23cc19e37de1ebc922a8ed455476d8669338b9a6c8caf19551f4173",
+      "slug": "will-arsenal-win-the-202526-champions-league",
+      "condition_id": "0x8df5a4256840dee05851250c0490da7593597faff3a7f9a156ccbbda7fec76f8",
       "token_ids": [],
-      "question": "Will Celta win the 2025-26 UEFA Europa League?",
-      "description": "This is a polymarket on whether the listed team will win the 2025\u201326 UEFA Europa League.\n\nThis market will resolve to \"Yes\" if the listed team is officially crowned the winner of the 2025\u201326 UEFA Europa League. Otherwise, it will resolve to \"No\".\n\nIf at any point it becomes impossible for the listed team to win the tournament (e.g. they are mathematically eliminated), the market will resolve to \"No\".\n\nIf the 2025\u201326 UEFA Europa League is canceled or not completed by October 1, 2026, this market will resolve to \"Other\".\n\nThe primary resolution source will be official information from UEFA Europa League (https://www.uefa.com/uefaeuropaleague/). A consensus of credible reporting may also be used.",
-      "tags": [],
+      "question": "Will Arsenal win the 2025\u201326 Champions League?",
+      "description": "This is a polymarket on whether the listed team will win the 2025\u201326 UEFA Champions League.\n\nThis market will resolve to \"Yes\" if the listed team is officially crowned the winner of the 2025\u201326 UEFA Champions League. Otherwise, it will resolve to \"No\".\n\nIf at any point it becomes impossible for the listed team to win the tournament (e.g. they are mathematically eliminated), the market will resolve to \"No\".\n\nIf the 2025\u201326 UEFA Champions League is canceled or not completed by October 1, 2026, this market will resolve to \"Other\".\n\nThe primary resolution source will be official information from UEFA Champions League (https://www.uefa.com/uefachampionsleague/). A consensus of credible reporting may also be used.",
+      "tags": [
+        "UCL",
+        "Champions League",
+        "Soccer",
+        "Sports"
+      ],
       "category": "sports",
-      "yes_price": 0.017,
-      "no_price": 0.983,
-      "volume_24h": 18956.002826999997,
-      "volume_total": 976215.8963759999,
-      "liquidity": 45469.51943,
-      "end_date": "2026-05-24T00:00:00+00:00",
-      "days_to_res": 37.633298604108795,
+      "yes_price": 0.275,
+      "no_price": 0.725,
+      "volume_24h": 42473.922116000016,
+      "volume_total": 4670015.880731977,
+      "liquidity": 498064.7744,
+      "end_date": "2026-05-31T00:00:00+00:00",
+      "days_to_res": 43.647320040625,
       "active": true,
       "closed": false,
-      "url": "https://polymarket.com/event/will-celta-win-the-2025-26-uefa-europa-league",
-      "fetched_at": "2026-04-16T08:48:03.000616+00:00",
-      "yes_price_24h_ago": 0.0165,
+      "url": "https://polymarket.com/event/will-arsenal-win-the-202526-champions-league",
+      "fetched_at": "2026-04-17T08:27:51.548503+00:00",
+      "yes_price_24h_ago": 0.275,
       "yes_price_72h_ago": 0.5,
       "spread": null,
       "best_bid": null,
       "best_ask": null,
       "book_depth": 0,
-      "yes_price_1h_ago": 0.0165,
-      "yes_price_4h_ago": 0.0165,
-      "price_velocity": 0.6147,
+      "event_title": "UEFA Champions League Winner ",
+      "event_id": "33506",
+      "yes_price_1h_ago": 0.285,
+      "yes_price_4h_ago": 0.285,
+      "price_velocity": 0.0426,
       "pillars": {
-        "momentum": 100.0,
-        "volume": 63.3,
-        "sentiment": 67.8,
-        "edge": 57.2,
-        "decay": 15.0
+        "momentum": 95.0,
+        "volume": 75.0,
+        "sentiment": 62.6,
+        "edge": 56.8,
+        "decay": 14.6
       },
-      "composite": 63.3,
-      "edge_pct": 2.9,
-      "model_prob": 0.5286,
-      "ml_confidence": 0.4731,
+      "composite": 63.2,
+      "edge_pct": 2.7,
+      "model_prob": 0.527,
+      "ml_confidence": 0.471,
       "direction": "YES",
       "passes_filter": true,
       "flags": [
@@ -48,283 +55,134 @@
       ],
       "confidence": "MEDIUM",
       "sizing": {
-        "kelly_f": 0.0572,
-        "frac_kelly": 0.0143,
-        "position_usd": 14.3,
+        "kelly_f": 0.0541,
+        "frac_kelly": 0.0135,
+        "position_usd": 13.51,
         "max_usd": 20.0,
-        "pct_bankroll": 1.43
+        "pct_bankroll": 1.35
       },
       "sentiment": {
-        "score": 0.5785,
-        "raw": 0.5279,
-        "article_count": 69,
+        "score": 0.5259,
+        "raw": 0.1729,
+        "article_count": 350,
         "signals": {
-          "S06": 19,
-          "S21": 8,
-          "S18": 2,
-          "S07": 4,
-          "S02": 4,
-          "S16": 3,
-          "S11": 4,
-          "S09": 3,
-          "S13": 4,
-          "S22": 3,
-          "S12": 1,
-          "S05": 1,
-          "S01": 1
+          "S21": 37,
+          "S22": 38,
+          "S06": 25,
+          "S07": 16,
+          "S02": 14,
+          "S09": 11,
+          "S20": 2,
+          "S04": 13,
+          "S18": 11,
+          "S05": 3,
+          "S01": 3,
+          "S12": 7,
+          "S17": 6,
+          "S11": 8,
+          "S13": 9,
+          "S03": 6,
+          "S16": 4,
+          "S19": 2,
+          "S08": 3,
+          "S14": 1
         },
         "category_fallback": false
       },
-      "scored_at": "2026-04-16T08:49:26.808611+00:00",
+      "scored_at": "2026-04-17T08:29:17.508048+00:00",
       "return_estimate": {
-        "stake": 14.3,
+        "stake": 13.51,
         "direction": "YES",
         "entry_price": 0.5,
-        "shares": 28.6,
-        "gross_win": 28.6,
-        "net_profit": 14.3,
+        "shares": 27.02,
+        "gross_win": 27.02,
+        "net_profit": 13.51,
         "pct_return": 100.0,
         "decimal_odds": 2.0,
-        "net_loss": -14.3,
-        "expected_value": 0.82,
-        "ev_pct": 5.72,
+        "net_loss": -13.51,
+        "expected_value": 0.73,
+        "ev_pct": 5.4,
         "is_positive_ev": true,
-        "edge": 0.0286,
+        "edge": 0.027,
         "break_even_prob": 0.5,
         "ci": {
-          "ev_low": -7.16,
-          "ev_central": 0.82,
-          "ev_high": 8.79,
-          "return_low": -50.1,
-          "return_central": 5.7,
-          "return_high": 61.5,
-          "calibration_error": 0.2788,
-          "confidence_note": "Wide CI \u2014 only 1 resolved outcomes. Return range will tighten over time."
+          "ev_low": -6.57,
+          "ev_central": 0.73,
+          "ev_high": 8.02,
+          "return_low": -48.6,
+          "return_central": 5.4,
+          "return_high": 59.4,
+          "calibration_error": 0.27,
+          "confidence_note": "Wide CI \u2014 only 2 resolved outcomes. Return range will tighten over time."
         },
         "scenarios": [
           {
             "label": "Bear case",
-            "model_prob": 0.379,
-            "expected_value": -3.47,
-            "ev_pct": -24.28,
+            "model_prob": 0.377,
+            "expected_value": -3.32,
+            "ev_pct": -24.6,
             "is_positive_ev": false
           },
           {
             "label": "Base case",
-            "model_prob": 0.529,
-            "expected_value": 0.82,
-            "ev_pct": 5.72,
+            "model_prob": 0.527,
+            "expected_value": 0.73,
+            "ev_pct": 5.4,
             "is_positive_ev": true
           },
           {
             "label": "Bull case",
-            "model_prob": 0.679,
-            "expected_value": 5.11,
-            "ev_pct": 35.72,
+            "model_prob": 0.677,
+            "expected_value": 4.78,
+            "ev_pct": 35.4,
             "is_positive_ev": true
           },
           {
             "label": "Strong bull",
-            "model_prob": 0.779,
-            "expected_value": 7.97,
-            "ev_pct": 55.72,
+            "model_prob": 0.777,
+            "expected_value": 7.48,
+            "ev_pct": 55.4,
             "is_positive_ev": true
           }
         ],
-        "summary": "You stake $14.30 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$14.30 net profit (100% return). If wrong: -$14.30 (your full stake). Expected value: +0.82 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 1 resolved outcomes. Return range will tighten over time."
+        "summary": "You stake $13.51 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$13.51 net profit (100% return). If wrong: -$13.51 (your full stake). Expected value: +0.73 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 2 resolved outcomes. Return range will tighten over time."
       },
       "price_at_signal": 0.5,
-      "price_drift": -48.3,
-      "live_edge": 51.2,
+      "price_drift": -22.5,
+      "live_edge": 25.2,
       "live_spread": null,
       "live_depth": 0,
       "live_passes": true,
       "validation_status": "stale",
-      "validation_note": "Price drifted -48.3% since scoring (50.0% \u2192 1.7%). Edge still +51.2%.",
-      "validated_at": "2026-04-16T08:50:24.988216+00:00"
+      "validation_note": "Price drifted -22.5% since scoring (50.0% \u2192 27.5%). Edge still +25.2%.",
+      "validated_at": "2026-04-17T08:30:21.853337+00:00"
     }
   ],
   "no_picks": [],
   "macro_plays": [],
-  "universe": 720,
-  "filtered_in": 2,
-  "run_date": "2026-04-16",
-  "rejected_picks": [
-    {
-      "id": "polymarket::0xcb06319aa9e029904c93c1df7d10b7ce7d6aab2b25b8f661e0cf57ea048a1567",
-      "source": "polymarket",
-      "slug": "will-atletico-madrid-win-the-202526-champions-league",
-      "condition_id": "0xcb06319aa9e029904c93c1df7d10b7ce7d6aab2b25b8f661e0cf57ea048a1567",
-      "token_ids": [],
-      "question": "Will Atletico Madrid win the 2025\u201326 Champions League?",
-      "description": "This is a polymarket on whether the listed team will win the 2025\u201326 UEFA Champions League.\n\nThis market will resolve to \"Yes\" if the listed team is officially crowned the winner of the 2025\u201326 UEFA Champions League. Otherwise, it will resolve to \"No\".\n\nIf at any point it becomes impossible for the listed team to win the tournament (e.g. they are mathematically eliminated), the market will resolve to \"No\".\n\nIf the 2025\u201326 UEFA Champions League is canceled or not completed by October 1, 2026, this market will resolve to \"Other\".\n\nThe primary resolution source will be official information from UEFA Champions League (https://www.uefa.com/uefachampionsleague/). A consensus of credible reporting may also be used.",
-      "tags": [
-        "UCL",
-        "Sports",
-        "Soccer",
-        "Champions League"
-      ],
-      "category": "sports",
-      "yes_price": 0.112,
-      "no_price": 0.888,
-      "volume_24h": 478865.4954009995,
-      "volume_total": 18424339.238317776,
-      "liquidity": 201107.43633,
-      "end_date": "2026-05-31T00:00:00+00:00",
-      "days_to_res": 44.63331183688658,
-      "active": true,
-      "closed": false,
-      "url": "https://polymarket.com/event/will-atletico-madrid-win-the-202526-champions-league",
-      "fetched_at": "2026-04-16T08:48:01.857306+00:00",
-      "yes_price_24h_ago": 0.104,
-      "yes_price_72h_ago": 0.0725,
-      "spread": null,
-      "best_bid": null,
-      "best_ask": null,
-      "book_depth": 0,
-      "event_title": "UEFA Champions League Winner ",
-      "event_id": "33506",
-      "yes_price_1h_ago": 0.104,
-      "yes_price_4h_ago": 0.104,
-      "price_velocity": 0.0327,
-      "pillars": {
-        "momentum": 56.2,
-        "volume": 80.0,
-        "sentiment": 67.8,
-        "edge": 61.0,
-        "decay": 11.7
-      },
-      "composite": 58.1,
-      "edge_pct": 4.4,
-      "model_prob": 0.1559,
-      "ml_confidence": 0.4936,
-      "direction": "YES",
-      "passes_filter": true,
-      "flags": [
-        "low_ml_confidence"
-      ],
-      "confidence": "LOW",
-      "sizing": {
-        "kelly_f": 0.0495,
-        "frac_kelly": 0.0124,
-        "position_usd": 12.37,
-        "max_usd": 20.0,
-        "pct_bankroll": 1.24
-      },
-      "sentiment": {
-        "score": 0.5784,
-        "raw": 0.5271,
-        "article_count": 70,
-        "signals": {
-          "S06": 19,
-          "S21": 8,
-          "S18": 2,
-          "S07": 4,
-          "S02": 4,
-          "S16": 3,
-          "S11": 4,
-          "S09": 3,
-          "S13": 4,
-          "S22": 4,
-          "S12": 1,
-          "S05": 1,
-          "S01": 1
-        },
-        "category_fallback": false
-      },
-      "scored_at": "2026-04-16T08:49:05.872518+00:00",
-      "return_estimate": {
-        "stake": 12.37,
-        "direction": "YES",
-        "entry_price": 0.112,
-        "shares": 110.4464,
-        "gross_win": 110.45,
-        "net_profit": 98.08,
-        "pct_return": 792.9,
-        "decimal_odds": 8.929,
-        "net_loss": -12.37,
-        "expected_value": 4.85,
-        "ev_pct": 39.2,
-        "is_positive_ev": true,
-        "edge": 0.0439,
-        "break_even_prob": 0.112,
-        "ci": {
-          "ev_low": -11.27,
-          "ev_central": 4.85,
-          "ev_high": 35.64,
-          "return_low": -91.1,
-          "return_central": 39.2,
-          "return_high": 288.1,
-          "calibration_error": 0.2788,
-          "confidence_note": "Wide CI \u2014 only 1 resolved outcomes. Return range will tighten over time."
-        },
-        "scenarios": [
-          {
-            "label": "Bear case",
-            "model_prob": 0.01,
-            "expected_value": -11.27,
-            "ev_pct": -91.07,
-            "is_positive_ev": false
-          },
-          {
-            "label": "Base case",
-            "model_prob": 0.156,
-            "expected_value": 4.85,
-            "ev_pct": 39.2,
-            "is_positive_ev": true
-          },
-          {
-            "label": "Bull case",
-            "model_prob": 0.306,
-            "expected_value": 21.42,
-            "ev_pct": 173.13,
-            "is_positive_ev": true
-          },
-          {
-            "label": "Strong bull",
-            "model_prob": 0.406,
-            "expected_value": 32.46,
-            "ev_pct": 262.42,
-            "is_positive_ev": true
-          }
-        ],
-        "summary": "You stake $12.37 on YES at 11% market price. Model estimates 16% chance of YES resolving \u2014 vs 11% market price. If correct: +$98.08 net profit (793% return). If wrong: -$12.37 (your full stake). Expected value: +4.85 per trade at this stake. Break-even: you need 11% win rate just to not lose money. Wide CI \u2014 only 1 resolved outcomes. Return range will tighten over time."
-      },
-      "price_at_signal": 0.112,
-      "price_drift": 0.0,
-      "live_edge": 4.4,
-      "live_spread": null,
-      "live_depth": 0,
-      "live_passes": false,
-      "validation_status": "edge_gone",
-      "validation_note": "Edge fell to +4.4% (need \u22656%). Price moved +0.0% since signal.",
-      "validated_at": "2026-04-16T08:50:25.303882+00:00",
-      "rejected_reason": "Edge fell to +4.4% (need \u22656%). Price moved +0.0% since signal."
-    }
-  ],
+  "universe": 729,
+  "filtered_in": 1,
+  "run_date": "2026-04-17",
+  "rejected_picks": [],
   "correlation_flags": [],
-  "validated_at": "2026-04-16T08:50:25.504224+00:00",
+  "validated_at": "2026-04-17T08:30:22.053625+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
     "multiplier": 1.0
   },
   "bankroll_summary": {
-    "current_bankroll": 1000.0,
+    "current_bankroll": 985.7,
     "initial_bankroll": 1000.0,
     "peak_bankroll": 1000.0,
-    "all_time_pnl": 0.0,
-    "total_return_pct": 0.0,
-    "drawdown_from_peak": 0.0,
+    "all_time_pnl": -14.3,
+    "total_return_pct": -1.43,
+    "drawdown_from_peak": -1.43,
     "status": "active",
     "status_reason": null,
-    "consecutive_losses": 0,
+    "consecutive_losses": 1,
     "consecutive_wins": 0,
     "daily_pnl_7d": [
-      {
-        "date": "2026-04-10",
-        "pnl": 0
-      },
       {
         "date": "2026-04-11",
         "pnl": 0
@@ -348,9 +206,23 @@
       {
         "date": "2026-04-16",
         "pnl": 0
+      },
+      {
+        "date": "2026-04-17",
+        "pnl": -14.3
       }
     ],
-    "trade_history": [],
+    "trade_history": [
+      {
+        "date": "2026-04-17",
+        "question": "Will Celta win the 2025-26 UEFA Europa League?",
+        "direction": "YES",
+        "category": "sports",
+        "stake": 14.3,
+        "pnl": -14.3,
+        "won": false
+      }
+    ],
     "thresholds": {
       "reduce_at_drawdown": "10%",
       "halt_at_drawdown": "15%",
@@ -358,5 +230,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-04-16T08:50:25.504924+00:00"
+  "saved_at": "2026-04-17T08:30:22.055274+00:00"
 }
