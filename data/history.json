@@ -1129,5 +1129,30 @@
         }
       }
     }
+  },
+  {
+    "date": "2026-04-24",
+    "newly_resolved": 0,
+    "total_resolved": 2,
+    "stats": {
+      "total": 2,
+      "wins": 0,
+      "losses": 2,
+      "win_rate": 0.0,
+      "by_category": {
+        "sports": {
+          "wins": 0,
+          "total": 2,
+          "win_rate": 0.0
+        }
+      },
+      "by_source": {
+        "polymarket": {
+          "wins": 0,
+          "total": 2,
+          "win_rate": 0.0
+        }
+      }
+    }
   }
 ]
