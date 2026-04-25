@@ -4,10 +4,10 @@
   "macro_plays": [],
   "universe": 0,
   "filtered_in": 0,
-  "run_date": "2026-04-24",
+  "run_date": "2026-04-25",
   "rejected_picks": [],
   "correlation_flags": [],
-  "validated_at": "2026-04-24T09:04:46.940675+00:00",
+  "validated_at": "2026-04-25T08:09:14.440715+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
@@ -25,10 +25,6 @@
     "consecutive_losses": 0,
     "consecutive_wins": 0,
     "daily_pnl_7d": [
-      {
-        "date": "2026-04-18",
-        "pnl": 0
-      },
       {
         "date": "2026-04-19",
         "pnl": 0
@@ -52,6 +48,10 @@
       {
         "date": "2026-04-24",
         "pnl": 0
+      },
+      {
+        "date": "2026-04-25",
+        "pnl": 0
       }
     ],
     "trade_history": [],
@@ -62,5 +62,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-04-24T09:04:46.941071+00:00"
+  "saved_at": "2026-04-25T08:09:14.441043+00:00"
 }
