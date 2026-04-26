@@ -1,13 +1,312 @@
 {
-  "yes_picks": [],
+  "yes_picks": [
+    {
+      "id": "polymarket::0xcccb7e7613a087c132b69cbf3a02bece3fdcb824c1da54ae79acc8d4a562d902",
+      "source": "polymarket",
+      "slug": "gta-vi-released-before-june-2026",
+      "condition_id": "0xcccb7e7613a087c132b69cbf3a02bece3fdcb824c1da54ae79acc8d4a562d902",
+      "token_ids": [],
+      "question": "GTA VI released before June 2026?",
+      "description": "This market will resolve to \"Yes\" if it Grand Theft Auto VI is officially released in the US by May 31, 2026, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nFor the purposes of this market, \"release\" refers to the game becoming publicly available for purchase or download in the US. Early access, beta versions, other forms of pre-release availability, or leaks will not count as an official release. If the release is only for certain consoles (e.g. Xbox Series X/S) it will count.\n\nThe resolution source will be official information from Rockstar Games or its parent company, Take-Two Interactive.",
+      "tags": [
+        "GTA VI",
+        "Culture",
+        "Breaking News"
+      ],
+      "category": "other",
+      "yes_price": 0.0065,
+      "no_price": 0.9935,
+      "volume_24h": 14146.909791,
+      "volume_total": 13842413.404594025,
+      "liquidity": 65404.73034,
+      "end_date": "2026-05-31T12:00:00+00:00",
+      "days_to_res": 35.154415050069446,
+      "active": true,
+      "closed": false,
+      "url": "https://polymarket.com/event/gta-vi-released-before-june-2026",
+      "fetched_at": "2026-04-26T08:17:38.539695+00:00",
+      "yes_price_24h_ago": 0.0125,
+      "yes_price_72h_ago": 0.5,
+      "spread": null,
+      "best_bid": null,
+      "best_ask": null,
+      "book_depth": 0,
+      "event_title": "GTA VI released before June 2026?",
+      "event_id": "23792",
+      "yes_price_1h_ago": 0.0125,
+      "yes_price_4h_ago": 0.0125,
+      "price_velocity": -0.1735,
+      "pillars": {
+        "momentum": 100.0,
+        "volume": 63.9,
+        "sentiment": 63.0,
+        "edge": 56.8,
+        "decay": 15.0
+      },
+      "composite": 62.1,
+      "edge_pct": 2.7,
+      "model_prob": 0.5272,
+      "ml_confidence": 0.4712,
+      "direction": "YES",
+      "passes_filter": true,
+      "flags": [
+        "low_ml_confidence"
+      ],
+      "confidence": "MEDIUM",
+      "sizing": {
+        "kelly_f": 0.0543,
+        "frac_kelly": 0.0136,
+        "position_usd": 13.58,
+        "max_usd": 20.0,
+        "pct_bankroll": 1.36
+      },
+      "sentiment": {
+        "score": 0.5304,
+        "raw": 0.203,
+        "article_count": 107,
+        "signals": {
+          "S07": 5,
+          "S18": 3,
+          "S21": 7,
+          "S01": 1,
+          "S13": 1,
+          "S02": 5,
+          "S05": 3,
+          "S22": 13,
+          "S09": 2,
+          "S03": 2,
+          "S11": 1,
+          "S08": 1,
+          "S04": 4,
+          "S10": 2,
+          "S06": 1
+        },
+        "category_fallback": false
+      },
+      "scored_at": "2026-04-26T08:19:01.257033+00:00",
+      "return_estimate": {
+        "stake": 13.58,
+        "direction": "YES",
+        "entry_price": 0.5,
+        "shares": 27.16,
+        "gross_win": 27.16,
+        "net_profit": 13.58,
+        "pct_return": 100.0,
+        "decimal_odds": 2.0,
+        "net_loss": -13.58,
+        "expected_value": 0.74,
+        "ev_pct": 5.44,
+        "is_positive_ev": true,
+        "edge": 0.0272,
+        "break_even_prob": 0.5,
+        "ci": {
+          "ev_low": -6.59,
+          "ev_central": 0.74,
+          "ev_high": 8.07,
+          "return_low": -48.5,
+          "return_central": 5.4,
+          "return_high": 59.4,
+          "calibration_error": 0.27,
+          "confidence_note": "Wide CI \u2014 only 2 resolved outcomes. Return range will tighten over time."
+        },
+        "scenarios": [
+          {
+            "label": "Bear case",
+            "model_prob": 0.377,
+            "expected_value": -3.34,
+            "ev_pct": -24.56,
+            "is_positive_ev": false
+          },
+          {
+            "label": "Base case",
+            "model_prob": 0.527,
+            "expected_value": 0.74,
+            "ev_pct": 5.44,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Bull case",
+            "model_prob": 0.677,
+            "expected_value": 4.81,
+            "ev_pct": 35.44,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Strong bull",
+            "model_prob": 0.777,
+            "expected_value": 7.53,
+            "ev_pct": 55.44,
+            "is_positive_ev": true
+          }
+        ],
+        "summary": "You stake $13.58 on YES at 50% market price. Model estimates 53% chance of YES resolving \u2014 vs 50% market price. If correct: +$13.58 net profit (100% return). If wrong: -$13.58 (your full stake). Expected value: +0.74 per trade at this stake. Break-even: you need 50% win rate just to not lose money. Wide CI \u2014 only 2 resolved outcomes. Return range will tighten over time."
+      },
+      "price_at_signal": 0.5,
+      "price_drift": -49.35,
+      "live_edge": 52.1,
+      "live_spread": null,
+      "live_depth": 0,
+      "live_passes": true,
+      "validation_status": "stale",
+      "validation_note": "Price drifted -49.4% since scoring (50.0% \u2192 0.7%). Edge still +52.1%.",
+      "validated_at": "2026-04-26T08:19:59.543440+00:00"
+    }
+  ],
   "no_picks": [],
   "macro_plays": [],
-  "universe": 0,
-  "filtered_in": 0,
-  "run_date": "2026-04-25",
-  "rejected_picks": [],
+  "universe": 712,
+  "filtered_in": 2,
+  "run_date": "2026-04-26",
+  "rejected_picks": [
+    {
+      "id": "polymarket::0xcb06319aa9e029904c93c1df7d10b7ce7d6aab2b25b8f661e0cf57ea048a1567",
+      "source": "polymarket",
+      "slug": "will-atletico-madrid-win-the-202526-champions-league",
+      "condition_id": "0xcb06319aa9e029904c93c1df7d10b7ce7d6aab2b25b8f661e0cf57ea048a1567",
+      "token_ids": [],
+      "question": "Will Atletico Madrid win the 2025\u201326 Champions League?",
+      "description": "This is a polymarket on whether the listed team will win the 2025\u201326 UEFA Champions League.\n\nThis market will resolve to \"Yes\" if the listed team is officially crowned the winner of the 2025\u201326 UEFA Champions League. Otherwise, it will resolve to \"No\".\n\nIf at any point it becomes impossible for the listed team to win the tournament (e.g. they are mathematically eliminated), the market will resolve to \"No\".\n\nIf the 2025\u201326 UEFA Champions League is canceled or not completed by October 1, 2026, this market will resolve to \"Other\".\n\nThe primary resolution source will be official information from UEFA Champions League (https://www.uefa.com/uefachampionsleague/). A consensus of credible reporting may also be used.",
+      "tags": [
+        "Sports",
+        "UCL",
+        "Champions League",
+        "Soccer"
+      ],
+      "category": "sports",
+      "yes_price": 0.116,
+      "no_price": 0.884,
+      "volume_24h": 512460.684729,
+      "volume_total": 23261358.85074373,
+      "liquidity": 225396.5906,
+      "end_date": "2026-05-31T00:00:00+00:00",
+      "days_to_res": 34.65440837775463,
+      "active": true,
+      "closed": false,
+      "url": "https://polymarket.com/event/will-atletico-madrid-win-the-202526-champions-league",
+      "fetched_at": "2026-04-26T08:17:39.116175+00:00",
+      "yes_price_24h_ago": 0.1155,
+      "yes_price_72h_ago": 0.1145,
+      "spread": null,
+      "best_bid": null,
+      "best_ask": null,
+      "book_depth": 0,
+      "event_title": "UEFA Champions League Winner ",
+      "event_id": "33506",
+      "yes_price_1h_ago": 0.1155,
+      "yes_price_4h_ago": 0.1155,
+      "price_velocity": 0.0001,
+      "pillars": {
+        "momentum": 50.3,
+        "volume": 80.4,
+        "sentiment": 69.8,
+        "edge": 58.1,
+        "decay": 11.3
+      },
+      "composite": 56.9,
+      "edge_pct": 3.2,
+      "model_prob": 0.1483,
+      "ml_confidence": 0.4781,
+      "direction": "YES",
+      "passes_filter": true,
+      "flags": [
+        "low_ml_confidence"
+      ],
+      "confidence": "LOW",
+      "sizing": {
+        "kelly_f": 0.0366,
+        "frac_kelly": 0.0091,
+        "position_usd": 9.14,
+        "max_usd": 20.0,
+        "pct_bankroll": 0.91
+      },
+      "sentiment": {
+        "score": 0.5981,
+        "raw": 0.6625,
+        "article_count": 53,
+        "signals": {
+          "S21": 5,
+          "S03": 3,
+          "S06": 21,
+          "S22": 5,
+          "S07": 4,
+          "S11": 2,
+          "S10": 2,
+          "S13": 1
+        },
+        "category_fallback": false
+      },
+      "scored_at": "2026-04-26T08:18:45.135746+00:00",
+      "return_estimate": {
+        "stake": 9.14,
+        "direction": "YES",
+        "entry_price": 0.116,
+        "shares": 78.7931,
+        "gross_win": 78.79,
+        "net_profit": 69.65,
+        "pct_return": 762.1,
+        "decimal_odds": 8.621,
+        "net_loss": -9.14,
+        "expected_value": 2.54,
+        "ev_pct": 27.84,
+        "is_positive_ev": true,
+        "edge": 0.0323,
+        "break_even_prob": 0.116,
+        "ci": {
+          "ev_low": -8.35,
+          "ev_central": 2.54,
+          "ev_high": 23.82,
+          "return_low": -91.4,
+          "return_central": 27.8,
+          "return_high": 260.6,
+          "calibration_error": 0.27,
+          "confidence_note": "Wide CI \u2014 only 2 resolved outcomes. Return range will tighten over time."
+        },
+        "scenarios": [
+          {
+            "label": "Bear case",
+            "model_prob": 0.01,
+            "expected_value": -8.35,
+            "ev_pct": -91.38,
+            "is_positive_ev": false
+          },
+          {
+            "label": "Base case",
+            "model_prob": 0.148,
+            "expected_value": 2.54,
+            "ev_pct": 27.84,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Bull case",
+            "model_prob": 0.298,
+            "expected_value": 14.36,
+            "ev_pct": 157.15,
+            "is_positive_ev": true
+          },
+          {
+            "label": "Strong bull",
+            "model_prob": 0.398,
+            "expected_value": 22.24,
+            "ev_pct": 243.35,
+            "is_positive_ev": true
+          }
+        ],
+        "summary": "You stake $9.14 on YES at 12% market price. Model estimates 15% chance of YES resolving \u2014 vs 12% market price. If correct: +$69.65 net profit (762% return). If wrong: -$9.14 (your full stake). Expected value: +2.54 per trade at this stake. Break-even: you need 12% win rate just to not lose money. Wide CI \u2014 only 2 resolved outcomes. Return range will tighten over time."
+      },
+      "price_at_signal": 0.116,
+      "price_drift": 0.0,
+      "live_edge": 3.2,
+      "live_spread": null,
+      "live_depth": 0,
+      "live_passes": false,
+      "validation_status": "edge_gone",
+      "validation_note": "Edge fell to +3.2% (need \u22656%). Price moved +0.0% since signal.",
+      "validated_at": "2026-04-26T08:19:59.844683+00:00",
+      "rejected_reason": "Edge fell to +3.2% (need \u22656%). Price moved +0.0% since signal."
+    }
+  ],
   "correlation_flags": [],
-  "validated_at": "2026-04-25T08:09:14.440715+00:00",
+  "validated_at": "2026-04-26T08:20:00.045022+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
@@ -25,10 +324,6 @@
     "consecutive_losses": 0,
     "consecutive_wins": 0,
     "daily_pnl_7d": [
-      {
-        "date": "2026-04-19",
-        "pnl": 0
-      },
       {
         "date": "2026-04-20",
         "pnl": 0
@@ -52,6 +347,10 @@
       {
         "date": "2026-04-25",
         "pnl": 0
+      },
+      {
+        "date": "2026-04-26",
+        "pnl": 0
       }
     ],
     "trade_history": [],
@@ -62,5 +361,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-04-25T08:09:14.441043+00:00"
+  "saved_at": "2026-04-26T08:20:00.045998+00:00"
 }
