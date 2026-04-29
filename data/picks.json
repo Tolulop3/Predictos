@@ -2,9 +2,9 @@
   "yes_picks": [],
   "no_picks": [],
   "macro_plays": [],
-  "universe": 711,
+  "universe": 713,
   "filtered_in": 1,
-  "run_date": "2026-04-28",
+  "run_date": "2026-04-29",
   "rejected_picks": [
     {
       "id": "polymarket::0xcb06319aa9e029904c93c1df7d10b7ce7d6aab2b25b8f661e0cf57ea048a1567",
@@ -15,45 +15,45 @@
       "question": "Will Atletico Madrid win the 2025\u201326 Champions League?",
       "description": "This is a polymarket on whether the listed team will win the 2025\u201326 UEFA Champions League.\n\nThis market will resolve to \"Yes\" if the listed team is officially crowned the winner of the 2025\u201326 UEFA Champions League. Otherwise, it will resolve to \"No\".\n\nIf at any point it becomes impossible for the listed team to win the tournament (e.g. they are mathematically eliminated), the market will resolve to \"No\".\n\nIf the 2025\u201326 UEFA Champions League is canceled or not completed by October 1, 2026, this market will resolve to \"Other\".\n\nThe primary resolution source will be official information from UEFA Champions League (https://www.uefa.com/uefachampionsleague/). A consensus of credible reporting may also be used.",
       "tags": [
-        "Champions League",
         "Soccer",
         "Sports",
+        "Champions League",
         "UCL"
       ],
       "category": "sports",
-      "yes_price": 0.1145,
-      "no_price": 0.8855,
-      "volume_24h": 54418.670017,
-      "volume_total": 23705952.90240672,
-      "liquidity": 218481.05344,
+      "yes_price": 0.1125,
+      "no_price": 0.8875,
+      "volume_24h": 203225.23752300008,
+      "volume_total": 23908380.03325475,
+      "liquidity": 207109.77101,
       "end_date": "2026-05-31T00:00:00+00:00",
-      "days_to_res": 32.60656873289352,
+      "days_to_res": 31.616116345509262,
       "active": true,
       "closed": false,
       "url": "https://polymarket.com/event/will-atletico-madrid-win-the-202526-champions-league",
-      "fetched_at": "2026-04-28T09:26:32.461492+00:00",
+      "fetched_at": "2026-04-29T09:12:47.547761+00:00",
       "yes_price_24h_ago": 0.1155,
-      "yes_price_72h_ago": 0.1155,
+      "yes_price_72h_ago": 0.116,
       "spread": null,
       "best_bid": null,
       "best_ask": null,
       "book_depth": 0,
       "event_title": "UEFA Champions League Winner ",
       "event_id": "33506",
-      "yes_price_1h_ago": 0.1155,
-      "yes_price_4h_ago": 0.1155,
-      "price_velocity": 0.0002,
+      "yes_price_1h_ago": 0.1145,
+      "yes_price_4h_ago": 0.1145,
+      "price_velocity": -0.0019,
       "pillars": {
-        "momentum": 49.7,
-        "volume": 71.7,
-        "sentiment": 66.1,
-        "edge": 57.5,
+        "momentum": 49.0,
+        "volume": 75.9,
+        "sentiment": 61.4,
+        "edge": 56.8,
         "decay": 11.2
       },
-      "composite": 54.0,
-      "edge_pct": 3.0,
-      "model_prob": 0.1445,
-      "ml_confidence": 0.475,
+      "composite": 53.4,
+      "edge_pct": 2.7,
+      "model_prob": 0.1397,
+      "ml_confidence": 0.4712,
       "direction": "YES",
       "passes_filter": true,
       "flags": [
@@ -61,60 +61,59 @@
       ],
       "confidence": "LOW",
       "sizing": {
-        "kelly_f": 0.0339,
-        "frac_kelly": 0.0085,
-        "position_usd": 8.47,
+        "kelly_f": 0.0306,
+        "frac_kelly": 0.0077,
+        "position_usd": 7.65,
         "max_usd": 20.0,
-        "pct_bankroll": 0.85
+        "pct_bankroll": 0.77
       },
       "sentiment": {
-        "score": 0.5609,
-        "raw": 0.4082,
-        "article_count": 76,
+        "score": 0.5139,
+        "raw": 0.0927,
+        "article_count": 81,
         "signals": {
-          "S13": 2,
-          "S06": 17,
+          "S07": 7,
+          "S09": 3,
+          "S21": 12,
+          "S22": 17,
+          "S06": 18,
+          "S18": 4,
+          "S03": 1,
+          "S13": 4,
           "S02": 4,
-          "S05": 2,
-          "S09": 1,
-          "S21": 8,
-          "S01": 3,
-          "S17": 3,
-          "S19": 1,
-          "S16": 1,
+          "S16": 4,
           "S04": 1,
-          "S07": 4,
-          "S22": 3,
-          "S11": 2,
-          "S18": 1,
-          "S10": 1,
-          "S14": 1
+          "S17": 3,
+          "S19": 3,
+          "S11": 1,
+          "S20": 1,
+          "S01": 1
         },
         "category_fallback": false
       },
-      "scored_at": "2026-04-28T09:27:53.324323+00:00",
+      "scored_at": "2026-04-29T09:14:08.386659+00:00",
       "return_estimate": {
-        "stake": 8.47,
+        "stake": 7.65,
         "direction": "YES",
-        "entry_price": 0.1145,
-        "shares": 73.9738,
-        "gross_win": 73.97,
-        "net_profit": 65.5,
-        "pct_return": 773.4,
-        "decimal_odds": 8.734,
-        "net_loss": -8.47,
-        "expected_value": 2.22,
-        "ev_pct": 26.19,
+        "entry_price": 0.1125,
+        "shares": 68.0,
+        "gross_win": 68.0,
+        "net_profit": 60.35,
+        "pct_return": 788.9,
+        "decimal_odds": 8.889,
+        "net_loss": -7.65,
+        "expected_value": 1.85,
+        "ev_pct": 24.18,
         "is_positive_ev": true,
-        "edge": 0.03,
-        "break_even_prob": 0.1145,
+        "edge": 0.0272,
+        "break_even_prob": 0.1125,
         "ci": {
-          "ev_low": -7.73,
-          "ev_central": 2.22,
-          "ev_high": 22.19,
-          "return_low": -91.3,
-          "return_central": 26.2,
-          "return_high": 262.0,
+          "ev_low": -6.97,
+          "ev_central": 1.85,
+          "ev_high": 20.21,
+          "return_low": -91.1,
+          "return_central": 24.2,
+          "return_high": 264.2,
           "calibration_error": 0.27,
           "confidence_note": "Wide CI \u2014 only 2 resolved outcomes. Return range will tighten over time."
         },
@@ -122,48 +121,48 @@
           {
             "label": "Bear case",
             "model_prob": 0.01,
-            "expected_value": -7.73,
-            "ev_pct": -91.27,
+            "expected_value": -6.97,
+            "ev_pct": -91.11,
             "is_positive_ev": false
           },
           {
             "label": "Base case",
-            "model_prob": 0.144,
-            "expected_value": 2.22,
-            "ev_pct": 26.19,
+            "model_prob": 0.14,
+            "expected_value": 1.85,
+            "ev_pct": 24.18,
             "is_positive_ev": true
           },
           {
             "label": "Bull case",
-            "model_prob": 0.294,
-            "expected_value": 13.31,
-            "ev_pct": 157.19,
+            "model_prob": 0.29,
+            "expected_value": 12.05,
+            "ev_pct": 157.51,
             "is_positive_ev": true
           },
           {
             "label": "Strong bull",
-            "model_prob": 0.394,
-            "expected_value": 20.71,
-            "ev_pct": 244.52,
+            "model_prob": 0.39,
+            "expected_value": 18.85,
+            "ev_pct": 246.4,
             "is_positive_ev": true
           }
         ],
-        "summary": "You stake $8.47 on YES at 11% market price. Model estimates 14% chance of YES resolving \u2014 vs 11% market price. If correct: +$65.50 net profit (773% return). If wrong: -$8.47 (your full stake). Expected value: +2.22 per trade at this stake. Break-even: you need 11% win rate just to not lose money. Wide CI \u2014 only 2 resolved outcomes. Return range will tighten over time."
+        "summary": "You stake $7.65 on YES at 11% market price. Model estimates 14% chance of YES resolving \u2014 vs 11% market price. If correct: +$60.35 net profit (789% return). If wrong: -$7.65 (your full stake). Expected value: +1.85 per trade at this stake. Break-even: you need 11% win rate just to not lose money. Wide CI \u2014 only 2 resolved outcomes. Return range will tighten over time."
       },
-      "price_at_signal": 0.1145,
+      "price_at_signal": 0.1125,
       "price_drift": 0.0,
-      "live_edge": 3.0,
+      "live_edge": 2.7,
       "live_spread": null,
       "live_depth": 0,
       "live_passes": false,
       "validation_status": "edge_gone",
-      "validation_note": "Edge fell to +3.0% (need \u22656%). Price moved +0.0% since signal.",
-      "validated_at": "2026-04-28T09:29:00.153948+00:00",
-      "rejected_reason": "Edge fell to +3.0% (need \u22656%). Price moved +0.0% since signal."
+      "validation_note": "Edge fell to +2.7% (need \u22656%). Price moved +0.0% since signal.",
+      "validated_at": "2026-04-29T09:15:19.193287+00:00",
+      "rejected_reason": "Edge fell to +2.7% (need \u22656%). Price moved +0.0% since signal."
     }
   ],
   "correlation_flags": [],
-  "validated_at": "2026-04-28T09:29:00.354285+00:00",
+  "validated_at": "2026-04-29T09:15:19.393565+00:00",
   "circuit_breaker": {
     "status": "active",
     "reason": "Normal operation",
@@ -181,10 +180,6 @@
     "consecutive_losses": 0,
     "consecutive_wins": 0,
     "daily_pnl_7d": [
-      {
-        "date": "2026-04-22",
-        "pnl": 0
-      },
       {
         "date": "2026-04-23",
         "pnl": 0
@@ -208,6 +203,10 @@
       {
         "date": "2026-04-28",
         "pnl": 0
+      },
+      {
+        "date": "2026-04-29",
+        "pnl": 0
       }
     ],
     "trade_history": [],
@@ -218,5 +217,5 @@
       "recovery_streak": 3
     }
   },
-  "saved_at": "2026-04-28T09:29:00.354714+00:00"
+  "saved_at": "2026-04-29T09:15:19.393996+00:00"
 }
