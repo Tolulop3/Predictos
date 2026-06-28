@@ -2729,5 +2729,30 @@
         }
       }
     }
+  },
+  {
+    "date": "2026-06-28",
+    "newly_resolved": 1,
+    "total_resolved": 4,
+    "stats": {
+      "total": 4,
+      "wins": 0,
+      "losses": 4,
+      "win_rate": 0.0,
+      "by_category": {
+        "sports": {
+          "wins": 0,
+          "total": 4,
+          "win_rate": 0.0
+        }
+      },
+      "by_source": {
+        "polymarket": {
+          "wins": 0,
+          "total": 4,
+          "win_rate": 0.0
+        }
+      }
+    }
   }
 ]
