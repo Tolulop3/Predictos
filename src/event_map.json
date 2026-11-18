@@ -1,0 +1,409 @@
+{
+  "admission": {
+    "liquidity_min_usd": 25000,
+    "max_days_to_resolution": 365,
+    "max_legs_per_event": 12,
+    "min_days_to_resolution": 2,
+    "spread_max": 0.04,
+    "volume_24h_min_usd": 10000
+  },
+  "curated": "2026-11-18",
+  "events": [
+    {
+      "event_family": "fed_path",
+      "exclude_terms": [
+        "dissent",
+        "combo",
+        "bank of canada"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "fed.*(decrease|increase|no change).*interest rates.*after the .* meeting",
+        "no change in fed interest rates after"
+      ],
+      "search_terms": [
+        "Fed decision",
+        "Fed Decision in December",
+        "Fed interest rates after the next meeting"
+      ],
+      "slot_id": "fed_next_decision",
+      "title": "Next FOMC decision ladder (50+ cut / 25 cut / no change / 25 hike / 50+ hike)"
+    },
+    {
+      "event_family": "fed_path",
+      "exclude_terms": [
+        "bank of canada"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "how many fed rate cuts",
+        "fed rate cuts? happen in \\d{4}"
+      ],
+      "search_terms": [
+        "How many Fed rate cuts",
+        "Fed rate cuts happen in"
+      ],
+      "slot_id": "fed_cuts_year_ladder",
+      "title": "How many Fed rate cuts in the current year (count ladder)"
+    },
+    {
+      "event_family": "boc",
+      "exclude_terms": [],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "bank of canada.*(increase|decrease|no change).*overnight rate",
+        "bank of canada.*target for the overnight rate"
+      ],
+      "search_terms": [
+        "Bank of Canada decision",
+        "Bank of Canada Decision in"
+      ],
+      "slot_id": "boc_next_decision",
+      "title": "Next Bank of Canada decision ladder (overnight rate target)"
+    },
+    {
+      "event_family": "boc",
+      "exclude_terms": [
+        "overnight rate by",
+        "at the .* announcement"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "bank of canada.*(rate cuts|interest rate).*(in \\d{4}|by december|by year)"
+      ],
+      "search_terms": [
+        "Bank of Canada rate cuts",
+        "Bank of Canada interest rate in"
+      ],
+      "slot_id": "boc_path_year_end",
+      "title": "Bank of Canada rate path by year-end (cuts count / level contracts, if listed)"
+    },
+    {
+      "event_family": "cpi_inflation",
+      "exclude_terms": [
+        "uk",
+        "canada",
+        "china",
+        "japan",
+        "euro",
+        "brazil",
+        "india",
+        "mexico",
+        "korea",
+        "australia",
+        "germany",
+        "france"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "annual inflation be .* in (january|february|march|april|may|june|july|august|september|october|november|december)"
+      ],
+      "search_terms": [
+        "Inflation US annual",
+        "November Inflation US",
+        "December Inflation US"
+      ],
+      "slot_id": "cpi_us_next_annual",
+      "title": "Next US CPI annual inflation print (band ladder)"
+    },
+    {
+      "event_family": "cpi_inflation",
+      "exclude_terms": [
+        "uk",
+        "canada",
+        "china",
+        "japan",
+        "euro"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "inflation reach more than \\d+% in \\d{4}",
+        "us inflation.*above \\d",
+        "inflation rate.*exceed"
+      ],
+      "search_terms": [
+        "Will inflation reach more than",
+        "inflation above 5%"
+      ],
+      "slot_id": "cpi_us_above_threshold_year",
+      "title": "US inflation above threshold in the current year (binary / band)"
+    },
+    {
+      "event_family": "cpi_inflation",
+      "exclude_terms": [],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "canada.*annual inflation",
+        "canadian.*inflation.*in (january|february|march|april|may|june|july|august|september|october|november|december)"
+      ],
+      "search_terms": [
+        "Inflation Canada annual",
+        "Canada inflation"
+      ],
+      "slot_id": "cpi_canada_next_annual",
+      "title": "Next Canada CPI annual inflation print (band ladder, if listed)"
+    },
+    {
+      "event_family": "recession_gdp",
+      "exclude_terms": [
+        "canada",
+        "uk",
+        "germany",
+        "japan",
+        "china"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "us recession by",
+        "recession in the (us|united states) (in|by) \\d{4}",
+        "united states recession"
+      ],
+      "search_terms": [
+        "US recession by end of",
+        "US recession in"
+      ],
+      "slot_id": "recession_us_by_year_end",
+      "title": "US recession by end of current / next year (binary)"
+    },
+    {
+      "event_family": "recession_gdp",
+      "exclude_terms": [
+        "canada",
+        "uk",
+        "germany",
+        "japan",
+        "china",
+        "euro"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "negative gdp",
+        "gdp.*(negative|contract)"
+      ],
+      "search_terms": [
+        "Negative GDP growth",
+        "GDP growth negative"
+      ],
+      "slot_id": "gdp_negative_quarter",
+      "title": "Negative GDP growth print (binary)"
+    },
+    {
+      "event_family": "jobs",
+      "exclude_terms": [
+        "canada",
+        "japan",
+        "uk",
+        "germany",
+        "euro",
+        "china"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "the (january|february|march|april|may|june|july|august|september|october|november|december) \\d{4} unemployment rate be",
+        "us unemployment rate"
+      ],
+      "search_terms": [
+        "Unemployment Rate",
+        "unemployment rate be"
+      ],
+      "slot_id": "jobs_us_unemployment_next",
+      "title": "Next US unemployment rate print (band ladder)"
+    },
+    {
+      "event_family": "jobs",
+      "exclude_terms": [],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "canada.*unemployment rate be"
+      ],
+      "search_terms": [
+        "Unemployment Rate Canada",
+        "Canada unemployment rate"
+      ],
+      "slot_id": "jobs_canada_unemployment_next",
+      "title": "Next Canada unemployment rate print (band ladder, if listed)"
+    },
+    {
+      "event_family": "jobs",
+      "exclude_terms": [],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "nonfarm|non-farm payroll"
+      ],
+      "search_terms": [
+        "nonfarm payrolls",
+        "Nonfarm Payrolls"
+      ],
+      "slot_id": "jobs_us_nfp_next",
+      "title": "Next US nonfarm payrolls print (band ladder, if listed)"
+    },
+    {
+      "event_family": "us_elections",
+      "exclude_terms": [],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "balance of power",
+        "win the presidency, senate, and house",
+        "win the presidency and senate, and .* the house"
+      ],
+      "search_terms": [
+        "Balance of Power",
+        "Balance of Power election"
+      ],
+      "slot_id": "elections_balance_of_power_next",
+      "title": "Balance of power at the next US federal election (trifecta / split ladder)"
+    },
+    {
+      "event_family": "us_elections",
+      "exclude_terms": [
+        "presidential election",
+        "democratic nomination",
+        "republican nomination"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "(win|control of) the house (in|at) the \\d{4}",
+        "house control.*\\d{4} election",
+        "republicans win the house|democrats win the house"
+      ],
+      "search_terms": [
+        "win the House",
+        "House control election"
+      ],
+      "slot_id": "elections_house_control_next",
+      "title": "Control of the US House at the next election"
+    },
+    {
+      "event_family": "us_elections",
+      "exclude_terms": [
+        "presidential election",
+        "democratic nomination",
+        "republican nomination"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "(win|control of) the senate (in|at) the \\d{4}",
+        "senate control.*\\d{4} election",
+        "republicans win the senate|democrats win the senate"
+      ],
+      "search_terms": [
+        "win the Senate",
+        "Senate control election"
+      ],
+      "slot_id": "elections_senate_control_next",
+      "title": "Control of the US Senate at the next election"
+    },
+    {
+      "event_family": "tariffs_trade",
+      "exclude_terms": [],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "tariff.*canada",
+        "canada.*tariff"
+      ],
+      "search_terms": [
+        "Canada tariffs",
+        "US Canada tariffs deal",
+        "tariffs on Canada"
+      ],
+      "slot_id": "tariffs_canada_specific",
+      "title": "Canada-specific tariff action / deal by date (InvestOS trump_tariff_canada_specific counterpart)"
+    },
+    {
+      "event_family": "tariffs_trade",
+      "exclude_terms": [
+        "canada"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "tariff"
+      ],
+      "search_terms": [
+        "Trump tariffs",
+        "tariffs increase",
+        "lower tariffs"
+      ],
+      "slot_id": "tariffs_escalation_general",
+      "title": "General US tariff escalation / removal by date (trump_tariff_negative counterpart)"
+    },
+    {
+      "event_family": "oil_geopolitics",
+      "exclude_terms": [
+        "nato",
+        "donbas",
+        "crimea",
+        "zelenskyy out",
+        "putin out",
+        "energy ceasefire"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "ukraine.*(ceasefire|peace deal)",
+        "(ceasefire|peace deal).*ukraine",
+        "russia.*ukraine.*(ceasefire|peace)"
+      ],
+      "search_terms": [
+        "Ukraine ceasefire",
+        "Russia Ukraine ceasefire agreement",
+        "Ukraine peace deal"
+      ],
+      "slot_id": "geo_ukraine_ceasefire",
+      "title": "Russia-Ukraine ceasefire / peace deal by date (russia_ukraine counterpart)"
+    },
+    {
+      "event_family": "oil_geopolitics",
+      "exclude_terms": [
+        "visit",
+        "normalize relations"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "(gaza|israel|hamas|hezbollah|lebanon).*(ceasefire|peace deal)",
+        "ceasefire.*(gaza|israel|hamas)"
+      ],
+      "search_terms": [
+        "Gaza ceasefire",
+        "Israel ceasefire",
+        "Israel Hamas ceasefire"
+      ],
+      "slot_id": "geo_middle_east_ceasefire",
+      "title": "Middle East ceasefire / de-escalation by date (middle_east_tension counterpart)"
+    },
+    {
+      "event_family": "oil_geopolitics",
+      "exclude_terms": [
+        "visit"
+      ],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "(invade|strike|attack).*iran",
+        "iran.*(regime fall|invaded|struck)",
+        "israel.*strike.*iran"
+      ],
+      "search_terms": [
+        "Iran strike",
+        "invade Iran",
+        "Iranian regime fall"
+      ],
+      "slot_id": "geo_iran_escalation",
+      "title": "Iran escalation (strike / invasion / regime fall) by date"
+    },
+    {
+      "event_family": "oil_geopolitics",
+      "exclude_terms": [],
+      "pick": "nearest_group",
+      "question_patterns": [
+        "wti crude oil.*hit",
+        "wti.*hit \\(high\\)"
+      ],
+      "search_terms": [
+        "WTI Crude Oil hit",
+        "What will WTI Crude Oil hit"
+      ],
+      "slot_id": "oil_wti_hit_band_next",
+      "title": "WTI crude oil hit-band ladder for the current / next month"
+    }
+  ],
+  "notes": "Hand-curated canonical event map for the Predictos event-odds feed (scoping plan 2026-10-29, section 1). Each slot is defined by Gamma search terms + question regex patterns. NO market slugs are hardcoded: markets are discovered at run time via Gamma /public-search and the Gamma /markets bulk scan (same endpoints/params as src/fetcher.py), then matched to a slot by pattern. A slot with no qualifying market on the day is logged as missing with a reason -- missing is a value, never filled with a proxy (plan section 1.1). Slots are evaluated in file order; a market claimed by an earlier slot is not re-claimed by a later one (one primary per event, plan section 1.3). Monthly review: add/retire slots here, never in code.",
+  "version": 1
+}
