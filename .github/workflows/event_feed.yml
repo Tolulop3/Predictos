@@ -1,0 +1,87 @@
+# PredictOS Event Feed — Phase 1 (scoping plan 2026-10-29, §2.2/§3)
+#
+# STATUS: prepared locally 2026-11-18. NOT yet pushed / NOT enabled
+# upstream. The old daily_run.yml remains untouched in this repo and
+# stays disabled upstream; this workflow replaces it only when the
+# push step in the Phase 1 build report is executed and Tolulope
+# approves the workflow switch (transition order, plan §3: dual-run
+# 3–5 days first, then feed-only).
+#
+# Commits ONLY data/event_odds/** — the feed's snapshot, daily history
+# and append-only jsonl, plus resolutions.json from the resolver step.
+
+name: PredictOS Event Feed
+
+on:
+  schedule:
+    # Same slot the old daily run used: 07:00 UTC, before the North
+    # American morning and before InvestOS's weekday runs (plan §2.2).
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to commit data/event_odds/**
+
+jobs:
+  run-event-feed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Resolver first (non-fatal): record outcomes for feed events
+      # whose resolution date has passed, using the tracker cascade.
+      - name: Resolve matured feed events
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m src.event_resolver || echo "resolver failed — continuing to emitter"
+
+      - name: Run event-odds feed emitter
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m src.event_feed
+
+      - name: Commit event-odds data
+        run: |
+          git config --global user.name  "PredictOS Bot"
+          git config --global user.email "predictos-bot@users.noreply.github.com"
+
+          # Stage ONLY the feed's outputs — nothing else in the repo.
+          git add data/event_odds/
+
+          git diff --staged --quiet || git commit -m "Event odds feed — $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+          git fetch origin main
+          git rebase origin/main || (git rebase --abort && git push --force-with-lease && exit 0)
+          git push
+
+      - name: Post run summary
+        run: |
+          echo "## PredictOS Event Feed Summary" >> $GITHUB_STEP_SUMMARY
+          if [ -f data/event_odds/latest.json ]; then
+            python -c "
+          import json
+          with open('data/event_odds/latest.json') as f:
+              snap = json.load(f)
+          print(f'**Feed date:** {snap[\"feed_date\"]}')
+          print(f'**Events emitted:** {snap[\"events_emitted\"]} ({snap[\"rows_emitted\"]} rows)')
+          print(f'**Slots missing:** {snap[\"missing_count\"]}')
+          " >> $GITHUB_STEP_SUMMARY
+          fi
