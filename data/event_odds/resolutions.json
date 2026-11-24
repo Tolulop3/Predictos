@@ -1,0 +1,17 @@
+[
+  {
+    "event_id": "geo_middle_east_ceasefire_israel-x-iran-ceasefire-continues-throughptptpt-202607162244",
+    "event_family": "oil_geopolitics",
+    "outcome_label": "november_20",
+    "source": "polymarket",
+    "source_market_id": "polymarket::0x54ab923a224a2bd4a50c1d6291924d4725ee042c289ee688af1987c72be8a238",
+    "slug": "israel-x-iran-ceasefire-continues-through-november-20",
+    "question": "Israel x Iran ceasefire continues through November 20?",
+    "resolution_date": "2026-11-21",
+    "resolved_at": "2026-11-24T18:52:49Z",
+    "resolved_yes": true,
+    "outcome_occurred": true,
+    "last_implied_prob": 0.982,
+    "last_feed_date": "2026-11-18"
+  }
+]
